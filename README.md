@@ -14,7 +14,7 @@
 
 
 ## Technologies
-
+HTML, CSS, Javascript, React.js, MongoDB, Mongoose
 
 ## Description
 
