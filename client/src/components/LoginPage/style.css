@@ -1,11 +1,79 @@
+/* body {
+    display: flex;
+    flex-direction: row;
+} */
 .login-background {
-  background: url(/fruitveg.jpg);
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
+  background: url(/fruitvegblurred.jpg);
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  /* filter: blur(4px);
+  -webkit-filter: blur(4px); */
 }
+
+.white-panel {
+  background: white;
+  width: 25%;
+  height: 70%;
+  position: absolute;
+  border-radius: 20px;
+  margin-top: 6%;
+  margin-left: 38%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+.login-header {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin-top: 4rem;
+    /* flex-wrap: wrap; */
+}
+
+/* .username-text {
+    flex-wrap: wrap;
+    margin-top: 15rem;
+    position: absolute;
+    margin-left: -14rem;
+} */
+
+.username-input-form{
+    position: absolute;
+    margin-top: 45%;
+    margin-left: -3rem;
+}
+
+.password-input-form{
+    position: absolute;
+    margin-top: 64%;
+    margin-left: -3rem;
+}
+
+.login-label {
+    margin-left: -12rem;
+    margin-bottom: 5px;
+}
+
+.login-button {
+    position: absolute;
+    height: 2.5rem;
+    border-radius: 5px;
+    width: 4.2rem;
+    margin-top: 26.5rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.login-button:hover {
+    opacity: 0.6;
+}
+/* .btn {
+    position: absolute;
+} */
+
