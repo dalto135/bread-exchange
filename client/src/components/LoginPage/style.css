@@ -14,12 +14,12 @@
 
 .white-panel {
   background: white;
-  width: 25%;
-  height: 70%;
+  width: 28vw;
+  height: 80vh;
   position: absolute;
   border-radius: 20px;
-  margin-top: 6%;
-  margin-left: 38%;
+  margin-top: 8vh;
+  margin-left: 38vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -30,40 +30,33 @@
 .login-header {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    margin-top: 4rem;
+    margin-top: 7vh;
     /* flex-wrap: wrap; */
 }
 
-/* .username-text {
-    flex-wrap: wrap;
-    margin-top: 15rem;
-    position: absolute;
-    margin-left: -14rem;
-} */
-
 .username-input-form{
     position: absolute;
-    margin-top: 45%;
-    margin-left: -3rem;
+    margin-top: 24vh;
+    margin-left: -1.5vw;
 }
 
 .password-input-form{
     position: absolute;
-    margin-top: 64%;
-    margin-left: -3rem;
+    margin-top: 34vh;
+    margin-left: -1.5vw;
 }
 
 .login-label {
-    margin-left: -12rem;
-    margin-bottom: 5px;
+    margin-left: -10vw;
+    margin-bottom: .8vh;
 }
 
 .login-button {
     position: absolute;
     height: 2.5rem;
     border-radius: 5px;
-    width: 4.2rem;
-    margin-top: 26.5rem;
+    width: 4vw;
+    margin-top: 50vh;
     background-color: #007bff;
     border: none;
     color: white;
