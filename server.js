@@ -2,6 +2,10 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const logger = require('morgan');
+const mongoose = require("mongoose");
+
+app.use(logger('dev'));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -11,7 +15,16 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bread", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+});
+
 // Define API routes here
+app.use(require("./routes/api"));
+app.use(require('./routes/html'));
 
 // Send every other request to the React app
 // Define any API routes before this runs
