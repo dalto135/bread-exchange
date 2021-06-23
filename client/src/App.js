@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Login from "./pages/LoginPage/Login"
 import Navbar from './components/Navbar/navbar'
-import MainPage from './pages/MainPage/mainpage'
+import MainPage from './pages/MainPage/';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 function App() {

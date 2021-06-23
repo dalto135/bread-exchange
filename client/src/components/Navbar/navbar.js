@@ -5,10 +5,9 @@ function navBar() {
   return (
       <div>
 
-        <h1>Bread Exchange</h1>
         <Link to='/'>Main page</Link>
         <Link to='/login'>Login</Link>
-        
+
       </div>
   );
 }
