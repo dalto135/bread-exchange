@@ -1,7 +1,7 @@
 import React from "react";
 import "./mainpage.css";
 
-function mainpage() {
+function Mainpage() {
   return (
     <div>
       <h1>Bread Exchange</h1>
@@ -10,4 +10,4 @@ function mainpage() {
   );
 }
 
-export default mainpage;
+export default Mainpage;
