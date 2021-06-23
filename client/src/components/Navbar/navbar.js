@@ -7,7 +7,8 @@ function navBar() {
 
         <Link to='/'>Main page</Link>
         <Link to='/login'>Login</Link>
-
+        <Link to='/Posts'>Posts</Link>
+        
       </div>
   );
 }
