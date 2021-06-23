@@ -6,6 +6,7 @@ function Singlepost() {
             {/* Card here */}
             <h1>Business Name</h1>
             <p>List of items</p>
+            <p>Location</p>
             <p>Expiration Date</p>
             {/* Button */}
         </div>
