@@ -1,14 +1,13 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React from "react";
+import "./mainpage.css";
 
-function mainPage() {
+function mainpage() {
   return (
-      <div>
-        {/* <Link to='/'>Main page</Link> */}
-        <h1>Main Page</h1>
-      </div>
-    
+    <div>
+      <h1>Bread Exchange</h1>
+      <p>Bringing the community together</p>
+    </div>
   );
 }
 
-export default mainPage;
+export default mainpage;
