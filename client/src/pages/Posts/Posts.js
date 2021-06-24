@@ -1,31 +1,63 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { Link } from 'react-router-dom';
-import SinglePost from '../Singlepost/Singlepost';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import "./style.css";
+import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import SinglePost from "../Singlepost/Singlepost";
+import CreatePost from "../CreatePost/CreatePost";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 function Posts() {
   return (
     <div>
       <h1>Find Food Here</h1>
-      <Link to='/singlepost'>Food</Link>
+      <Link to="/CreatePost">Post Food</Link><br></br>
+      <Link to="/singlepost">Food</Link>
       {/* <Router>
         <Route exact path='/singlepost' component={SinglePost}/>
       </Router> */}
-      
-      {/* <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap"></img>
-        <div class="card-body">
-          <h5 class="card-title">Business/Individual Name</h5>
-          <p class="card-text">
-            -3 loaves of bread<br></br>
-            -2 apples
-          </p>
-          <a href="#" class="btn btn-primary">
-            Reserve
-          </a>
+      <div className="card-container">
+        <div className="card">
+          <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
+          <div className="container">
+            <h4>
+              <b>Panera Bread</b>
+            </h4>
+            <h6>Pickup Location Here</h6>
+            <h6>Posted 6/24/21</h6>
+            <h6>Exp: 6/31/21</h6>
+            <h6>Contact: John Smith - jsmith@email.com</h6>
+            <p>
+              <ul>
+                <li>2 loaves of bread</li>
+                <li>3 apples</li>
+              </ul>
+            </p>
+            <button>View</button>
+          </div>
         </div>
-      </div> */}
+
+        <div className="card">
+          <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
+          <div className="container">
+            <h4>
+              <b>Starbucks</b>
+            </h4>
+            <h6>Pickup Location Here</h6>
+            <h6>Posted 6/26/21</h6>
+            <h6>Exp: 6/31/21</h6>
+            <h6>Contact: John Smith - jsmith@email.com</h6>
+            <p>
+              <ul>
+                <li>5 cookies</li>
+                <li>1 gallon milk</li>
+              </ul>
+            </p>
+            <button>View</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
