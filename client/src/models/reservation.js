@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 
 const reservationSchema = new Schema({
 
-    name: {
-        type: String,
-    },
+    // name: {
+    //     type: String,
+    // },
     post_id: {
         type: Number,
     },
