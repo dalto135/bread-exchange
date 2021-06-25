@@ -22,6 +22,10 @@ const postSchema = new Schema({
         type: Number,
         required: 'Enter a quantity'
     },
+    postDate: {
+        type:Date,
+        default:Date.now
+    },
         
 });
 
