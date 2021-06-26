@@ -1,0 +1,89 @@
+/* Header */
+
+.header-container {
+  background: #7ed957;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.main-image {
+  width: 100vw;
+  height: 45rem;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.bread-header {
+  position: absolute;
+  color: white;
+  font-size: 15rem;
+  margin-left: 5%;
+  margin-top: 8%;
+  z-index: 2;
+}
+
+/* 1st Section */
+
+#first-section {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+  margin-left: 8rem;
+}
+
+#second-image {
+  width: 45vw;
+  object-fit: cover;
+  height: 50vh;
+}
+
+#what-we-do {
+  margin-left: 5rem;
+  width: 40%;
+}
+
+#what-we-do-header {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+#what-we-do-text {
+    font-size: 2rem;
+    font-weight:lighter;
+}
+
+/* 2nd Section */
+
+#left-side {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8rem;
+}
+
+#infographic-1{
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid red; */
+    align-items: flex-start;
+    width: 50%;
+}
+
+#forty-two {
+    font-size: 17rem;
+    /* border: 2px solid blue; */
+    color: #ffb641;
+}
+
+#million {
+    /* margin-top: 3rem; */
+    font-size: 7rem;
+    color: lightgrey;
+    margin-left: 1.5rem;
+}
+
+#americans {
+    font-size: 3rem;
+    margin-left: 1.5rem;
+}
