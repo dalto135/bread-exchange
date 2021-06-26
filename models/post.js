@@ -27,7 +27,7 @@ const postSchema = new Schema({
         default:Date.now
     },
     user_id: {
-        type: Number
+        type: String
     }
         
 });
