@@ -1,3 +1,7 @@
+body {
+    font-family: Lato;
+}
+
 /* Header */
 
 .header-container {
@@ -20,6 +24,7 @@
   margin-left: 5%;
   margin-top: 8%;
   z-index: 2;
+  text-shadow: 2px 2px 4px #535353;
 }
 
 /* 1st Section */
@@ -44,46 +49,100 @@
 }
 
 #what-we-do-header {
-    font-size: 5rem;
-    margin-bottom: 3rem;
-    font-weight: bold;
+  font-size: 5rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
 }
 
 #what-we-do-text {
-    font-size: 2rem;
-    font-weight:lighter;
+  font-size: 2rem;
+  font-weight: lighter;
 }
 
 /* 2nd Section */
 
 #left-side {
-    display: flex;
-    flex-direction: column;
-    margin-left: 8rem;
+    /* border: 2px solid red; */
+    width: 45%;
+  }
+  
+
+#second-section-container {
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  justify-content: center;
 }
 
-#infographic-1{
-    display: flex;
-    flex-direction: row;
-    /* border: 2px solid red; */
-    align-items: flex-start;
-    width: 50%;
+#left-side {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8rem;
+}
+
+#infographic-1 {
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid red; */
+  align-items: flex-start;
+  width: 50%;
 }
 
 #forty-two {
-    font-size: 17rem;
-    /* border: 2px solid blue; */
-    color: #ffb641;
+  font-size: 17rem;
+  /* border: 2px solid blue; */
+  color: #ffb641;
 }
 
 #million {
-    /* margin-top: 3rem; */
-    font-size: 7rem;
-    color: lightgrey;
-    margin-left: 1.5rem;
+  /* margin-top: 3rem; */
+  font-size: 7rem;
+  color: lightgrey;
+  margin-left: 1.5rem;
 }
 
 #americans {
-    font-size: 3rem;
-    margin-left: 1.5rem;
+  font-size: 2rem;
+  margin-left: 1.5rem;
+  font-weight: lighter;
+}
+#our-solution-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#text-1 {
+    color: #99cc66;
+    margin-bottom: 1.5rem
+}
+
+#text-2 {
+    color: #ffaa22;
+    margin-bottom: 1.5rem
+}
+
+#text-3 {
+    color: #ffcc66;
+} 
+
+
+#right-side {
+  text-align: center;
+  /* border: 2px solid lime; */
+}
+
+#forty-percent-infographic {
+    /* object-fit: cover; */
+    height: 35rem;
+  }
+
+#waste {
+    font-size: 3.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#forty-percent-text {
+    font-size: 1.5rem;
 }
