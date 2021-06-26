@@ -8,6 +8,7 @@ function navBar() {
         <Link to='/'>Main page</Link>
         <Link to='/login'>Login</Link>
         <Link to='/Posts'>Posts</Link>
+        <Link to='/UserPage'>My Userpage</Link>
         
       </div>
   );

@@ -9,7 +9,6 @@
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "author": "",
@@ -27,6 +26,7 @@
     "mongoose": "^5.12.14",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "react-bootstrap": "^1.6.1",
     "react-router-dom": "^5.2.0"
   }
 }

@@ -4,22 +4,23 @@ const Schema = mongoose.Schema;
 
 const reservationSchema = new Schema({
 
-    name: {
+    post_id: {
         type: String,
     },
-    post_id: {
-        type: Number,
-    },
     post_user_id: {
-        type: Number,
+        type: String,
     },
     user_id: {
-        type: Number,
+        type: String,
     },
     quantity: {
         type: Number,
         required: 'Enter a quantity'
-    }
+    },
+    reservationDate: {
+        type:Date,
+        default:Date.now
+    },
         
 });
 

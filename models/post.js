@@ -26,6 +26,9 @@ const postSchema = new Schema({
         type:Date,
         default:Date.now
     },
+    user_id: {
+        type: String
+    }
         
 });
 
