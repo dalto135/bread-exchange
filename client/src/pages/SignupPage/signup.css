@@ -1,0 +1,74 @@
+/* body {
+    display: flex;
+    flex-direction: row;
+} */
+.signup-background {
+    background: url(/client/public/grainsbackground.jpg);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* filter: blur(4px);
+    -webkit-filter: blur(4px); */
+  }
+  
+  .white-panel {
+    background: white;
+    width: 28vw;
+    height: 80vh;
+    position: absolute;
+    border-radius: 20px;
+    margin-top: 8vh;
+    margin-left: 38vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .signup-header {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      background-color: tan;
+      margin-top: 7vh;
+      /* flex-wrap: wrap; */
+  }
+  
+  .username-input-form{
+      position: absolute;
+      margin-top: 24vh;
+      margin-left: -1.5vw;
+  }
+  
+  .password-input-form{
+      position: absolute;
+      margin-top: 34vh;
+      margin-left: -1.5vw;
+  }
+  
+  .signup-label {
+      margin-left: -10vw;
+      margin-bottom: .8vh;
+  }
+  
+  .signup-button {
+      position: absolute;
+      height: 2.5rem;
+      border-radius: 5px;
+      width: 4vw;
+      margin-top: 50vh;
+      background-color: #dd7469;
+      border: none;
+      color: white;
+      transition: 0.3s;
+  }
+  
+  .signup-button:hover {
+      opacity: 0.8;
+  }
+  /* .btn {
+      position: absolute;
+  } */
+  
+  

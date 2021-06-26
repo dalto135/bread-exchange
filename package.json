@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Mern Demo",
   "main": "server.js",
+  "engines": {
+    "node": "14.16.0"
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -10,7 +13,9 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "heroku-postbuild": "npm run build",
-    "seed": "node seeders/seed.js"
+    "seed": "node seeders/seed.js",
+    "heroku-postbuild": "npm run build",
+
   },
   "author": "",
   "license": "ISC",

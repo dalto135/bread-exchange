@@ -1,5 +1,5 @@
-module.exports = {
-    Post: require("./post"),
-    Reservation: require("./Reservation"),
-    User: require("./User")
-  };
+const User = require('./User');
+const Post = require('./post');
+const Reservation = require('./Reservation');
+
+module.exports = { User, Post, Reservation };
