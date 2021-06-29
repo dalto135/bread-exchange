@@ -18,7 +18,7 @@ const reservationSchema = new Schema({
         required: 'Enter a quantity'
     },
     reservationDate: {
-        type:Date,
+        type: Date,
         default:Date.now
     },
         
