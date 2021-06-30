@@ -1,33 +1,31 @@
 const router = require("express").Router();
-const { User } = require('../../models');
+const { Reservation } = require('../../models');
 
-// const userPage = require("../../controller/foodExchangeController")
-
-//Retrieve information of all Users
+//Retrieve information of all reservations
 router.get('/', (req, res) => {
-   User.find({})
-   .then(user => {
-     res.json(user);
+   Reservation.find({})
+   .then(reservation => {
+     res.json(reservation);
    })
    .catch(err => {
      res.status(404).json(err.message);
    })
 })
 
-//Make a new User
+//Make a new reservation
 router.post('/', (req, res) => {
-    User.create(req.body)
-    .then(user => {
-      res.json(user);
+    Reservation.create(req.body)
+    .then(reservation => {
+      res.json(reservation);
     })
     .catch(err => {
       res.status(404).json(err.message);
     })
  })
 
-//Delete User by id
+//Delete reservation by id
 router.delete('/:id', (req, res) => {
-    User.remove({_id: req.params.id},
+    Reservation.remove({_id: req.params.id},
         function(err, result) {
             if (err) {
                 res.send(err.message);
@@ -37,5 +35,6 @@ router.delete('/:id', (req, res) => {
         }
     )
 })
+
 
 module.exports = router;

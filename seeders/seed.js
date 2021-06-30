@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/bread", {
 
 const userSeed = [
   {
-    _id: 'Beth',
+    _id: 'Beth123',
     firstName: 'Beth',
     lastName: 'Robertson',
     username: 'beth123',
@@ -18,7 +18,7 @@ const userSeed = [
     email: 'beth123@gmail.com',
   },
   {
-    _id: 'Jack',
+    _id: 'Jack123',
     firstName: 'Jack',
     lastName: 'Ortega',
     username: 'jack123',
@@ -28,38 +28,40 @@ const userSeed = [
 ];
 
 const postSeed = [
-    {
-      _id: 'Apples',
-      name: 'Apples',
-      description: '10 apples in good condition',
-      location: 'Columbus, Ohio',
-      quantity: 10,
-      postDate: Date.now,
-      user_id: 'Beth'
-    },
-    {   
-      _id: 'Oranges',
-      name: 'Oranges',
-      description: '20 mandarine oranges',
-      location: 'Cleveland, Ohio',
-      quantity: 20,
-      postDate: Date.now,
-      user_id: 'Jack'
-    },
+  {
+    _id: 'Apples123',
+    name: 'Apples',
+    description: '10 apples in good condition',
+    location: 'Columbus, Ohio',
+    quantity: 10,
+    postDate: Date.now,
+    user_id: 'Beth123'
+  },
+  {   
+    _id: 'Oranges123',
+    name: 'Oranges',
+    description: '20 mandarine oranges',
+    location: 'Cleveland, Ohio',
+    quantity: 20,
+    postDate: Date.now,
+    user_id: 'Jack123'
+  },
 ];
 
 const reservationSeed = [
     {
-      post_id: 'Apples',
-      post_user_id: 'Beth',
-      user_id: 'Jack',
+      _id: '12345678',
+      post_id: 'Apples123',
+      post_user_id: 'Beth123',
+      user_id: 'Jack123',
       quantity: 5,
       reservationDate: Date.now
     },
     {
-      post_id: 'Oranges',
-      post_user_id: 'Jack',
-      user_id: 'Beth',
+      _id: '87654321',
+      post_id: 'Oranges123',
+      post_user_id: 'Jack123',
+      user_id: 'Beth123',
       quantity: 10,
       reservationDate: Date.now
     },

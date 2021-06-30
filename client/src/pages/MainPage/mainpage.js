@@ -1,7 +1,28 @@
-import React from "react";
+// import React from "react";
+import React, { useState, useEffect } from 'react';
 import "./mainpage.css";
 
 function Mainpage() {
+
+  // const [results, setResults] = useState([]);
+
+  // useEffect(() => {
+  //   async function getPosts() {
+  //     try {
+  //       const posts = await fetch("/api/reservation").then(res => res.json());
+  //       setResults(posts);
+  //     } catch (err) {
+  //       console.log('err.message');
+  //       console.log(err.message);
+  //     }
+  //   }
+  //   getPosts();
+  // }, [])
+
+  // console.log('results');
+  // console.log(results);
+
+
   return (
     <div>
       {/* Header */}
