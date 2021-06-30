@@ -6,7 +6,6 @@ import MainPage from './pages/MainPage/mainpage'
 import Posts from './pages/Posts/Posts';
 import SinglePost from "./pages/Singlepost/Singlepost";
 import CreatePost from "./pages/CreatePost/CreatePost";
-import UserPage from "./pages/UserPage/userpage";
 import { HashRouter as Router, Route } from 'react-router-dom';
 import userPage from "./pages/UserPage/userpage";
 
