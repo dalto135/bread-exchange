@@ -15,7 +15,7 @@
     "heroku-postbuild": "npm run build",
     "seed": "node seeders/seed.js",
     "heroku-postbuild": "npm run build",
-
+    "build": "cd client && npm run build"  
   },
   "author": "",
   "license": "ISC",
