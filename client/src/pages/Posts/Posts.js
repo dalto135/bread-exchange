@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import { Link } from "react-router-dom";
@@ -7,10 +7,35 @@ import Button from "../../components/Button/Button"
 import SinglePost from "../Singlepost/Singlepost";
 import CreatePost from "../CreatePost/CreatePost";
 import { HashRouter as Router, Route } from "react-router-dom";
+import API from "../../utils/API"
 
 function Posts() {
+const [posts, setPosts]= useState([])
+const [formList, setFormList]=useState({
+  name: "",
+  description: "",
+  location: "",
+  quantity: "",
+  postDate: "",
+  user_id: "",
+})
+//load all posts
+useEffect(() =>{
+  loadPosts()
+}, [])
+
+function loadPosts(){
+  API.getPosts()
+  .then(res =>
+    {console.log(res)
+    setPosts (res.data)}
+    )
+    .catch(err => console.log.apply(err));
+}
+
   return (
     <div>
+<<<<<<< HEAD
       {/* Heading */}
       <div id="find-food-header">
         <h1>Find Food</h1>
@@ -32,6 +57,43 @@ function Posts() {
           <p>Search for an item.</p>
           {/* Input component */}
         <Input/>
+=======
+      <h1>Find Food Here</h1>
+      <Link to="/CreatePost">Post Food</Link><br></br>
+      <Link to="/singlepost">Food</Link>
+      {/* <Router>
+        <Route exact path='/singlepost' component={SinglePost}/>
+      </Router> */}
+      <div className="card-container">
+        <div className="card">
+          <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
+          <div className="container">
+            {posts.length ? (
+              <li>
+                {posts.map(post => {
+                  return(
+                  <li key ={post._id}>
+                    <a href={"/posts/"+ post._id}>
+                      <li>
+                        {post.name}
+                        {post.description}
+                        {post.location}
+                        {post.quantity}
+                        {post.postDate}
+                        {post.user_id}
+                      </li>
+                    </a>
+                    
+                  </li>
+                  );
+                })}
+             </li> 
+            ):(
+              <h3>No Results to Display</h3>
+            )}                 
+            <button>View</button>
+          </div>
+>>>>>>> 8d149845cc84ece257b8e5b3a34befd109b3fffb
         </div>
         <div className="card-container">
           {/* Cards */}

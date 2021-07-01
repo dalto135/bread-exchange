@@ -1,25 +1,25 @@
 const router = require("express").Router();
+const { Post } = require('../../models');
 
 const foodExchangeController = require("../../controller/foodExchangeController.js");
-const Post = require("../../controller/foodExchangeController.js");
 
-router
-.route("/")
+router.route("/")
 .get(foodExchangeController.findAll)
 .post(foodExchangeController.create);
 
-// const Post = require("../../controller/foodExchangeController.js")
-//const { Post } = require('../../models') 
+//router.route("/Posts")/
+//.get(foodExchangeController.findAll)
+//.put(foodExchangeController.update);
 
-//router.get('/', (req, res) => {
-//    Post.find({})
-//    .then(dbBook => {
-//      res.json(dbBook);
-//    })
-//    .catch(err => {
-///      res.status(404).json(err.message);
-//    })
-//})
+//router.route("/singlepost")
+//.get(foodExchangeController.findById)
+//.put(foodExchangeController.update)
+//.delete(foodExchangeController.remove);
 
+
+//router.route("/UserPage")
+//.get(foodExchangeController.findById)
+//.put(foodExchangeController.update)
+//.delete(foodExchangeController.remove);
 
 module.exports = router;

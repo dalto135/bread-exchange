@@ -11,13 +11,13 @@
 [Contact](#Contact)
 
 ## Link
-https://evening-temple-78287.herokuapp.com/
+https://bread-exchange.herokuapp.com/
 
 ## Technologies
 HTML, CSS, Javascript, React.js, MongoDB, Mongoose
 
 ## Description
-
+Bread exchange is a webpage using the MERN stack which aims to decrease food waste and bring the community together. We allow individuals and businesses to make their foods available on our site, and connect with others in the community who are experiencing food shortages.
 
 ## Screenshot
 ![Screenshot 1](client/assets/images/screenshot1.png)

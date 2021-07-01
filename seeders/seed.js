@@ -49,22 +49,22 @@ const postSeed = [
 ];
 
 const reservationSeed = [
-  {
-    _id: '12345678',
-    post_id: 'Apples123',
-    post_user_id: 'Beth123',
-    user_id: 'Jack123',
-    quantity: 5,
-    reservationDate: Date.now
-  },
-  {
-    _id: '87654321',
-    post_id: 'Oranges123',
-    post_user_id: 'Jack123',
-    user_id: 'Beth123',
-    quantity: 10,
-    reservationDate: Date.now
-  },
+    {
+      _id: '12345678',
+      post_id: 'Apples123',
+      post_user_id: 'Beth123',
+      user_id: 'Jack123',
+      quantity: 5,
+      reservationDate: Date.now
+    },
+    {
+      _id: '87654321',
+      post_id: 'Oranges123',
+      post_user_id: 'Jack123',
+      user_id: 'Beth123',
+      quantity: 10,
+      reservationDate: Date.now
+    },
 ];
 
 db.User.deleteMany({})
