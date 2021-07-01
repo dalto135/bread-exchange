@@ -1,0 +1,18 @@
+#search-input {
+    border: none;
+    border-radius: 5px;
+    height: 2.5rem;
+    width: 15rem;
+    background-color: #ebebeb;
+    color: #aaaaaa;
+    font-family: Lato;
+}
+
+#search-input:active {
+    border: #aaaaaa
+}
+
+input{
+    text-indent: 6px;
+    font-family: Lato;
+}
