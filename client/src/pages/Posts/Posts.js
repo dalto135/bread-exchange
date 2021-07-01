@@ -72,8 +72,8 @@ function loadPosts(){
               <li>
                 {posts.map(post => {
                   return(
-                  <li key ={post._id}>
-                    <a href={"/posts/"+ post._id}>
+                  <li key ={post.id}>
+                    <a href={"/posts/"+ post.id}>
                       <li>
                         {post.name}
                         {post.description}
@@ -91,7 +91,7 @@ function loadPosts(){
             ):(
               <h3>No Results to Display</h3>
             )}                 
-            <button>View</button>
+            <button >View</button>
           </div>
 >>>>>>> 8d149845cc84ece257b8e5b3a34befd109b3fffb
         </div>
