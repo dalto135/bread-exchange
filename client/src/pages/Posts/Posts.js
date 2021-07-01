@@ -35,29 +35,6 @@ function loadPosts(){
 
   return (
     <div>
-<<<<<<< HEAD
-      {/* Heading */}
-      <div id="find-food-header">
-        <h1>Find Food</h1>
-        <p>
-          Browse listings from our food partners to find foods that convenient
-          for you!{" "}
-        </p>
-        
-      </div>
-
-
-
-      <Link to="/CreatePost">Post Food</Link>
-      <br></br>
-      <Link to="/singlepost">Food</Link><br></br>
-      <Button title="Post an Item" />
-      <div id="gray-panel">
-        <div id="card-search">
-          <p>Search for an item.</p>
-          {/* Input component */}
-        <Input/>
-=======
       <h1>Find Food Here</h1>
       <Link to="/CreatePost">Post Food</Link><br></br>
       <Link to="/singlepost">Food</Link>
@@ -93,7 +70,6 @@ function loadPosts(){
             )}                 
             <button>View</button>
           </div>
->>>>>>> 8d149845cc84ece257b8e5b3a34befd109b3fffb
         </div>
         <div className="card-container">
           {/* Cards */}
