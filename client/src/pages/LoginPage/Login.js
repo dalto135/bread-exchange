@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
-import LoginButton from '../../components/LoginButton/LoginButton';
+// import LoginButton from '../../components/LoginButton/LoginButton';
+import API from '../../utils/API';
+// import LoginButton from '../../components/LoginButton/LoginButton';
 
 let loginInfo = {
-  username: 'jack123',
-  password: 'givefood'
+  username: '',
+  password: '',
+  loggedIn: ''
 }
 
-let username = 'jack123';
-let password = 'givefood';
 
 function Login() {
+
+  
   
   function usernameHandler(event) {
     loginInfo.username = event.target.value;
@@ -25,52 +28,54 @@ function Login() {
     console.log(loginInfo.password);
   }
 
-  // const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [pleaseData, setPleaseData] = useState([]);
+  console.log('username');
+  console.log(loginInfo.username);
 
-  // function LoginFormHandler() {
-  // useEffect(() => {
-  //    async function hello() {
-  //     try {
-  //       const data = await fetch('/api/user/login', {
-  //         method: 'POST',
-  //         body: JSON.stringify({ username, password }),
-  //         headers: { 'Content-Type': 'application/json' },
-  //       })
-  //       .then(res => res.json());
-  //       setUserData(data);
-  //     }
-  //     catch (err) {
-  //       console.log('err.message');
-  //       console.log(err.message);
-  //     }
-      // if (username && password) {
-        // const response = await 
+  console.log('password');
+  console.log(loginInfo.password);
+
+ 
+      function retrieveUser() {
+        API.login(loginInfo)
+        .then(res => {
+            console.log(res.data);
+            setUserData(res.data);
+
+            
+        })
+        .catch(err => console.log(err.message));
+
+        console.log(userData);
+      }
+ 
+      if (userData !== null) {
+        if (userData.password !== loginInfo.password) {
+            console.log('Incorrect username or password');
+        } else {
+            alert('Login successful!');
+            loginInfo.loggedIn = userData;
+            console.log('loginInfo');
+            console.log(loginInfo);
+            document.location.replace('/#/UserPage');
+        }
+      } else {
+          console.log('Incorrect username or password (null)');
+      }
+      
+   
+      // function UseEffectPlease() {
+      //   useEffect(() => {
+      //     API.login(loginInfo)
+      //       .then(res => {
+      //           console.log(res.data);
+      //           setPleaseData(res.data);
+      //       })
+      //   })
+
         
       // }
-        // .catch(err => {
-        //   console.log(err.message);
-        //   alert('Login attempt failed');
-        // });
-        // response.ok
-        //   ? document.location.replace('/')
-        //   : alert('Login attempt failed');
-      
-  //   }
-  //   hello();
-  // }, [])
-
-  //   console.log(userData);
-  //   if (userData != password) {
-  //     alert('Incorrect username or password');
-  //   }
-  // }
-  
-
-  
-
-  
-// console.log(userData);
-  
 
   return (
     <div className="login-background">
@@ -91,8 +96,7 @@ function Login() {
           </div>
         </form>
         {/* Login Button */}
-        {/* <button className="login-button" type="button" username={username} password={password}>Login</button> */}
-        <LoginButton loginInfo={loginInfo}></LoginButton>
+        <button className="login-button" type="button" onClick={retrieveUser}>Login</button>
       </div>
     </div>
   );
