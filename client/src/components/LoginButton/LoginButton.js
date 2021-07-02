@@ -11,6 +11,7 @@ function LoginButton({username, password}) {
 
 
 
+    
     useEffect(() => {
         async function hello() {
          try {
@@ -42,6 +43,7 @@ function LoginButton({username, password}) {
        }
        hello();
     }, [username, password])
+
      console.log(userData);
 
      if (userData !== null) {
@@ -63,8 +65,8 @@ function LoginButton({username, password}) {
        
 
   return (
-    <button id="button" >Login</button>
+    <button id="button">Login</button>
   );
-  }
+}
 
 export default LoginButton;
