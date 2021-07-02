@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
+import LoginButton from '../../components/LoginButton/LoginButton';
 
 let username = 'jack123';
-let password = 'givefood';
+let password = 'givefoo';
 
 function Login() {
   
@@ -19,27 +20,24 @@ function Login() {
     console.log(password);
   }
 
-  const [userData, setUserData] = useState([]);
+  // const [userData, setUserData] = useState([]);
 
-  useEffect(() => {
-     async function loginFormHandler() {
-      try {
-        const data = await fetch('/api/user/login', {
-          method: 'POST',
-          body: JSON.stringify({ username, password }),
-          headers: { 'Content-Type': 'application/json' },
-        })
-        .then(res => res.json());
-        setUserData(data);
-      }
-      catch (err) {
-        console.log('err.message');
-        console.log(err.message);
-      }
-
-
-
-
+  // function LoginFormHandler() {
+  // useEffect(() => {
+  //    async function hello() {
+  //     try {
+  //       const data = await fetch('/api/user/login', {
+  //         method: 'POST',
+  //         body: JSON.stringify({ username, password }),
+  //         headers: { 'Content-Type': 'application/json' },
+  //       })
+  //       .then(res => res.json());
+  //       setUserData(data);
+  //     }
+  //     catch (err) {
+  //       console.log('err.message');
+  //       console.log(err.message);
+  //     }
       // if (username && password) {
         // const response = await 
         
@@ -52,14 +50,21 @@ function Login() {
         //   ? document.location.replace('/')
         //   : alert('Login attempt failed');
       
-    }
-    loginFormHandler();
-  }, [])
+  //   }
+  //   hello();
+  // }, [])
+
+  //   console.log(userData);
+  //   if (userData != password) {
+  //     alert('Incorrect username or password');
+  //   }
+  // }
+  
 
   
 
-  console.log(userData);
-
+  
+// console.log(userData);
   
 
   return (
@@ -81,7 +86,8 @@ function Login() {
           </div>
         </form>
         {/* Login Button */}
-        <button className="login-button" type="button" >Login</button>
+        {/* <button className="login-button" type="button" username={username} password={password}>Login</button> */}
+        <LoginButton username={username} password={password}></LoginButton>
       </div>
     </div>
   );
