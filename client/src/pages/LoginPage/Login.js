@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 // import LoginButton from '../../components/LoginButton/LoginButton';
 import API from '../../utils/API';
-// import LoginButton from '../../components/LoginButton/LoginButton';
+
 
 let loginInfo = {
   username: '',
@@ -29,7 +29,7 @@ function Login() {
   }
 
   const [userData, setUserData] = useState([]);
-  const [pleaseData, setPleaseData] = useState([]);
+  // const [pleaseData, setPleaseData] = useState([]);
   console.log('username');
   console.log(loginInfo.username);
 
