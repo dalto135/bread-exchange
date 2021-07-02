@@ -25,33 +25,43 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
+    const userData = await User.findOne({ username: req.body.username } )
+    // .then(dbUser => {
+    //     res.json(dbUser);
+    // })
+    console.log('userData');
+    console.log(userData);
+    res.json(userData);
     }
+    catch (err) {
+        res.status(404).json(err.message);
+    };
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    // if (!userData) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Incorrect username or password, please try again' });
+    //   return;
+    // }
 
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
+//     const validPassword = await userData.checkPassword(req.body.password);
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+//     if (!validPassword) {
+//       res
+//         .status(400)
+//         .json({ message: 'Incorrect username or password, please try again' });
+//       return;
+//     }
 
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
-  } catch (err) {
-    res.status(400).json(err.message);
-  }
+//     req.session.save(() => {
+//       req.session.user_id = userData._id;
+//       req.session.logged_in = true;
+
+//       res.json({ user: userData, message: 'You are now logged in!' });
+//     });
+//   } catch (err) {
+//     res.status(400).json(err.message);
+//   }
 });
 
 router.post('/logout', (req, res) => {
