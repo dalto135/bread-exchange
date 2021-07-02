@@ -31,6 +31,26 @@ module.exports={
           .then(dbModel => dbModel.remove())
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
+      },
+
+      //Users
+      getUsers: function(req, res) {
+          foodDatabase.User
+            .find({})
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(422).json(err.message))
+      },
+      getSingleUser: function(req, res) {
+          foodDatabase.User
+            .findOne({ username: req.body.username })
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(422).json(err.message))
+      },
+      createUserAccount: function(req, res) {
+          foodDatabase.User
+            .create(req.body)
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(422).json(err.message))
       }
     
 };

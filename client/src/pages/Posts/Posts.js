@@ -38,6 +38,7 @@ function loadPosts(){
       <h1>Find Food Here</h1>
       <Link to="/CreatePost">Post Food</Link><br></br>
       <Link to="/singlepost">Food</Link>
+      <button onClick={loadPosts}>Button</button>
       {/* <Router>
         <Route exact path='/singlepost' component={SinglePost}/>
       </Router> */}

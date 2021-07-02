@@ -3,21 +3,26 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import LoginButton from '../../components/LoginButton/LoginButton';
 
+let loginInfo = {
+  username: 'jack123',
+  password: 'givefood'
+}
+
 let username = 'jack123';
-let password = 'givefoo';
+let password = 'givefood';
 
 function Login() {
   
   function usernameHandler(event) {
-    username = event.target.value;
+    loginInfo.username = event.target.value;
     console.log('email change');
-    console.log(username);
+    console.log(loginInfo.username);
   }
 
   function passwordHandler(event) {
-    password = event.target.value;
+    loginInfo.password = event.target.value;
     console.log('password change');
-    console.log(password);
+    console.log(loginInfo.password);
   }
 
   // const [userData, setUserData] = useState([]);
@@ -87,7 +92,7 @@ function Login() {
         </form>
         {/* Login Button */}
         {/* <button className="login-button" type="button" username={username} password={password}>Login</button> */}
-        <LoginButton username={username} password={password}></LoginButton>
+        <LoginButton loginInfo={loginInfo}></LoginButton>
       </div>
     </div>
   );
