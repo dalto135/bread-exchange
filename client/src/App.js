@@ -12,16 +12,18 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import Button from "./components/Button/Button";
 
 let loginInfo = {
-  username: '',
-  password: '',
+  username: 'jack123',
+  password: 'givefood',
   loggedIn: {
     firstName: '',
     lastName: '',
-    userName: '',
+    username: '',
     password: '',
     email: ''
   }
 }
+
+localStorage.setItem('storedLogin', '');
 
 function App() {
   return (

@@ -32,9 +32,8 @@ function Login({loginInfo}) {
   console.log('password');
   console.log(loginInfo.password);
 
- 
-      function retrieveUser() {
-        API.login(loginInfo)
+  useEffect(() =>{
+    API.login(loginInfo)
         .then(res => {
             console.log(res.data);
             setUserData(res.data);
@@ -42,9 +41,11 @@ function Login({loginInfo}) {
             
         })
         .catch(err => console.log(err.message));
+  }, [])
+        
 
         console.log(userData);
-      }
+      
  
       if (userData !== null) {
         if (userData.password !== loginInfo.password) {
@@ -52,6 +53,7 @@ function Login({loginInfo}) {
         } else {
             alert('Login successful!');
             loginInfo.loggedIn = userData;
+            // localStorage.setItem('storedLogin', JSON.stringify(userData));
             console.log('loginInfo');
             console.log(loginInfo);
             document.location.replace('/#/UserPage');
@@ -92,7 +94,7 @@ function Login({loginInfo}) {
           </div>
         </form>
         {/* Login Button */}
-        <button className="login-button" type="button" onClick={retrieveUser}>Login</button>
+        <button className="login-button" type="button" >Login</button>
       </div>
     </div>
   );

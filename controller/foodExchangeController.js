@@ -40,15 +40,51 @@ module.exports={
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err.message))
       },
-      getSingleUser: function(req, res) {
-          foodDatabase.User
-            .findOne({ username: req.body.username })
-            .then(dbUser => res.json(dbUser))
-            .catch(err => res.status(422).json(err.message))
+      loginUser: async function(req, res) {
+        try {
+            const userData = await foodDatabase.User.findOne({ where: { username: req.body.username } });
+        
+            if (!userData) {
+              res
+                .status(400)
+                .json({ message: 'Incorrect username or password, please try again' });
+
+                console.log('!userData');
+              return;
+            }
+        
+            const validPassword = await userData.checkPassword(req.body.password);
+        
+            if (!validPassword) {
+              res
+                .status(400)
+                .json({ message: 'Incorrect username or password, please try again' });
+                console.log('!validPassword');
+              return;
+            }
+        
+            req.session.save(() => {
+              req.session.user_id = userData._id;
+              req.session.logged_in = true;
+              
+              res.json({ user: userData, message: 'You are now logged in!' });
+            });
+        
+          } catch (err) {
+              console.log('err.message');
+              console.log(err.message);
+            res.status(400).json(err.message);
+          }
       },
       createUserAccount: function(req, res) {
           foodDatabase.User
             .create(req.body)
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(422).json(err.message))
+      },
+      getUserById: function (req, res) {
+          foodDatabase.User
+            .findOne({user_id: req.body._id})
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err.message))
       }

@@ -27,6 +27,9 @@ export default {
   },
   createAccount: function(userData) {
     return axios.post('/api/user', userData);
+  },
+  getSingleUser: function(userData) {
+    return axios.post('/api/user/:id', userData);
   }
   
 };

@@ -7,6 +7,9 @@ router.route('/')
 .post(foodExchangeController.createUserAccount);
 
 router.route('/login')
-.post(foodExchangeController.getSingleUser);
+.post(foodExchangeController.loginUser);
+
+router.route('/:id')
+.post(foodExchangeController.getUserById);
 
 module.exports = router;
