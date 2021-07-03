@@ -5,14 +5,10 @@ import "./style.css";
 import API from '../../utils/API';
 
 
-let loginInfo = {
-  username: '',
-  password: '',
-  loggedIn: ''
-}
 
 
-function Login() {
+
+function Login({loginInfo}) {
 
   
   
