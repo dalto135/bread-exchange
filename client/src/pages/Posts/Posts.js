@@ -102,7 +102,9 @@ function loadPosts(){
                 <p>Location: {post.location}</p>
                 <p>Quantity: {post.quantity}</p>
                 <p>Date Posted: {post.postDate}</p>
+                <p>User: {post.user_id}</p>
                 {/* <Button title="View" post={post} onClick={() => {getUser(post)}}/> */}
+                <Link to={{pathname:"/singlepost", state:{post: post }}}>Food</Link>
                 <button onClick={() => {getUser(post)}}>View post</button>
               </div>
           </div>)}

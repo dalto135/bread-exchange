@@ -84,9 +84,7 @@ module.exports={
       },
       getUserById: function (req, res) {
           foodDatabase.User
-            .find({
-                _id: req.body.user_id
-            })
+            .findOne({ _id: req.body.user_id })
             // .find({username: 'jack123'})
             .then(dbUser => {res.json(dbUser);
                 console.log(req.body)
@@ -94,6 +92,19 @@ module.exports={
             .catch(err => {res.status(422).json(err.message);
                 console.log('err.message');
                 console.log(err.message);})
+      },
+      //Reservations
+      getPostReservations: function(req, res) {
+          foodDatabase.Reservation
+          .find({ post_id: req.body._id })
+          .then(dbReservation => {res.json(dbReservation)})
+          .catch(err => {res.status(422).json(err.message)})
+      },
+
+      createReservation: function(req, res) {
+          foodDatabase.Reservation.create(req.body)
+          .then(dbReservation => res.json(dbReservation))
+          .catch(err => res.status(422).json(err));
       }
     
 };

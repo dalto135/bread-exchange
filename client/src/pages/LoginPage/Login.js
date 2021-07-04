@@ -8,54 +8,62 @@ import API from '../../utils/API';
 
 
 
-function Login({loginInfo}) {
+function Login() {
 
-  
+  let username = 'jack123';
+  let password = 'givefood';
   
   function usernameHandler(event) {
-    loginInfo.username = event.target.value;
+    username = event.target.value;
     console.log('email change');
-    console.log(loginInfo.username);
+    console.log(username);
   }
 
   function passwordHandler(event) {
-    loginInfo.password = event.target.value;
+    password = event.target.value;
     console.log('password change');
-    console.log(loginInfo.password);
+    console.log(password);
   }
 
   const [userData, setUserData] = useState([]);
   // const [pleaseData, setPleaseData] = useState([]);
   console.log('username');
-  console.log(loginInfo.username);
+  console.log(username);
 
   console.log('password');
-  console.log(loginInfo.password);
+  console.log(password);
 
   useEffect(() =>{
-    API.login(loginInfo)
-        .then(res => {
-            console.log(res.data);
-            setUserData(res.data);
-
-            
-        })
-        .catch(err => console.log(err.message));
+    API.login({username, password})
+      .then(res => {
+          console.log(res.data);
+          setUserData(res.data);
+      })
+      .catch(err => console.log(err.message));
   }, [])
-        
+
+
+  function loginPlease() {
+    API.login({username, password})
+      .then(res => {
+          console.log(res.data);
+          setUserData(res.data);
+      })
+      .catch(err => console.log(err.message));
+  }
 
         console.log(userData);
       
  
       if (userData !== null) {
-        if (userData.password !== loginInfo.password) {
+        if (userData.password !== password) {
             console.log('Incorrect username or password');
         } else {
             alert('Login successful!');
-            loginInfo.loggedIn = userData;
+            // loginInfo.loggedIn = userData;
             // localStorage.setItem('storedLogin', JSON.stringify(userData));
-            console.log('loginInfo');
-            console.log(loginInfo);
+            // console.log('loginInfo');
+            // console.log(loginInfo);
             document.location.replace('/#/UserPage');
         }
       } else {
@@ -94,7 +102,7 @@ function Login({loginInfo}) {
           </div>
         </form>
         {/* Login Button */}
-        <button className="login-button" type="button" >Login</button>
+        <button className="login-button" type="button" onClick={loginPlease}>Login</button>
       </div>
     </div>
   );
