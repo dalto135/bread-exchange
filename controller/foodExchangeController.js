@@ -84,9 +84,16 @@ module.exports={
       },
       getUserById: function (req, res) {
           foodDatabase.User
-            .findOne({user_id: req.body._id})
-            .then(dbUser => res.json(dbUser))
-            .catch(err => res.status(422).json(err.message))
+            .find({
+                _id: req.body.user_id
+            })
+            // .find({username: 'jack123'})
+            .then(dbUser => {res.json(dbUser);
+                console.log(req.body)
+                console.log(req.params)})
+            .catch(err => {res.status(422).json(err.message);
+                console.log('err.message');
+                console.log(err.message);})
       }
     
 };

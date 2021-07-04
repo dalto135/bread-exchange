@@ -102,9 +102,8 @@ function loadPosts(){
                 <p>Location: {post.location}</p>
                 <p>Quantity: {post.quantity}</p>
                 <p>Date Posted: {post.postDate}</p>
-                <p>User: {post.user_id}</p>
                 {/* <Button title="View" post={post} onClick={() => {getUser(post)}}/> */}
-                <button onClick={() => {getUser(post)}}>View user data</button>
+                <button onClick={() => {getUser(post)}}>View post</button>
               </div>
           </div>)}
           
