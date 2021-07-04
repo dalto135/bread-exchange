@@ -7,7 +7,7 @@ import Button from "../../components/Button/Button"
 import SinglePost from "../Singlepost/Singlepost";
 import CreatePost from "../CreatePost/CreatePost";
 import { HashRouter as Router, Route } from "react-router-dom";
-import API from "../../utils/API"
+import API from "../../utils/API";
 
 function Posts() {
 const [posts, setPosts]= useState([]);
@@ -104,8 +104,8 @@ function loadPosts(){
                 <p>Date Posted: {post.postDate}</p>
                 <p>User: {post.user_id}</p>
                 {/* <Button title="View" post={post} onClick={() => {getUser(post)}}/> */}
-                <Link to={{pathname:"/singlepost", state:{post: post }}}>Food</Link>
-                <button onClick={() => {getUser(post)}}>View post</button>
+                <Link to={{pathname:"/singlepost", state:{post: post }}}>View Post</Link>
+                {/* <button onClick={() => {getUser(post)}}>Console Log Data</button> */}
               </div>
           </div>)}
           

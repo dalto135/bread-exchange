@@ -31,6 +31,7 @@ export default {
   getSingleUser: function(userData) {
     return axios.post('/api/user/:id', userData);
   },
+  
   //Reservation routes
   getReservations: function(postData) {
     return axios.post('/api/reservation', postData);
