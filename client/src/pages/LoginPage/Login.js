@@ -106,7 +106,7 @@ function Login() {
           <button className="login-button" type="button" onClick={loginPlease}>Login</button>
         </div>
         {/* Sign Up Button */}
-        <p>Or <Link to="/">Sign Up</Link></p>
+        <p>Or <Link to="/signup">Sign Up</Link></p>
       </div>
     </div>
   );
