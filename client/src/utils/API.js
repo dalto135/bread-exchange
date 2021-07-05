@@ -6,15 +6,15 @@ export default {
     return axios.get("/api/post");
   },
   // Gets the book with the given id
-  getBook: function(id) {
+  getPosts: function(user_id) {
     return axios.get("/api/books/" + id);
   },
   // Deletes the book with the given id
-  deleteBook: function(id) {
+  deletePosts: function(_id) {
     return axios.delete("/api/books/" + id);
   },
   // Saves a book to the database
-  saveBook: function(bookData) {
+  savePosts: function(bookData) {
     return axios.post("/api/books", bookData);
   }
 };

@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import API from "../../utils/API"
 
 function userPage() {
+ 
+  }
+
   return (
     <div>
       <h1>My Account</h1>
