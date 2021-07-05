@@ -4,14 +4,8 @@ const Schema = mongoose.Schema;
 
 const reservationSchema = new Schema({
 
-    post_id: {
-        type: String,
-    },
-    post_user_id: {
-        type: String,
-    },
-    user_id: {
-        type: String,
+    _id: {
+        type: String
     },
     quantity: {
         type: Number,
@@ -21,6 +15,12 @@ const reservationSchema = new Schema({
         type: Date,
         default:Date.now
     },
+    user_id: {
+        type: String
+    },
+    post_id: {
+        type: String
+    }
         
 });
 

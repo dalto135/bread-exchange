@@ -1,6 +1,36 @@
+body {
+  font-family: Lato;
+}
+
+#find-food-header {
+  text-align: center;
+}
+
+#gray-panel {
+  background-color: gainsboro;
+  width: auto;
+  height: auto;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#card-search {
+  text-align: center;
+  height: auto;
+  width: auto;
+  /* border: 2px solid red; */
+  margin-bottom: 2rem;
+}
+
 .card-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid blue; */
 }
 
 .card {
@@ -9,6 +39,7 @@
   width: 25%;
   padding: 1rem;
   margin: 1rem;
+  border-radius: 15px;
 }
 
 .card:hover {
@@ -17,9 +48,16 @@
 
 .container {
   padding: 2px 16px;
+  align-content: center;
 }
 
 .card-img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
+
+/* #card-list {
+  display: flex;;
+  flex-direction: row;
+  flex-wrap: wrap;
+} */

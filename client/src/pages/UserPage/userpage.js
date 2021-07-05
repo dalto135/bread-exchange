@@ -1,10 +1,33 @@
 import React from "react";
 
-function userPage() {
+
+
+
+function userPage({loginInfo}) {
+  
+  
+  // let loginString = localStorage.getItem('storedLogin');
+  // let loginData = JSON.parse('{"hello":"hello","goodbye":"goodbye"}');
+  // let loginData = JSON.parse(loginString);
+  // let ye = JSON.parse('{"firstName":"Jack","lastName":"Ortega","username":"jack123","password":"givefood","email":"jack123@gmail.com"}');
+  // console.log(loginString);
+  // console.log(loginData);
+  // console.log(ye);
+
   return (
     <div>
       <h1>My Account</h1>
       <p>Account Information Here</p>
+
+      <div>
+        <h2>Your info</h2>
+        <h3>First name: {loginInfo.loggedIn.firstName}</h3>
+        <h3>Last name: {loginInfo.loggedIn.lastName}</h3>
+        <h3>Username: {loginInfo.loggedIn.username}</h3>
+        <h3>Password: {loginInfo.loggedIn.password}</h3>
+        <h3>Email: {loginInfo.loggedIn.email}</h3>
+      </div>
+
       <h2>Reservations</h2>
       <table className="center-text"width="300" border="1" cellpadding="5">
         <tr>

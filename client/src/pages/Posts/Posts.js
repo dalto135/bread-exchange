@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import Input from "../../components/Input/input"
+import Button from "../../components/Button/Button"
 import SinglePost from "../Singlepost/Singlepost";
 import CreatePost from "../CreatePost/CreatePost";
 import { HashRouter as Router, Route } from "react-router-dom";
-import API from "../../utils/API"
+import API from "../../utils/API";
 
 function Posts() {
   const [posts, setPosts] = useState([])
@@ -34,14 +34,29 @@ function Posts() {
       .catch(err => console.log.apply(err));
   }
 
+
+  function getUser(postData) {
+    API.getSingleUser(postData)
+    .then(res => {
+    console.log('res.data');
+    console.log(res.data);
+    setUserData(res.data);  
+    })
+    .catch(err => console.log(err.message));
+  }
+
+
   return (
     <div>
       <h1>Find Food Here</h1>
-      <Link to="/CreatePost">Post Food</Link><br></br>
+      {/* <Link to="/CreatePost">Post Food</Link><br></br>
       <Link to="/singlepost">Food</Link>
+      <button onClick={loadPosts}>Button</button> */}
+      
       {/* <Router>
         <Route exact path='/singlepost' component={SinglePost}/>
       </Router> */}
+
       <div className="card-container">
         {posts.length ? (
 
