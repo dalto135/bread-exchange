@@ -4,7 +4,7 @@ import "./userpage.css";
 
 
 
-function userPage({loginInfo}) {
+function userPage() {
   
   
   // let loginString = localStorage.getItem('storedLogin');
@@ -22,11 +22,11 @@ function userPage({loginInfo}) {
 
       <div>
         <h2>Your info</h2>
-        <h3>First name: {loginInfo.loggedIn.firstName}</h3>
-        <h3>Last name: {loginInfo.loggedIn.lastName}</h3>
-        <h3>Username: {loginInfo.loggedIn.username}</h3>
-        <h3>Password: {loginInfo.loggedIn.password}</h3>
-        <h3>Email: {loginInfo.loggedIn.email}</h3>
+        <h3>First name: </h3>
+        <h3>Last name: </h3>
+        <h3>Username: </h3>
+        <h3>Password: </h3>
+        <h3>Email: </h3>
       </div>
 
       <h2>Reservations</h2>

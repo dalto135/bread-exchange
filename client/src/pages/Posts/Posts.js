@@ -11,6 +11,7 @@ import API from "../../utils/API";
 
 function Posts() {
   const [posts, setPosts] = useState([])
+  const [userData, setUserData] = useState([]);
   const [formList, setFormList] = useState({
     name: "",
     description: "",
@@ -76,6 +77,7 @@ function Posts() {
                   <h6>Description: {post.description} </h6>
                   <h6>Number of Items: {post.quantity} </h6>
                   <a href={"/posts/" + post._id}>View</a>
+                  {/* <Link to={{pathname:"/singlepost", state:{post: post }}}>View Post</Link> */}
                 </div>
               </div>
 
