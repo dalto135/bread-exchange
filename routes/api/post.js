@@ -7,6 +7,4 @@ router.route("/")
 .get(foodExchangeController.findAll)
 .post(foodExchangeController.create);
 
-
-
 module.exports = router;
