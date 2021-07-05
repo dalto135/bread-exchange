@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import { Link } from "react-router-dom";
@@ -10,28 +10,29 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import API from "../../utils/API"
 
 function Posts() {
-const [posts, setPosts]= useState([])
-const [formList, setFormList]=useState({
-  name: "",
-  description: "",
-  location: "",
-  quantity: "",
-  postDate: "",
-  user_id: "",
-})
-//load all posts
-useEffect(() =>{
-  loadPosts()
-}, [])
+  const [posts, setPosts] = useState([])
+  const [formList, setFormList] = useState({
+    name: "",
+    description: "",
+    location: "",
+    quantity: "",
+    postDate: "",
+    user_id: "",
+  })
+  //load all posts
+  useEffect(() => {
+    loadPosts()
+  }, [])
 
-function loadPosts(){
-  API.getPosts()
-  .then(res =>
-    {console.log(res)
-    setPosts (res.data)}
-    )
-    .catch(err => console.log.apply(err));
-}
+  function loadPosts() {
+    API.getPosts()
+      .then(res => {
+        console.log(res)
+        setPosts(res.data)
+      }
+      )
+      .catch(err => console.log.apply(err));
+  }
 
   return (
     <div>
@@ -42,55 +43,33 @@ function loadPosts(){
         <Route exact path='/singlepost' component={SinglePost}/>
       </Router> */}
       <div className="card-container">
-        <div className="card">
-          <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
-          <div className="container">
-            {posts.length ? (
-              <li>
-                {posts.map(post => {
-                  return(
-                  <li key ={post.id}>
-                    <a href={"/posts/"+ post.id}>
-                      <li>
-                        {post.name}
-                        {post.description}
-                        {post.location}
-                        {post.quantity}
-                        {post.postDate}
-                        {post.user_id}
-                      </li>
-                    </a>
-                    
-                  </li>
-                  );
-                })}
-             </li> 
-            ):(
-              <h3>No Results to Display</h3>
-            )}                 
-            <button >View</button>
-          </div>
-        </div>
+        {posts.length ? (
 
-        <div className="card">
-          <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
-          <div className="container">
-            <h4>
-              <b>Starbucks</b>
-            </h4>
-            <h6>Pickup Location Here</h6>
-            <h6>Posted 6/26/21</h6>
-            <h6>Exp: 6/31/21</h6>
-            <h6>Contact: John Smith - jsmith@email.com</h6>
-            <p>
-              <ul>
-                <li>5 cookies</li>
-                <li>1 gallon milk</li>
-              </ul>
-            </p>
-            <button>View</button>
-          </div>
-        </div>
+          posts.map(post => {
+            return (
+              <div className="card" key={post._id}>
+                <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
+                                <div className="container">
+                  <h4>
+                    <b>{post.user_id}</b>
+                  </h4>
+                  <h6>Pick up Location at {post.location}</h6>
+                  <h6>Posted {post.postDate}</h6>
+                  <h6>Exp: 6/31/21</h6>
+                  <h6>Contact: John Smith - jsmith@email.com</h6>
+                  <h6>Item: {post.name} </h6>
+                  <h6>Description: {post.description} </h6>
+                  <h6>Number of Items: {post.quantity} </h6>
+                  <a href={"/posts/" + post._id}>View</a>
+                </div>
+              </div>
+
+
+            );
+          })
+        ) : (
+          <h3>No Results to Display</h3>
+        )}
       </div>
     </div>
   );
