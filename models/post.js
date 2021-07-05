@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
    
+    _id: {
+        type: String
+    },
     name: {
         type: String,
         trim: true,
@@ -23,8 +26,8 @@ const postSchema = new Schema({
         required: 'Enter a quantity'
     },
     postDate: {
-        type:Date,
-        default:Date.now
+        type: Date,
+        default: Date.now
     },
     user_id: {
         type: String

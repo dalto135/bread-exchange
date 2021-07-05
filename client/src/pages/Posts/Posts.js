@@ -7,10 +7,10 @@ import Button from "../../components/Button/Button"
 import SinglePost from "../Singlepost/Singlepost";
 import CreatePost from "../CreatePost/CreatePost";
 import { HashRouter as Router, Route } from "react-router-dom";
-import API from "../../utils/API"
+import API from "../../utils/API";
 
 function Posts() {
-const [posts, setPosts]= useState([])
+const [posts, setPosts]= useState([]);
 const [formList, setFormList]=useState({
   name: "",
   description: "",
@@ -19,6 +19,8 @@ const [formList, setFormList]=useState({
   postDate: "",
   user_id: "",
 })
+const [userData, setUserData] = useState([]);
+
 //load all posts
 useEffect(() =>{
   loadPosts()
@@ -33,16 +35,30 @@ function loadPosts(){
     .catch(err => console.log.apply(err));
 }
 
+
+  function getUser(postData) {
+    API.getSingleUser(postData)
+    .then(res => {
+    console.log('res.data');
+    console.log(res.data);
+    setUserData(res.data);  
+    })
+    .catch(err => console.log(err.message));
+  }
+
+
   return (
     <div>
       <h1>Find Food Here</h1>
-      <Link to="/CreatePost">Post Food</Link><br></br>
+      {/* <Link to="/CreatePost">Post Food</Link><br></br>
       <Link to="/singlepost">Food</Link>
+      <button onClick={loadPosts}>Button</button> */}
+      
       {/* <Router>
         <Route exact path='/singlepost' component={SinglePost}/>
       </Router> */}
-      <div className="card-container">
-        <div className="card">
+      {/* <div className="card-container"> */}
+        {/* <div className="card">
           <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
           <div className="container">
             {posts.length ? (
@@ -70,30 +86,32 @@ function loadPosts(){
             )}                 
             <button >View</button>
           </div>
-        </div>
+        </div> */}
         <div className="card-container">
           {/* Cards */}
-          <div className="card">
-            <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
-            <div className="container">
-              <h4>
-                <b>Panera Bread</b>
-              </h4>
-              <h6>Pickup Location Here</h6>
-              <h6>Posted 6/24/21</h6>
-              <h6>Exp: 6/31/21</h6>
-              <h6>Contact: John Smith - jsmith@email.com</h6>
-              <p>
-                <ul id="card-list">
-                  <li>2 loaves of bread</li>
-                  <li>3 apples</li>
-                </ul>
-              </p>
-              <Button title="View" />
-            </div>
-          </div>
 
-          <div className="card">
+
+
+
+          {posts?.map(post =>
+
+            <div className="card">
+              <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
+              <div className="container">
+                <p>Name: {post.name}</p>
+                <p>Description: {post.description}</p>
+                <p>Location: {post.location}</p>
+                <p>Quantity: {post.quantity}</p>
+                <p>Date Posted: {post.postDate}</p>
+                <p>User: {post.user_id}</p>
+                {/* <Button title="View" post={post} onClick={() => {getUser(post)}}/> */}
+                <Link to={{pathname:"/singlepost", state:{post: post }}}>View Post</Link>
+                {/* <button onClick={() => {getUser(post)}}>Console Log Data</button> */}
+              </div>
+          </div>)}
+          
+
+          {/* <div className="card">
             <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
             <div className="container">
               <h4>
@@ -111,9 +129,9 @@ function loadPosts(){
               </p>
               <Button title="View" />
             </div>
-          </div>
+          </div> */}
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 }
