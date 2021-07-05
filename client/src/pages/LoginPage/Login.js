@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
-// import LoginButton from '../../components/LoginButton/LoginButton';
 import API from '../../utils/API';
+import { Link } from "react-router-dom";
 
 
 
@@ -102,7 +102,11 @@ function Login() {
           </div>
         </form>
         {/* Login Button */}
-        <button className="login-button" type="button" onClick={loginPlease}>Login</button>
+        <div id="login-div">
+          <button className="login-button" type="button" onClick={loginPlease}>Login</button>
+        </div>
+        {/* Sign Up Button */}
+        <p>Or <Link to="/">Sign Up</Link></p>
       </div>
     </div>
   );
