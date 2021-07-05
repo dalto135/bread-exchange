@@ -6,16 +6,23 @@ function navBar() {
   return (
     <div>
       <div id="navbar">
-      <img id="be-logo" src="/BElogo.jpg"></img>
-      <div id="test">
-        <ul id="nav-list">
-        {/* <img id="be-logo" src="/BElogo.jpg"></img> */}
-          <li><i className="fas fa-home"></i><Link id="link-button" to="/">Home</Link></li>
-          <li><i class="fas fa-sign-in-alt"></i><Link id="link-button" to="/login">Login</Link></li>
-          <li><i class="fas fa-bread-slice"></i><Link id="link-button" to="/Posts">Posts</Link></li>
-          <li><i class="fas fa-user"></i><Link id="link-button" to="/UserPage">My Userpage</Link></li>
-        </ul>
-      </div>
+        <img id="be-logo" src="/BElogo.jpg"></img>
+        <div id="nav-button-container">
+          <ul id="nav-list">
+            {/* Main Nav Buttons */}
+            <li className="nav-item"><i className="fas fa-home nav-icon"></i><Link id="link-button" to="/">Home</Link></li>
+            <li className="nav-item"><i className="fas fa-sign-in-alt nav-icon"></i><Link id="link-button" to="/login">Login</Link></li>
+            <li className="nav-item"><i className="fas fa-bread-slice nav-icon"></i><Link id="link-button" to="/Posts">Posts</Link></li>
+            <li className="nav-item"><i className="fas fa-user nav-icon"></i><Link id="link-button" to="/UserPage">My Userpage</Link></li>
+          </ul>
+        </div>
+        {/* Cart and Logout Buttons */}
+        <div id="cart-and-logout">
+          <ul id="nav-list">
+            <li className="nav-item"><i className="fas fa-shopping-cart nav-icon"></i><Link id="link-button" to="/"></Link>Reservations</li>
+            <li className="nav-item"><Link id="link-button" to="/">Logout</Link></li>
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,102 @@
+#full-userpage {
+  border: 2px solid red;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  font-family: Lato;
+}
+
+#grey-panel {
+  width: 90%;
+  height: 90%;
+  background-color: gainsboro;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+#white-panel {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+  text-align: center;
+} 
+
+#my-account-header {
+  margin-top: 2rem;
+}
+
+#reservations-header {
+  margin-top: 2rem;
+}
+
+#table-divider {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.rTable {
+  display: table;
+  width: 100%;
+}
+.rTableRow {
+  display: table-row;
+}
+.rTableHeading {
+  display: table-header-group;
+  background-color: #ddd;
+}
+.rTableCell,
+.rTableHead {
+  display: table-cell;
+  padding: 3px 10px;
+  border: 1px solid #999999;
+}
+.rTableHeading {
+  display: table-header-group;
+  background-color: #ddd;
+  font-weight: bold;
+}
+.rTableFoot {
+  display: table-footer-group;
+  font-weight: bold;
+  background-color: #ddd;
+}
+.rTableBody {
+  display: table-row-group;
+}
+
+.table-design {
+  text-align: center;
+  border: 2px solid gainsboro;
+  /* border-radius: 20px; */
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+th {
+ border: 1px solid gainsboro;
+ background-color: rgb(241, 241, 241);
+}
+
+#table-button{
+  background: none;
+  border: none;
+}
+
+.table-check{
+  color: green;
+}
+
+.table-x{
+  color: red;
+}

@@ -1,7 +1,21 @@
+#navbar {
+    background: gainsboro;
+    height: auto;
+    /* padding-top: 15px; */
+    /* padding-bottom: 15px; */
+    /* display: flex;
+    justify-content: center; */
+      border: 2px solid lime;
+      display: flex;
+      /* flex-direction: row;
+      flex-wrap: wrap; */
+  }
+
 #be-logo{
     width: 5rem;
     height: auto;
     border: 2px solid red;
+    position: relative;
 }
 
 #nav-list {
@@ -11,35 +25,24 @@
   display: flex;
   flex-direction: row;
   font-family: Lato;
-  justify-content: center;
+  /* justify-content: space-around; */
   border: 2px solid blue;
   align-items: center;
 }
 
-li {
+.nav-item {
     margin-left: 2rem;
     color: black;
     font-family: Lato;
 }
 
-#navbar {
-  background: gainsboro;
-  height: auto;
-  /* padding-top: 15px; */
-  /* padding-bottom: 15px; */
-  /* display: flex; */
-  /* align-items: center; */
-    border: 2px solid lime;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-#test {
+#nav-button-container {
     border: 2px solid magenta;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* justify-content: space-around; */
+    margin-left: 24%;
 }
 
 a { 
@@ -51,6 +54,17 @@ a {
     margin-left: 5px;
 }
 
-.fas {
+.nav-icon {
     color: #99cc66;
+}
+
+.nav-item {
+    margin-left: 4rem;
+}
+
+#cart-and-logout {
+    border: 2px solid cyan;
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
 }
