@@ -15,23 +15,15 @@ function userPage() {
     <div id="full-userpage">
       <div id="grey-panel">
         <div id="white-panel">
+          {/* Header */}
           <h1 id="my-account-header">My Account</h1>
-
-          {/* <div id="user-info">
-            <h2 id="your-info">Your info</h2>
-            <h3>First name: </h3>
-            <h3>Last name: </h3>
-            <h3>Username: </h3>
-            <h3>Password: </h3>
-            <h3>Email: </h3>
-          </div> */}
-
+              {/* Update Info */}
           <Link to="./client-profile">Update my Info</Link>
 
           <h2 id="reservations-header">Reservations</h2>
+          {/* Reservations Table */}
           <div id="table-divider">
-            <table className="table-design" width="400" border="1" cellpadding="5"
-            >
+            <table className="table-design" width="400" border="1" cellpadding="5">
               <tr>
                 <th width="75">
                   <strong>Name</strong>
@@ -48,9 +40,7 @@ function userPage() {
               </tr>
               <tr>
                 <td>John</td>
-                <td>
-                  <a href="tel:0123456785">555-5555</a>
-                </td>
+                <td>555-5555</td>
                 <td>Potatoes</td>
                 <td>
                   <button id="table-button"><i class="fas fa-check table-check"></i></button>
@@ -59,9 +49,7 @@ function userPage() {
               </tr>
               <tr>
                 <td>Cassie</td>
-                <td>
-                  <a href="tel:9876532432">555-5555</a>
-                </td>
+                <td>555-5555</td>
                 <td>Cheese</td>
                 <td>
                   <button id="table-button"><i class="fas fa-check table-check"></i></button>
@@ -70,6 +58,40 @@ function userPage() {
               </tr>
             </table>
           </div>
+            {/* My Posts */}
+          <h2 id="my-posts-header">My Posts</h2>
+            {/* Posts Container */}
+          <div id="my-posts-container">
+
+            {/* Single Post */}
+            <div className="single-post">
+              <div className="post-title">
+                <a href="/">Title Here</a>
+              </div>
+              <div className="post-description">
+                <h3>Description Here</h3>
+              </div>
+              <div className="delete-post">
+              <button className="trash-button"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+
+            {/* Single Post */}
+            <div className="single-post">
+              <div className="post-title">
+              <a href="/">Title Here</a>
+              </div>
+              <div className="post-description">
+                <h3>Description Here</h3>
+              </div>
+              <div className="delete-post">
+              <button className="trash-button"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+
+
+          </div>
+
         </div>
       </div>
     </div>
