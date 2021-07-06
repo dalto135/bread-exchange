@@ -1,5 +1,6 @@
 import React from "react";
 import "./userpage.css";
+import { Link } from "react-router-dom";
 
 function userPage() {
   // let loginString = localStorage.getItem('storedLogin');
@@ -16,14 +17,16 @@ function userPage() {
         <div id="white-panel">
           <h1 id="my-account-header">My Account</h1>
 
-          <div id="user-info">
+          {/* <div id="user-info">
             <h2 id="your-info">Your info</h2>
             <h3>First name: </h3>
             <h3>Last name: </h3>
             <h3>Username: </h3>
             <h3>Password: </h3>
             <h3>Email: </h3>
-          </div>
+          </div> */}
+
+          <Link to="./client-profile">Update my Info</Link>
 
           <h2 id="reservations-header">Reservations</h2>
           <div id="table-divider">
