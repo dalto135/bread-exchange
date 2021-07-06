@@ -17,6 +17,12 @@ export default {
   savePosts: function(postData) {
     return axios.post("/api/post", postData);
   },
+  getPostByID: function(postData) {
+    return axios.get('api/post' + postData);
+  },
+  updatePost: function(postData) {
+    return axios.put('api/post' + postData);
+  },
 
   //User routes
   getUsers: function() {
@@ -29,16 +35,31 @@ export default {
     return axios.post('/api/user', userData);
   },
   getSingleUser: function(userData) {
-    return axios.post('/api/user/:id', userData);
+    return axios.get('/api/user/' + userData);
+  },
+  editAccount: function(userData) {
+    return axios.put('/api/user', userData);
   },
   
   //Reservation routes
+  getAllReservations: function(reservationData) {
+    return axios.get('/api/reservation', reservationData);
+  },
   getReservations: function(postData) {
     return axios.post('/api/reservation', postData);
   },
   createReservation: function(reservationData) {
     return axios.post('api/reservation/createnew', reservationData);
-  }
+  },
+  removeReservation: function(reservationData) {
+    return axios.delete('api/reservation/' + reservationData);
+  },
+  getSingleReservation: function(reservationData) {
+    return axios.get('api/reservation/' + reservationData);
+  },
+  updateReservation: function(reservationData) {
+    return axios.put('api/reservation/update/' + reservationData);
+  },
   
 };
 

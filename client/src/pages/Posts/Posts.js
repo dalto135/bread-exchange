@@ -9,7 +9,14 @@ import CreatePost from "../CreatePost/CreatePost";
 import { HashRouter as Router, Route } from "react-router-dom";
 import API from "../../utils/API";
 
-function Posts() {
+function Posts({currentPost}) {
+
+  function choosePost(post) {
+    currentPost = post;
+    console.log('post chosen');
+    console.log(currentPost);
+  }
+
   const [posts, setPosts] = useState([])
   const [userData, setUserData] = useState([]);
   const [formList, setFormList] = useState({
@@ -76,8 +83,9 @@ function Posts() {
                   <h6>Item: {post.name} </h6>
                   <h6>Description: {post.description} </h6>
                   <h6>Number of Items: {post.quantity} </h6>
-                  <a href={"/posts/" + post._id}>View</a>
-                  {/* <Link to={{pathname:"/singlepost", state:{post: post }}}>View Post</Link> */}
+                  {/* <a href={"/Posts/" + post._id} post={post}>View</a> */}
+                  {/* <Link to={'/singlepost'} onClick={() => {choosePost(post)}}>View</Link> */}
+                  <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
                 </div>
               </div>
 

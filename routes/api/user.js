@@ -4,12 +4,13 @@ const foodExchangeController = require("../../controller/foodExchangeController"
 
 router.route('/')
 .get(foodExchangeController.getUsers)
-.post(foodExchangeController.createUserAccount);
+.post(foodExchangeController.createUserAccount)
+.put(foodExchangeController.updateUser);
 
 router.route('/login')
 .post(foodExchangeController.loginUser);
 
 router.route('/:id')
-.post(foodExchangeController.getUserById);
+.get(foodExchangeController.getUserById);
 
 module.exports = router;

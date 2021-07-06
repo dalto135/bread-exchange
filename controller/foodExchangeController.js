@@ -15,7 +15,7 @@ module.exports={
       //find by user Id
     findById: function(req, res) {
         foodDatabase.Post
-        .findById({_id: req.params._id})
+        .findById({_id: req.params.id})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
       },
@@ -77,26 +77,56 @@ module.exports={
           }
       },
       createUserAccount: function(req, res) {
-          foodDatabase.User
-            .create(req.body)
-            .then(dbUser => res.json(dbUser))
-            .catch(err => res.status(422).json(err.message))
+        foodDatabase.User
+          .create(req.body)
+          .then(dbUser => res.json(dbUser))
+          .catch(err => res.status(422).json(err.message))
       },
       getUserById: function (req, res) {
-          foodDatabase.User
-            .findOne({ _id: req.body.user_id })
-            // .find({username: 'jack123'})
-            .then(dbUser => {res.json(dbUser);
-                console.log(req.body)
-                console.log(req.params)})
-            .catch(err => {res.status(422).json(err.message);
-                console.log('err.message');
-                console.log(err.message);})
+        foodDatabase.User
+          .findOne({ _id: req.params.id })
+          // .find({username: 'jack123'})
+          .then(dbUser => {
+            res.json(dbUser);
+            console.log(req.body);
+            console.log(req.params);
+          })
+          .catch(err => {
+            res.status(422).json(err.message);
+            console.log('err.message');
+            console.log(err.message);
+          })
+      },
+      updateUser: function(req, res) {
+        foodDatabase.User
+          .findOneAndUpdate({ _id: req.body._id }, req.body)
+          .then(dbUser => {
+            res.json(dbUser);
+            console.log(req.body);
+            console.log(req.params);
+          })
+          .catch(err => {
+            res.status(422).json(err.message);
+            console.log('err.message');
+            console.log(err.message);
+          })
       },
       //Reservations
+      getAllReservations: function(req, res) {
+        foodDatabase.Reservation
+          .find({})
+          .then(dbReservation => {res.json(dbReservation)})
+          .catch(err => {res.status(422).json(err.message)})
+      },
       getPostReservations: function(req, res) {
           foodDatabase.Reservation
           .find({ post_id: req.body._id })
+          .then(dbReservation => {res.json(dbReservation)})
+          .catch(err => {res.status(422).json(err.message)})
+      },
+      getReservationByID: function(req, res) {
+        foodDatabase.Reservation
+          .findById({ _id: req.params.id })
           .then(dbReservation => {res.json(dbReservation)})
           .catch(err => {res.status(422).json(err.message)})
       },
@@ -105,6 +135,27 @@ module.exports={
           foodDatabase.Reservation.create(req.body)
           .then(dbReservation => res.json(dbReservation))
           .catch(err => res.status(422).json(err));
-      }
+      },
+      deleteReservation: function (req, res) {
+        foodDatabase.Reservation
+          .remove({ _id: req.params.id })
+          .then(dbUser => {
+            res.json(dbUser);
+            console.log(req.body)
+            console.log(req.params)
+          })
+          .catch(err => {
+            res.status(422).json(err.message);
+            console.log('err.message');
+            console.log(err.message);
+          })
+      },
+      updateReservation: function (req, res) {
+        foodDatabase.Reservation
+          .findOneAndUpdate({ _id: req.params.id }, req.body)
+          .then(dbReservation => {res.json(dbReservation)})
+          .catch(err => {res.status(422).json(err.message)})
+      },
+
     
 };

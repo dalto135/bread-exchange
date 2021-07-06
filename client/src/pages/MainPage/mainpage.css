@@ -38,8 +38,9 @@ body {
   flex-direction: row;
   margin-top: 5rem;
   margin-bottom: 10rem;
-  margin-left: 8rem;
-  border: 2px solid fuchsia;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  align-items: center;
 }
 
 #second-image {
@@ -60,14 +61,15 @@ body {
 }
 
 #what-we-do-text {
-  font-size: 2rem;
+  font-size: 4vh;
   font-weight: 300;
+  height: auto;
+  max-height: 20rem;
 }
 
 /* 2nd Section */
 
 #left-side {
-  border: 2px solid red;
   width: 45%;
   display: flex;
   flex-direction: column;
@@ -80,35 +82,24 @@ body {
   flex-direction: row;
   margin-bottom: 2rem;
   justify-content: center;
-  border: 2px solid blue;
 }
-
-/* #left-side {
-  display: flex;
-  flex-direction: column;
-  margin-left: 8rem;
-} */
 
 #infographic-1 {
   display: flex;
   flex-direction: row;
-  /* border: 2px solid red; */
   align-items: flex-start;
-  width: 50%;
-  margin: 2px solid red;
+  width: auto;
 }
 
 #forty-two {
   font-size: 17rem;
-  /* border: 2px solid blue; */
   color: #ffb641;
 }
 
 #million {
-  /* margin-top: 3rem; */
-  font-size: 7rem;
+  font-size: 6vw;
   color: lightgrey;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 #americans {
@@ -137,7 +128,6 @@ body {
 
 #right-side {
   text-align: center;
-  border: 2px solid lime;
 }
 
 #forty-percent-infographic {

@@ -10,6 +10,9 @@ import UserPage from "./pages/UserPage/userpage";
 import { HashRouter as Router, Route } from "react-router-dom";
 import userPage from "./pages/UserPage/userpage";
 import Button from "./components/Button/Button";
+import Profile from "./pages/client-profile/client-profile"
+
+let currentPost = 'none';
 
 function App() {
   return (
@@ -17,10 +20,11 @@ function App() {
       <Navbar />
       <Route exact path="/" component={MainPage} />
       <Route exact path="/login" component={Login} />
-      <Route exact path="/Posts" component={Posts} />
-      <Route exact path="/singlepost" component={SinglePost} />
+      <Route exact path="/Posts" render={() => <Posts currentPost={currentPost} />} />
+      <Route exact path="/singlepost" render={() => <SinglePost currentPost={currentPost} />} />
       <Route exact path="/CreatePost" component={CreatePost} />
       <Route exact path="/UserPage" component={userPage} />
+      <Route exact path="/client-profile" component={Profile}/>
     </Router>
   );
 }

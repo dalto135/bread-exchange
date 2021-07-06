@@ -5,7 +5,13 @@ const foodExchangeController = require("../../controller/foodExchangeController.
 
 router.route("/")
 .get(foodExchangeController.findAll)
-.post(foodExchangeController.create);
+.post(foodExchangeController.create)
+
+
+router.route('/:id')
+.delete(foodExchangeController.remove)
+.get(foodExchangeController.findById)
+.put(foodExchangeController.update);
 
 router.route("/:id")
 .get(foodExchangeController.findById)
