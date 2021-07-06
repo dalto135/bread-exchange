@@ -102,7 +102,13 @@ module.exports={
       },
 
       createReservation: function(req, res) {
-          foodDatabase.Reservation.create(req.body)
+          foodDatabase.Reservation.create({
+            _id: req.body._id,
+            quantity: req.body.quantity,
+            reservationDate: Date.now,
+            user_id: req.body.user_id,
+            post_id: req.body.post_id
+          })
           .then(dbReservation => res.json(dbReservation))
           .catch(err => res.status(422).json(err));
       }
