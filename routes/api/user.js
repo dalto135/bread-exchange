@@ -11,6 +11,6 @@ router.route('/login')
 .post(foodExchangeController.loginUser);
 
 router.route('/:id')
-.post(foodExchangeController.getUserById);
+.get(foodExchangeController.getUserById);
 
 module.exports = router;
