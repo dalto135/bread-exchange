@@ -77,21 +77,39 @@ module.exports={
           }
       },
       createUserAccount: function(req, res) {
-          foodDatabase.User
-            .create(req.body)
-            .then(dbUser => res.json(dbUser))
-            .catch(err => res.status(422).json(err.message))
+        foodDatabase.User
+          .create(req.body)
+          .then(dbUser => res.json(dbUser))
+          .catch(err => res.status(422).json(err.message))
       },
       getUserById: function (req, res) {
-          foodDatabase.User
-            .findOne({ _id: req.body.user_id })
-            // .find({username: 'jack123'})
-            .then(dbUser => {res.json(dbUser);
-                console.log(req.body)
-                console.log(req.params)})
-            .catch(err => {res.status(422).json(err.message);
-                console.log('err.message');
-                console.log(err.message);})
+        foodDatabase.User
+          .findOne({ _id: req.body.user_id })
+          // .find({username: 'jack123'})
+          .then(dbUser => {
+            res.json(dbUser);
+            console.log(req.body);
+            console.log(req.params);
+          })
+          .catch(err => {
+            res.status(422).json(err.message);
+            console.log('err.message');
+            console.log(err.message);
+          })
+      },
+      updateUser: function(req, res) {
+        foodDatabase.User
+          .findOneAndUpdate({ _id: req.body._id })
+          .then(dbUser => {
+            res.json(dbUser);
+            console.log(req.body);
+            console.log(req.params);
+          })
+          .catch(err => {
+            res.status(422).json(err.message);
+            console.log('err.message');
+            console.log(err.message);
+          })
       },
       //Reservations
       getPostReservations: function(req, res) {
@@ -111,6 +129,21 @@ module.exports={
           })
           .then(dbReservation => res.json(dbReservation))
           .catch(err => res.status(422).json(err));
-      }
+      },
+      deleteReservation: function (req, res) {
+        foodDatabase.Reservation
+          .remove({ _id: req.body._id })
+          .then(dbUser => {
+            res.json(dbUser);
+            console.log(req.body)
+            console.log(req.params)
+          })
+          .catch(err => {
+            res.status(422).json(err.message);
+            console.log('err.message');
+            console.log(err.message);
+          })
+      },
+
     
 };

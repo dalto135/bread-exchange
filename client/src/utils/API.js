@@ -31,6 +31,9 @@ export default {
   getSingleUser: function(userData) {
     return axios.post('/api/user/:id', userData);
   },
+  editAccount: function(userData) {
+    return axios.put('/api/user', userData);
+  },
   
   //Reservation routes
   getReservations: function(postData) {
@@ -38,7 +41,10 @@ export default {
   },
   createReservation: function(reservationData) {
     return axios.post('api/reservation/createnew', reservationData);
-  }
+  },
+  removeReservation: function(reservationData) {
+    return axios.delete('api/reservation', reservationData);
+  },
   
 };
 

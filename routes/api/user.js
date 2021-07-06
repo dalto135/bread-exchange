@@ -4,7 +4,8 @@ const foodExchangeController = require("../../controller/foodExchangeController"
 
 router.route('/')
 .get(foodExchangeController.getUsers)
-.post(foodExchangeController.createUserAccount);
+.post(foodExchangeController.createUserAccount)
+.put(foodExchangeController.updateUser);
 
 router.route('/login')
 .post(foodExchangeController.loginUser);
