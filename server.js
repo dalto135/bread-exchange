@@ -4,7 +4,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const logger = require('morgan');
 const mongoose = require("mongoose");
-const routes = require("./routes")
+const routes = require("./routes");
+const io = require('socket.io');
 
 app.use(logger('dev'));
 
@@ -35,3 +36,12 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now at http://localhost:${PORT}`);
 });
+
+
+io.on('connection', (socket) => { /* socket object may be used to send specific messages to the new connected client */
+  socket.on('join',function(data) {
+    socket.join(data.username);
+  });
+    console.log('new client connected');
+});
+

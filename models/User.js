@@ -4,6 +4,9 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
    
+    _id: {
+        type:String
+    },
     firstName: {
         type: String,
         trim: true,

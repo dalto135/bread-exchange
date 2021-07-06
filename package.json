@@ -26,12 +26,14 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "express": "^4.16.3",
+    "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "inquirer": "^8.1.1",
     "mongoose": "^5.12.14",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "react-bootstrap": "^1.6.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "socket.io": "^4.1.2"
   }
 }

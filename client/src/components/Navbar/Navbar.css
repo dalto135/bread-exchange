@@ -1,0 +1,52 @@
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: gainsboro;
+  height: auto;
+}
+
+#be-logo {
+  width: 5rem;
+  height: auto;
+  position: relative;
+  background: gainsboro;
+}
+
+#logo-div {
+    width: auto;
+    justify-content: flex-start;
+    
+}
+
+#buttons-div {
+    width: auto;
+    background: gainsboro;
+}
+
+#cart-and-logout-div {
+    width: auto;
+    background: gainsboro;
+    
+}
+
+#nav-buttons-list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.list-item {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.nav-icon {
+    color: #99cc66;
+    margin-right: 10px;
+  }
+
+.link-button {
+    color: inherit;
+    text-decoration: none;
+}
