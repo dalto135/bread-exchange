@@ -1,6 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./signup.css";
+import { HashRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Signup() {
   return (
@@ -29,6 +31,7 @@ function Signup() {
         </form>
         {/* Signup Button */}
         <button className="signup-button" type="button">Signup</button>
+        <p>Already have an account? <Link to= './login'>Log In</Link></p>
       </div>
     </div>
   );

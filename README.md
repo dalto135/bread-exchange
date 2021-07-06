@@ -26,7 +26,10 @@ Bread exchange is a webpage using the MERN stack which aims to decrease food was
 MIT
 
 ## Contact
-Dalton Wilkins - daltongh@gmail.com  
-Tera Howell - terahowell@gmail.com  
-Elizabeth Ogbonna - elogtechmail@gmail.com  
-Tre Scott - tres1396@gmail.com
+[Dalton Wilkins](https://github.com/dalto135) - daltongh@gmail.com  
+[Tera Howell](https://github.com/TLH3810) - terahowell@gmail.com  
+[Elizabeth Ogbonna](https://github.com/eloghub) - elogtechmail@gmail.com  
+[Tre Scott](https://github.com/tres1396) - tres1396@gmail.com
+
+---
+© 2021
