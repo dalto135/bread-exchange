@@ -10,6 +10,7 @@ import UserPage from "./pages/UserPage/userpage";
 import { HashRouter as Router, Route } from "react-router-dom";
 import userPage from "./pages/UserPage/userpage";
 import Button from "./components/Button/Button";
+import Profile from "./pages/client-profile/client-profile"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route exact path="/singlepost" component={SinglePost} />
       <Route exact path="/CreatePost" component={CreatePost} />
       <Route exact path="/UserPage" component={userPage} />
+      <Route exact path="/client-profile" component={Profile}/>
     </Router>
   );
 }
