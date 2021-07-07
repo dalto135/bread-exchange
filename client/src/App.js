@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import "./App.css";
 import Login from "./pages/LoginPage/Login";
 import Navbar from "./components/Navbar/navbar";
@@ -10,11 +10,28 @@ import UserPage from "./pages/UserPage/userpage";
 import { HashRouter as Router, Route } from "react-router-dom";
 import userPage from "./pages/UserPage/userpage";
 import Button from "./components/Button/Button";
-import Profile from "./pages/client-profile/client-profile"
+import Profile from "./pages/client-profile/client-profile";
+import { io } from "socket.io-client";
 
 let currentPost = 'none';
 
 function App() {
+    useEffect(()=> {
+    const socket = io();
+    socket.on("connect", () => {
+      console.log('socket conneted',socket.id); 
+    });
+    socket.on("hello", (message) => {
+      console.log('hello was received', message); 
+    });
+    socket.on("disconnect", () => {
+      console.log('socket disconneted',socket.id);
+        });
+    socket.connect();
+    return()=>{
+     socket.disconnect();
+    }
+  },[])
   return (
     <Router>
       <Navbar />

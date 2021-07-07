@@ -5,7 +5,9 @@ const app = express();
 const logger = require('morgan');
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const io = require('socket.io');
+const httpServer = require("http").createServer(app);
+const options = { /* ... */ };
+const io = require("socket.io")(httpServer, options);
 
 app.use(logger('dev'));
 
@@ -33,15 +35,12 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, () => {
+io.on('connection', (socket) => { /* socket object may be used to send specific messages to the new connected client */
+  
+  console.log('new client connected', socket.id);
+  socket.emit('hello','this is a pretend message');
+});
+
+httpServer.listen(PORT, () => {
   console.log(`🌎 ==> API server now at http://localhost:${PORT}`);
 });
-
-
-io.on('connection', (socket) => { /* socket object may be used to send specific messages to the new connected client */
-  socket.on('join',function(data) {
-    socket.join(data.username);
-  });
-    console.log('new client connected');
-});
-
