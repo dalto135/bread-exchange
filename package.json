@@ -23,6 +23,7 @@
     "nodemon": "^1.19.4"
   },
   "dependencies": {
+    "antd": "^4.16.6",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "express": "^4.16.3",

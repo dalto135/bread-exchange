@@ -33,7 +33,7 @@ function Mainpage() {
       <div id="lower-page">
         {/* 1st Section */}
         <section id="first-section">
-          <img id="second-image" src="/scatteredfood.jpg"></img>
+          <img id="second-image" src="/scatteredfood.jpg" alt="scattered-food"></img>
           <div id="what-we-do">
             <h1 id="what-we-do-header">What We Do</h1>
             <p id="what-we-do-text">
@@ -70,15 +70,9 @@ function Mainpage() {
           {/* 40% Infographic */}
           <div>
             <div id="right-side">
-              <img
-                id="forty-percent-infographic"
-                src="/fortypercent.jpg"
-                alt="infographic"
-              ></img>
+              <img id="forty-percent-infographic" src="/fortypercent.jpg" alt="infographic"></img>
               <h3 id="waste">Waste</h3>
-              <p id="forty-percent-text">
-                It's estimated that Americans waste at
-              </p>
+              <p id="forty-percent-text">It's estimated that Americans waste at</p>
               <p id="forty-percent-text">least 40% of our food supply</p>
             </div>
           </div>

@@ -136,7 +136,7 @@ th {
 
 .single-post {
   display: flex;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid gainsboro;
   padding: 1rem;
 }
 

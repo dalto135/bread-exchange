@@ -17,7 +17,7 @@ function userPage() {
         <div id="white-panel">
           {/* Header */}
           <h1 id="my-account-header">My Account</h1>
-              {/* Update Info */}
+          {/* Update Info */}
           <Link to="./client-profile">Update my Info</Link>
 
           <h2 id="reservations-header">Reservations</h2>
@@ -43,8 +43,12 @@ function userPage() {
                 <td>555-5555</td>
                 <td>Potatoes</td>
                 <td>
-                  <button id="table-button"><i class="fas fa-check table-check"></i></button>
-                  <button id="table-button"><i class="fas fa-times table-x"></i></button>
+                  <button id="table-button">
+                    <i class="fas fa-check table-check"></i>
+                  </button>
+                  <button id="table-button">
+                    <i class="fas fa-times table-x"></i>
+                  </button>
                 </td>
               </tr>
               <tr>
@@ -52,16 +56,34 @@ function userPage() {
                 <td>555-5555</td>
                 <td>Cheese</td>
                 <td>
-                  <button id="table-button"><i class="fas fa-check table-check"></i></button>
-                  <button id="table-button"><i class="fas fa-times table-x"></i></button>
+                  <button id="table-button">
+                    <i class="fas fa-check table-check"></i>
+                  </button>
+                  <button id="table-button">
+                    <i class="fas fa-times table-x"></i>
+                  </button>
                 </td>
               </tr>
             </table>
           </div>
-            {/* My Posts */}
+          {/* My Posts */}
           <h2 id="my-posts-header">My Posts</h2>
-            {/* Posts Container */}
+          {/* Posts Container */}
           <div id="my-posts-container">
+            {/* Single Post */}
+            <div className="single-post">
+              <div className="post-title">
+                <a href="/">Title Here</a>
+              </div>
+              <div className="post-description">
+                <h3>Description Here</h3>
+              </div>
+              <div className="delete-post">
+                <button className="trash-button">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
 
             {/* Single Post */}
             <div className="single-post">
@@ -72,26 +94,12 @@ function userPage() {
                 <h3>Description Here</h3>
               </div>
               <div className="delete-post">
-              <button className="trash-button"><i class="fas fa-trash"></i></button>
+                <button className="trash-button">
+                  <i class="fas fa-trash"></i>
+                </button>
               </div>
             </div>
-
-            {/* Single Post */}
-            <div className="single-post">
-              <div className="post-title">
-              <a href="/">Title Here</a>
-              </div>
-              <div className="post-description">
-                <h3>Description Here</h3>
-              </div>
-              <div className="delete-post">
-              <button className="trash-button"><i class="fas fa-trash"></i></button>
-              </div>
-            </div>
-
-
           </div>
-
         </div>
       </div>
     </div>
