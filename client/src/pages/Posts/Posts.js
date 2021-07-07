@@ -78,8 +78,7 @@ function Posts({currentPost}) {
                   </h4>
                   <h6>Pick up Location at {post.location}</h6>
                   <h6>Posted {post.postDate}</h6>
-                  <h6>Exp: 6/31/21</h6>
-                  <h6>Contact: John Smith - jsmith@email.com</h6>
+                  <h6>Contact: {post.email}</h6>
                   <h6>Item: {post.name} </h6>
                   <h6>Description: {post.description} </h6>
                   <h6>Number of Items: {post.quantity} </h6>
@@ -88,8 +87,6 @@ function Posts({currentPost}) {
                   <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
                 </div>
               </div>
-
-
             );
           })
         ) : (
