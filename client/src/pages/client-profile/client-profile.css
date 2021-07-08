@@ -1,0 +1,12 @@
+.profile-header {
+    margin-top: 2rem;
+}
+
+.update-button {
+    margin-bottom: 2rem;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
