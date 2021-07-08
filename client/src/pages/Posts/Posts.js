@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import { Link } from "react-router-dom";
@@ -8,8 +8,14 @@ import SinglePost from "../Singlepost/Singlepost";
 import CreatePost from "../CreatePost/CreatePost";
 import { HashRouter as Router, Route } from "react-router-dom";
 import API from "../../utils/API";
+import { UserContext } from '../../utils/user-context';
+import MaterialButton from "../../components/Material-Button/Material-Button";
 
 function Posts({currentPost}) {
+
+  const userData = useContext(UserContext);
+  console.log('userData');
+  console.log(userData);
 
   function choosePost(post) {
     currentPost = post;
@@ -18,7 +24,7 @@ function Posts({currentPost}) {
   }
 
   const [posts, setPosts] = useState([])
-  const [userData, setUserData] = useState([]);
+  // const [userData, setUserData] = useState([]);
   const [formList, setFormList] = useState({
     name: "",
     description: "",
@@ -43,22 +49,23 @@ function Posts({currentPost}) {
   }
 
 
-  function getUser(postData) {
-    API.getSingleUser(postData)
-    .then(res => {
-    console.log('res.data');
-    console.log(res.data);
-    setUserData(res.data);  
-    })
-    .catch(err => console.log(err.message));
-  }
+  // function getUser(postData) {
+  //   API.getSingleUser(postData)
+  //   .then(res => {
+  //   console.log('res.data');
+  //   console.log(res.data);
+  //   setUserData(res.data);  
+  //   })
+  //   .catch(err => console.log(err.message));
+  // }
 
 
   return (
     <div>
       <div id="top-section">
         <h1 id="find-food-header">Find Food Here</h1>
-        <materialButton className="material-button"><Link className="link-button"to="/CreatePost">Post Food</Link><br></br></materialButton>
+        {userData.data &&
+          <materialButton className="material-button"><Link className="link-button"to="/CreatePost">Post Food</Link><br></br></materialButton>}
         <materialButton className="material-button" style={{marginTop: "1rem"}} type="submit" onClick={loadPosts}>Load Current Posts</materialButton>
       </div>
       <div id="gray-panel">

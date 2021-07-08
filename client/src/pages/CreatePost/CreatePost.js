@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./style.css";
 import API from "../../utils/API";
-import materialButton from "../../components/Material-Button/Material-Button";
+import { UserContext } from '../../utils/user-context';
+import MaterialButton from "../../components/Material-Button/Material-Button";
 
 function CreatePost(event) {
+
+  const userData = useContext(UserContext);
+  console.log('userData');
+  console.log(userData);
+
   const [formObject, setFormObject] = useState({
+    _id: Math.random(),
     name: "",
     description: "",
     location: "",
     quantity: "",
-    user_id: "",
+    user_id: userData.data._id,
   });
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
@@ -19,21 +26,26 @@ function CreatePost(event) {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.name && formObject.description) {
-      API.savePosts({
-        name: formObject.name,
-        description: formObject.description,
-        location: formObject.location,
-        quantity: formObject.quantity,
-        user_id: formObject.user_id,
-      })
-        .then(() =>
+      API.savePosts(
+      //   {
+      //   name: formObject.name,
+      //   description: formObject.description,
+      //   location: formObject.location,
+      //   quantity: formObject.quantity,
+      //   user_id: formObject.user_id,
+      // }
+      formObject
+      )
+        .then(() => {
           setFormObject({
             name: "",
             description: "",
             location: "",
             quantity: "",
             user_id: "",
-          })
+          });
+          document.location.replace('/');
+        }
         )
         .catch((err) => console.log(err));
     }
@@ -52,9 +64,9 @@ function CreatePost(event) {
               <input onChange={handleInputChange} type="text" name="location" placeholder="Street/business name.."></input>
               <b>Enter the quantity of the items available.</b>
               <input onChange={handleInputChange} type="text" name="quantity" placeholder="10.."></input>
-              <b>Enter your user identifier.</b>
-              <input onChange={handleInputChange} type="text" name="user_id" placeholder="USER123.."></input>
-              <materialButton type="submit" className="material-button">Submit</materialButton>
+              {/* <b>Enter your user identifier.</b> */}
+              {/* <input onChange={handleInputChange} type="text" name="user_id" placeholder="USER123.."></input> */}
+              <materialButton type="submit" className="material-button" onClick={handleFormSubmit}>Submit</materialButton>
               
             </form>
           </div>

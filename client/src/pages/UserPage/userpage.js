@@ -33,83 +33,87 @@ function UserPage() {
     .catch(err => console.log(err.message))
   }, [])
 
-  const [newPost, setNewPost] = useState([]);
+  const [newPost, setNewPost] = useState({
+    _id: Math.random(),
+    user_id: userData.data._id,
 
-  useEffect(() => {
+  });
 
-  }, [])
+  // useEffect(() => {
 
-  let name = '';
-  let description = '';
-  let location = '';
-  let quantity = '';
+  // }, [])
+
+  // let name = '';
+  // let description = '';
+  // let location = '';
+  // let quantity = '';
 
   //Set name
-  function nameHandler(event) {
-    name = event.target.value;
+  // function nameHandler(event) {
+  //   name = event.target.value;
 
-    setNewPost({
-      ...newPost,
-      _id: Math.random(),
-      user_id: userData.data._id,
-      name
-    })
-    console.log('name change');
-    console.log(name);
-  }
+  //   setNewPost({
+  //     ...newPost,
+  //     // _id: Math.random(),
+  //     // user_id: userData.data._id,
+  //     name
+  //   })
+  //   console.log('name change');
+  //   console.log(name);
+  // }
 
   //Set description
-  function descriptionHandler(event) {
-    description = event.target.value;
+  // function descriptionHandler(event) {
+  //   description = event.target.value;
 
-    setNewPost({
-      ...newPost,
-      _id: Math.random(),
-      user_id: userData.data._id,
-      description
-    })
-    console.log('description change');
-    console.log(description);
-  }
+  //   setNewPost({
+  //     ...newPost,
+  //     // _id: Math.random(),
+  //     // user_id: userData.data._id,
+  //     description
+  //   })
+  //   console.log('description change');
+  //   console.log(description);
+  // }
 
   //Set location
-  function locationHandler(event) {
-    location = event.target.value;
+  // function locationHandler(event) {
+  //   location = event.target.value;
 
-    setNewPost({
-      ...newPost,
-      _id: Math.random(),
-      user_id: userData.data._id,
-      location
-    })
-    console.log('location change');
-    console.log(location);
-  }
+  //   setNewPost({
+  //     ...newPost,
+  //     // _id: Math.random(),
+  //     // user_id: userData.data._id,
+  //     location
+  //   })
+  //   console.log('location change');
+  //   console.log(location);
+  // }
 
   //Set quantity
-  function quantityHandler(event) {
-    quantity = event.target.value;
-    let intQuantity = parseInt(quantity);
+  // function quantityHandler(event) {
+  //   quantity = event.target.value;
+  //   let intQuantity = parseInt(quantity);
 
-    setNewPost({
-      ...newPost,
-      _id: Math.random(),
-      user_id: userData.data._id,
-      quantity: intQuantity
-    })
-    console.log('quantity change');
-    console.log(quantity);
-  }
+  //   setNewPost({
+  //     ...newPost,
+  //     // _id: Math.random(),
+  //     // user_id: userData.data._id,
+  //     quantity: intQuantity
+  //   })
+  //   console.log('quantity change');
+  //   console.log(quantity);
+  // }
 
-  function submitPost(data) {
-    API.savePosts(data)
-    .then(postData => {
-      console.log('submitted post data');
-      console.log(postData);
-      document.location.replace('/');
-    })
-    .catch(err => console.log(err.message));
-  }
+  // function submitPost(data) {
+  //   API.savePosts(data)
+  //   .then(postData => {
+  //     console.log('submitted post data');
+  //     console.log(postData);
+  //     document.location.replace('/');
+  //   })
+  //   .catch(err => console.log(err.message));
+  // }
 
   function deletePost(_id) {
     API.deletePosts(_id)
@@ -120,6 +124,29 @@ function UserPage() {
     })
     .catch(err => console.log(err.message));
   }
+
+  function deleteReservation(_id) {
+    API.removeReservation(_id)
+    .then(reservationData => {
+      console.log('submitted reservation data');
+      console.log(reservationData);
+      document.location.replace('/');
+    })
+    .catch(err => console.log(err.message));
+  }
+
+  const [reservations, setReservations] = useState([]);
+
+  useEffect(() => {
+    API.getUserReservations(userData.data)
+    .then(data => {
+      console.log('user reservations');
+      console.log(data);
+      // document.location.replace('/');
+      setReservations(data);
+    })
+    .catch(err => console.log(err.message));
+  }, [])
 
   // let userData = localStorage.getItem('localuser');
   // let parsedUser = JSON.parse(userData);
@@ -175,10 +202,10 @@ function UserPage() {
            
             {postData? (
 
-              postData.data?.map(post => {
+              postData.data?.map((post, i) => {
                 return (
                   // {let user = getUser(post)},
-                  <div className="card" key={post._id}>
+                  <div className="card" key={i}>
                     <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
                     <div className="container">
                       <h4>
@@ -202,7 +229,7 @@ function UserPage() {
             )}
            
           </div>
-          <div id='new-post-container'>
+          {/* <div id='new-post-container'>
             <h2>Create New Post</h2>
             <p>Name:</p>
             <input onChange={nameHandler}></input>
@@ -217,6 +244,22 @@ function UserPage() {
             <input onChange={quantityHandler}></input>
 
             <button onClick={() => {submitPost(newPost)}}>Submit</button>
+          </div> */}
+          <div id='myreservations'>
+          <div className="container">
+            <h1>My Reservations</h1>
+            {reservations.data?.map((reservation, i) => {
+              return (
+                <div className="card" key={i}>
+                <p>{(i + 1)}.</p>
+                <p>Post ID: {reservation.post_id}</p>
+                <p>Quantity: {reservation.quantity}</p>
+                <button onClick={() => {deleteReservation(reservation._id)}}>Delete</button>
+                </div>
+              
+              )
+            })}
+            </div>
           </div>
         </div>
       </div>

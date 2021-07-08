@@ -57,6 +57,9 @@ export default {
   getReservations: function(postData) {
     return axios.post('/api/reservation', postData);
   },
+  getUserReservations: function(userData) {
+    return axios.post('/api/reservation/userreservations', userData);
+  },
   createReservation: function(reservationData) {
     return axios.post('api/reservation/createnew', reservationData);
   },
