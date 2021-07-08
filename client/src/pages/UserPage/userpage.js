@@ -138,13 +138,12 @@ postData.data?.map(post => {
     // {let user = getUser(post)},
     <div className="card" key={post._id}>
       <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
-                      <div className="container">
+      <div className="container">
         <h4>
           <b>{post.user_id}</b>
         </h4>
         <h6>Pick up Location at {post.location}</h6>
         <h6>Posted {post.postDate}</h6>
-        <h6>Contact: {post.email}</h6>
         <h6>Item: {post.name} </h6>
         <h6>Description: {post.description} </h6>
         <h6>Number of Items: {post.quantity} </h6>
