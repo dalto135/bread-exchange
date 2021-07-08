@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 // import { Post } from "../../../../models";
 import API from "../../utils/API";
+import { UserContext } from '../../utils/user-context';
 
 function Singlepost() {
     // console.log('currentPost')
@@ -10,6 +11,10 @@ function Singlepost() {
     const location = useLocation();
     // const post = location.state;
     let post = location.state.post;
+
+    const userData = useContext(UserContext);
+    console.log('userData');
+    console.log(userData);
 
     // console.log(post);
 
@@ -47,16 +52,31 @@ function Singlepost() {
     function makeReservation(reserve) {
         API.createReservation(reserve)
         .then(res =>{
-            console.log(res)
-            setUser(res.data)
+            console.log(res);
+            setUser(res.data);
+            document.location.replace('/');
         })
         .catch(err => console.log(err.message));
     }
 
+    const [newReseration, setNewReservation] = useState([]);
+
     let quantity = '';
     function inputHandler(event) {
         quantity = event.target.value;
+        let intQuantity = parseInt(quantity);
+
+        setNewReservation({
+            ...newReseration,
+            _id: Math.random(),
+            quantity: intQuantity,
+            user_id: userData.data._id,
+            post_id: post._id
+        })
+
     }
+
+
 
 
     
@@ -88,7 +108,7 @@ function Singlepost() {
 
             <h1>Make Reservation</h1>
             <input placeholder='Quantity' onChange={inputHandler}/>
-            <button onClick={() => {makeReservation({_id: Math.random(), quantity: parseInt(quantity), user_id: 'user_id', post_id: post._id })}}>Confirm</button>
+            <button onClick={() => {makeReservation(newReseration)}}>Confirm</button>
         </div>
     )
 }
