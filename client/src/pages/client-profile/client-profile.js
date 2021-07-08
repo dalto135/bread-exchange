@@ -6,7 +6,7 @@ function Profile() {
   return (
     <div className="profile-background">
       <div className="white-panel">
-        <h1 className="profile-header">Login</h1>
+        <h1 className="profile-header">Update Profile Info</h1>
         {/* Update Username */}
         <form className="username-input-form">
           <div class="form-group">

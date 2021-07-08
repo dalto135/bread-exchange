@@ -13,4 +13,7 @@ router.route('/:id')
 .get(foodExchangeController.findById)
 .put(foodExchangeController.update);
 
+router.route("/:id")
+.get(foodExchangeController.findById)
+
 module.exports = router;
