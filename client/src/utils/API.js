@@ -23,6 +23,9 @@ export default {
   updatePost: function(postData) {
     return axios.put('api/post' + postData);
   },
+  findByUserID: function(postData) {
+    return axios.post('/api/post/userid', postData);
+  },
 
   //User routes
   getUsers: function() {
@@ -42,6 +45,9 @@ export default {
   },
   userInfo: function() {
     return axios.get('/api/user/info');
+  },
+  logout: function() {
+    return axios.post('/api/user/logout');
   },
   
   //Reservation routes

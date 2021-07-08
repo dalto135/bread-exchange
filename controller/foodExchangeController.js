@@ -32,6 +32,12 @@ module.exports={
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
+    findByUserID: function(req, res) {
+      foodDatabase.Post
+        .find({user_id: req.body._id})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
 
       //Users
       getUsers: function(req, res) {
@@ -80,6 +86,17 @@ module.exports={
               console.log(err.message);
             res.status(400).json(err.message);
           }
+      },
+
+      logoutUser: function(req, res) {
+        if (req.session.logged_in) {
+          console.log(req.session);
+          req.session.destroy(() => {
+            res.status(204).end();
+          });
+        } else {
+          res.status(404).end();
+        }
       },
 
       userInfo: function(req, res) {

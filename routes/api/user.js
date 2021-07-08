@@ -16,6 +16,9 @@ router.route('/info')
 router.route('/:id')
 .get(foodExchangeController.getUserById);
 
+router.route('/logout')
+.post(foodExchangeController.logoutUser);
+
 
 
 module.exports = router;

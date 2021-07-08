@@ -60,6 +60,7 @@ function Login() {
       .then(res => {
           console.log(res.data);
           setUserData(res.data);
+          document.location.replace('/');
       })
       .catch(err => console.log(err.message));
   }
