@@ -38,7 +38,6 @@ body {
 .card-container {
   display: flex;
   flex-direction: row;
-  border: 2px solid blue;
   margin: 2rem;
 }
 
