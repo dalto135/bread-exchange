@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
@@ -5,6 +6,17 @@ const app = express();
 const logger = require('morgan');
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const session = require('express-session');
+// const cookieSession = require('cookie-session');
+const sess = {
+  secret: process.env.sessionKey,
+  resave: false,
+  saveUninitialized: false
+}
+
+
+
+app.use(session(sess));
 const httpServer = require("http").createServer(app);
 const options = { /* ... */ };
 const io = require("socket.io")(httpServer, options);

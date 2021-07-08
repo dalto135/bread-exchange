@@ -65,6 +65,7 @@ function Posts({currentPost}) {
 
           posts.map(post => {
             return (
+              // {let user = getUser(post)},
               <div className="card" key={post._id}>
                                 <div className="container">
                   <h4>

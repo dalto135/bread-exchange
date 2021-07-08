@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "./pages/LoginPage/Login";
@@ -9,12 +9,14 @@ import SinglePost from "./pages/Singlepost/Singlepost";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import UserPage from "./pages/UserPage/userpage";
 import { HashRouter as Router, Route } from "react-router-dom";
-import userPage from "./pages/UserPage/userpage";
+// import userPage from "./pages/UserPage/userpage";
 import Button from "./components/Button/Button";
 import Profile from "./pages/client-profile/client-profile";
 import { io } from "socket.io-client";
+import { UserProvider } from './utils/user-context';
 
-let currentPost = 'none';
+// let currentPost = 'none';
+
 
 function App() {
     useEffect(()=> {
@@ -35,14 +37,17 @@ function App() {
   },[])
   return (
     <Router>
-      <Navbar />
-      <Route exact path="/" component={MainPage} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/Posts" render={() => <Posts currentPost={currentPost} />} />
-      <Route exact path="/singlepost" render={() => <SinglePost currentPost={currentPost} />} />
-      <Route exact path="/CreatePost" component={CreatePost} />
-      <Route exact path="/UserPage" component={userPage} />
-      <Route exact path="/client-profile" component={Profile}/>
+      
+      <UserProvider>
+        <Navbar />
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/Posts" component={Posts} />
+        <Route exact path="/singlepost" component={SinglePost} />
+        <Route exact path="/CreatePost" component={CreatePost} />
+        <Route exact path="/UserPage" component={UserPage} />
+        <Route exact path="/client-profile" component={Profile}/>
+      </UserProvider>
     </Router>
   );
 }

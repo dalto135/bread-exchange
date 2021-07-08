@@ -132,6 +132,8 @@ th {
 #my-posts-container {
   width: 50rem;
   height: 30rem;
+  display: flex;
+  justify-content: center;
 }
 
 .single-post {

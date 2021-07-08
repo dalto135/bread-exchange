@@ -2,36 +2,42 @@ const foodDatabase = require("../models");
 
 module.exports={
     findAll: function(req, res){
-        foodDatabase.Post.find(req.query)
+      foodDatabase.Post.find(req.query)
         .sort({postDate: -1})
         .then(dbModel => res.json (dbModel))
         .catch(err => res.status(422).json(err));
     },
     create: function(req, res) {
-       foodDatabase.Post.create(req.body)
+      foodDatabase.Post.create(req.body)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
-      },
-      //find by user Id
+    },
+    //find by user Id
     findById: function(req, res) {
-        foodDatabase.Post
+      foodDatabase.Post
         .findById({_id: req.params.id})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
-      },
-      update: function(req, res) {
-        foodDatabase.Post
-          .findOneAndUpdate({ _id: req.params.id }, req.body)
-          .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err));
-      },
-      remove: function(req, res) {
-        foodDatabase.Post
-          .findById({ _id: req.params.id })
-          .then(dbModel => dbModel.remove())
-          .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err));
-      },
+    },
+    update: function(req, res) {
+      foodDatabase.Post
+        .findOneAndUpdate({ _id: req.params.id }, req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
+    remove: function(req, res) {
+      foodDatabase.Post
+        .findById({ _id: req.params.id })
+        .then(dbModel => dbModel.remove())
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
+    findByUserID: function(req, res) {
+      foodDatabase.Post
+        .find({user_id: req.body._id})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
 
       //Users
       getUsers: function(req, res) {
@@ -40,10 +46,12 @@ module.exports={
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err.message))
       },
+
+
       loginUser: async function(req, res) {
         try {
-            const userData = await foodDatabase.User.findOne({ where: { username: req.body.username } });
-        
+            const userData = await foodDatabase.User.findOne({ username: req.body.username });
+            console.log(userData);
             if (!userData) {
               res
                 .status(400)
@@ -53,9 +61,10 @@ module.exports={
               return;
             }
         
-            const validPassword = await userData.checkPassword(req.body.password);
+            // const validPassword = await userData.checkPassword(req.body.password);
+
         
-            if (!validPassword) {
+            if (userData.password !== req.body.password) {
               res
                 .status(400)
                 .json({ message: 'Incorrect username or password, please try again' });
@@ -68,14 +77,38 @@ module.exports={
               req.session.logged_in = true;
               
               res.json({ user: userData, message: 'You are now logged in!' });
+              console.log('logged in!');
             });
-        
+            console.log(req.session);
+            // console.log(req.session.user_id);
           } catch (err) {
               console.log('err.message');
               console.log(err.message);
             res.status(400).json(err.message);
           }
       },
+
+      logoutUser: function(req, res) {
+        if (req.session.logged_in) {
+          console.log(req.session);
+          req.session.destroy(() => {
+            res.status(204).end();
+          });
+        } else {
+          res.status(404).end();
+        }
+      },
+
+      userInfo: function(req, res) {
+        console.log('user info', req.session);
+        if (!req.session.logged_in) {
+          return res.status(400).json({ message: 'Error, unauthorized sign in, cannot find session.' });
+        }
+        foodDatabase.User
+            .findOne({ _id: req.session.user_id })
+            .then(dbUser => res.json(dbUser))
+      },
+
       createUserAccount: function(req, res) {
         foodDatabase.User
           .create(req.body)
