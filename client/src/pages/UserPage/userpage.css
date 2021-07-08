@@ -132,6 +132,8 @@ th {
 #my-posts-container {
   width: 50rem;
   height: 30rem;
+  display: flex;
+  justify-content: center;
 }
 
 .single-post {
@@ -163,4 +165,10 @@ th {
 .trash-button {
   background: none;
   border: none;
+}
+
+.bootstrap-button {
+  background-color: cyan;
+  width: 4rem;
+  border-radius: 10px;
 }

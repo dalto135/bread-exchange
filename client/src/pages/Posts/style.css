@@ -2,8 +2,16 @@ body {
   font-family: Lato;
 }
 
-#find-food-header {
+#top-section {
   text-align: center;
+}
+
+#find-food-header {
+  margin-bottom: 2rem;
+}
+
+#load-posts-button {
+  margin-top: 1rem;
 }
 
 #gray-panel {
@@ -30,7 +38,7 @@ body {
 .card-container {
   display: flex;
   flex-direction: row;
-  /* border: 2px solid blue; */
+  margin: 2rem;
 }
 
 .card {
@@ -61,3 +69,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
 } */
+
+
+

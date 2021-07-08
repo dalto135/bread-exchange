@@ -23,9 +23,12 @@
     "nodemon": "^1.19.4"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.1",
     "antd": "^4.16.6",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
+    "cookie-session": "^1.4.0",
+    "dotenv": "^10.0.0",
     "express": "^4.16.3",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
