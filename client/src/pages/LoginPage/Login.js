@@ -95,7 +95,7 @@ function Login() {
 
   return (
     <div className="login-background">
-      <div className="white-panel">
+      <div id="white-panel-1">
         <h1 className="login-header">Login</h1>
         {/* Username Input */}
         <form className="username-input-form">
@@ -117,7 +117,7 @@ function Login() {
           <Link to='/signup'>Sign up</Link>
         </div>
         {/* Sign Up Button */}
-      </div>
+      </div>     
     </div>
   );
 }

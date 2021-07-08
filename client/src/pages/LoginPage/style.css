@@ -4,19 +4,24 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.white-panel {
+#white-panel-1 {
   background: white;
-  width: 28vw;
-  height: 80vh;
-  position: absolute;
+  width: 30%;
+  height: 80%;
   border-radius: 20px;
+  /* position: absolute;
   margin-top: 8vh;
-  margin-left: 38vw;
+  margin-left: 38vw; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
+  align-items: center;
+  flex-wrap: wrap;
   text-align: center;
   font-family: 'Lato', sans-serif;
 }
@@ -24,23 +29,17 @@
  .login-header {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-   margin-bottom: 4rem;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
 }
 
 .username-input-form{
-    margin-left: 4rem;
-    margin-right: 4rem;
+    margin-bottom: 4rem;
 }
 
 .password-input-form{
-    margin-left: 4rem;
-    margin-right: 4rem;
+    margin-bottom: 3rem;
 }
-
-/* .login-label {
-    margin-left: -9rem;
-    margin-bottom: .8vh;
-} */
 
 #login-div{
     margin-top: 2rem;
@@ -48,6 +47,7 @@
 }
 
 .login-button {
+    margin-top:150%;
     height: 2.5rem;
     border-radius: 5px;
     width: 4vw;;
