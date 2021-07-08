@@ -6,7 +6,7 @@ import "./Material-Button.css"
 class materialButton extends Component {
     render() {
         return (
-            <Button variant="contained" color="primary"></Button>
+            <Button></Button>
         );
     }
 }
