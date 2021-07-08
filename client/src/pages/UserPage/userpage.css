@@ -166,3 +166,9 @@ th {
   background: none;
   border: none;
 }
+
+.bootstrap-button {
+  background-color: cyan;
+  width: 4rem;
+  border-radius: 10px;
+}

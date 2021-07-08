@@ -56,45 +56,42 @@ function Posts({currentPost}) {
 
   return (
     <div>
-      <h1>Find Food Here</h1>
-      {/* <Link to="/CreatePost">Post Food</Link><br></br>
-      <Link to="/singlepost">Food</Link>
-      <button onClick={loadPosts}>Button</button> */}
-      
-      {/* <Router>
-        <Route exact path='/singlepost' component={SinglePost}/>
-      </Router> */}
-
-      <div className="card-container">
-        {posts.length ? (
-
-          posts.map(post => {
-            return (
-              // {let user = getUser(post)},
-              <div className="card" key={post._id}>
-                <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
-                                <div className="container">
-                  <h4>
-                    <b>{post.user_id}</b>
-                  </h4>
-                  <h6>Pick up Location at {post.location}</h6>
-                  <h6>Posted {post.postDate}</h6>
-                  <h6>Contact: {post.email}</h6>
-                  <h6>Item: {post.name} </h6>
-                  <h6>Description: {post.description} </h6>
-                  <h6>Number of Items: {post.quantity} </h6>
-                  {/* <a href={"/Posts/" + post._id} post={post}>View</a> */}
-                  {/* <Link to={'/singlepost'} onClick={() => {choosePost(post)}}>View</Link> */}
-                  <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
-                </div>
-              </div>
-            );
-          })
-        ) : (
-          <h3>No Results to Display</h3>
-        )}
+      <div id="top-section">
+        <h1 id="find-food-header">Find Food Here</h1>
+        <materialButton className="material-button"><Link className="link-button"to="/CreatePost">Post Food</Link><br></br></materialButton>
+        <materialButton className="material-button" style={{marginTop: "1rem"}} type="submit" onClick={loadPosts}>Load Current Posts</materialButton>
       </div>
-    </div>
+      <div id="gray-panel">
+        <div className="card-container">
+          {posts.length ? (
+
+            posts.map(post => {
+              return (
+                // {let user = getUser(post)},
+                <div className="card" key={post._id}>
+                                  <div className="container">
+                    <h4>
+                      <b>{post.user_id}</b>
+                    </h4>
+                    <h6>Pick up Location at {post.location}</h6>
+                    <h6>Posted {post.postDate}</h6>
+                    <h6>Contact: {post.email}</h6>
+                    <h6>Item: {post.name} </h6>
+                    <h6>Description: {post.description} </h6>
+                    <h6>Number of Items: {post.quantity} </h6>
+                    {/* <a href={"/Posts/" + post._id} post={post}>View</a> */}
+                    {/* <Link to={'/singlepost'} onClick={() => {choosePost(post)}}>View</Link> */}
+                    <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <h3>No Results to Display</h3>
+          )}
+        </div>
+      </div>
+      </div>
   );
 }
 
