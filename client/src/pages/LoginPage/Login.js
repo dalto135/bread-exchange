@@ -114,6 +114,7 @@ function Login() {
         {/* Login Button */}
         <div id="login-div">
           <button className="login-button" type="button" onClick={loginPlease}>Login</button>
+          <Link to='/signup'>Sign up</Link>
         </div>
         {/* Sign Up Button */}
       </div>
