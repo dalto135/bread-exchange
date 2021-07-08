@@ -101,14 +101,14 @@ function Login() {
         <form className="username-input-form">
           <div class="form-group">
             <label className="login-label" for="exampleInputEmail1">Username</label>
-            <input className="input-field" type="email" class="form-control" id="username-input" aria-describedby="" placeholder="Enter username" size="30" onChange={usernameHandler}></input>{" "}
+            <input className="input-field"  class="form-control" id="username-input" aria-describedby="" placeholder="Enter username" size="30" onChange={usernameHandler}></input>{" "}
           </div>
         </form>
         {/* Password Input */}
         <form className="password-input-form">
           <div class="form-group">
             <label className="login-label" for="exampleInputEmail1">Password</label>
-            <input className="input-field" type="email" class="form-control" id="password-input" aria-describedby="" placeholder="Enter password" size="30" onChange={passwordHandler}></input>{" "}
+            <input className="input-field"  class="form-control" id="password-input" aria-describedby="" placeholder="Enter password" size="30" onChange={passwordHandler}></input>{" "}
           </div>
         </form>
         {/* Login Button */}
