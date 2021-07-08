@@ -5,12 +5,8 @@ import API from '../../utils/API';
 import { Link } from "react-router-dom";
 
 
-<<<<<<< HEAD
-function userPage() {
-=======
 
 function UserPage() {
->>>>>>> ce383caca06d1d33221dda6ad9b64453ff1c9548
   // let loginString = localStorage.getItem('storedLogin');
   // let loginData = JSON.parse('{"hello":"hello","goodbye":"goodbye"}');
   // let loginData = JSON.parse(loginString);
@@ -84,14 +80,8 @@ function UserPage() {
           {/* Update Info */}
           <Link to="./client-profile">Update my Info</Link>
 
-<<<<<<< HEAD
-          <h2 id="reservations-header">Reservations</h2>
-
-          {/* Reservations Table */}
-=======
           {/* <h2 id="reservations-header">Reservations</h2>
            Reservations Table 
->>>>>>> ce383caca06d1d33221dda6ad9b64453ff1c9548
           <div id="table-divider">
             <table className="table-design" width="400" border="1" cellpadding="5">
               <tr>

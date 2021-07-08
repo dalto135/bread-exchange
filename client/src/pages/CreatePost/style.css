@@ -28,8 +28,7 @@
 
 .input-container {
   padding: 2px 16px;
-  border: 2px solid blue;
-  width: 90%;
+  width: 900%;
   margin: 1rem;
   display: flex;
   flex-wrap: wrap;
