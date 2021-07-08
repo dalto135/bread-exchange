@@ -206,11 +206,11 @@ function UserPage() {
                 return (
                   // {let user = getUser(post)},
                   <div className="card" key={i}>
-                    <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
+                    {/* <img className="card-img" src="/chart.jpg" alt="Avatar"></img> */}
                     <div className="container">
-                      <h4>
+                      {/* <h4>
                         <b>{post.user_id}</b>
-                      </h4>
+                      </h4> */}
                       <h6>Pick up Location at {post.location}</h6>
                       <h6>Posted {post.postDate}</h6>
                       <h6>Item: {post.name} </h6>
@@ -248,6 +248,9 @@ function UserPage() {
           <div id='myreservations'>
           <div className="container">
             <h1>My Reservations</h1>
+            <div id='reservationsdiv'>
+
+            
             {reservations.data?.map((reservation, i) => {
               return (
                 <div className="card" key={i}>
@@ -259,6 +262,7 @@ function UserPage() {
               
               )
             })}
+            </div>
             </div>
           </div>
         </div>
