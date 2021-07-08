@@ -5,7 +5,8 @@ router.route('/')
 .get(foodExchangeController.getAllReservations)
 .post(foodExchangeController.getPostReservations)
 
-
+router.route('/userreservations')
+.post(foodExchangeController.getUserReservations);
 
 router.route('/createnew')
 .post(foodExchangeController.createReservation);

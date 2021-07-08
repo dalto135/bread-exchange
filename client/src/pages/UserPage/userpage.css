@@ -172,3 +172,12 @@ th {
   width: 4rem;
   border-radius: 10px;
 }
+
+#myreservations {
+  width: 100%;
+}
+
+#reservationsdiv {
+  display: flex;
+  justify-content: center;
+}

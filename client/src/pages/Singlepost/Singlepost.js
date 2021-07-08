@@ -58,8 +58,17 @@ function Singlepost() {
         })
         .catch(err => console.log(err.message));
     }
+    if (userData.data) {
+    }
+    
+    const [newReseration, setNewReservation] = useState({
+        _id: Math.random(),
+        // user_id: userData.data._id,
+        post_id: post._id
+    });
 
-    const [newReseration, setNewReservation] = useState([]);
+    
+    
 
     let quantity = '';
     function inputHandler(event) {
@@ -68,12 +77,15 @@ function Singlepost() {
 
         setNewReservation({
             ...newReseration,
-            _id: Math.random(),
-            quantity: intQuantity,
             user_id: userData.data._id,
-            post_id: post._id
+            quantity: intQuantity
         })
 
+        // if (userData.data) {
+        //     setNewReservation({
+        //         user_id: userData.data._id
+        //     })
+        // }
     }
 
 
@@ -106,9 +118,9 @@ function Singlepost() {
             )}
             {/* Button */}
 
-            <h1>Make Reservation</h1>
-            <input placeholder='Quantity' onChange={inputHandler}/>
-            <button onClick={() => {makeReservation(newReseration)}}>Confirm</button>
+            {userData.data && <h1>Make Reservation</h1>} 
+            {userData.data && <input placeholder='Quantity' onChange={inputHandler}/> }
+            {userData.data && <button onClick={() => {makeReservation(newReseration)}}>Confirm</button>}
         </div>
     )
 }
