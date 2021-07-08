@@ -33,6 +33,94 @@ function UserPage() {
     .catch(err => console.log(err.message))
   }, [])
 
+  const [newPost, setNewPost] = useState([]);
+
+  useEffect(() => {
+
+  }, [])
+
+  let name = '';
+  let description = '';
+  let location = '';
+  let quantity = '';
+
+  //Set name
+  function nameHandler(event) {
+    name = event.target.value;
+
+    setNewPost({
+      ...newPost,
+      _id: Math.random(),
+      user_id: userData.data._id,
+      name
+    })
+    console.log('name change');
+    console.log(name);
+  }
+
+  //Set description
+  function descriptionHandler(event) {
+    description = event.target.value;
+
+    setNewPost({
+      ...newPost,
+      _id: Math.random(),
+      user_id: userData.data._id,
+      description
+    })
+    console.log('description change');
+    console.log(description);
+  }
+
+  //Set location
+  function locationHandler(event) {
+    location = event.target.value;
+
+    setNewPost({
+      ...newPost,
+      _id: Math.random(),
+      user_id: userData.data._id,
+      location
+    })
+    console.log('location change');
+    console.log(location);
+  }
+
+  //Set quantity
+  function quantityHandler(event) {
+    quantity = event.target.value;
+    let intQuantity = parseInt(quantity);
+
+    setNewPost({
+      ...newPost,
+      _id: Math.random(),
+      user_id: userData.data._id,
+      quantity: intQuantity
+    })
+    console.log('quantity change');
+    console.log(quantity);
+  }
+
+  function submitPost(data) {
+    API.savePosts(data)
+    .then(postData => {
+      console.log('submitted post data');
+      console.log(postData);
+      document.location.replace('/');
+    })
+    .catch(err => console.log(err.message));
+  }
+
+  function deletePost(_id) {
+    API.deletePosts(_id)
+    .then(postData => {
+      console.log('submitted post data');
+      console.log(postData);
+      document.location.replace('/');
+    })
+    .catch(err => console.log(err.message));
+  }
+
   // let userData = localStorage.getItem('localuser');
   // let parsedUser = JSON.parse(userData);
 
@@ -80,84 +168,55 @@ function UserPage() {
           {/* Update Info */}
           <Link to="./client-profile">Update my Info</Link>
 
-          {/* <h2 id="reservations-header">Reservations</h2>
-           Reservations Table 
-          <div id="table-divider">
-            <table className="table-design" width="400" border="1" cellpadding="5">
-              <tr>
-                <th width="75">
-                  <strong>Name</strong>
-                </th>
-                <th>
-                  <span className="bold-text">Telephone</span>
-                </th>
-                <th>
-                  <span className="bold-text">Items Reserved</span>
-                </th>
-                <th>
-                  <span className="bold-text">Approve?</span>
-                </th>
-              </tr>
-              <tr>
-                <td>John</td>
-                <td>555-5555</td>
-                <td>Potatoes</td>
-                <td>
-                  <button id="table-button">
-                    <i class="fas fa-check table-check"></i>
-                  </button>
-                  <button id="table-button">
-                    <i class="fas fa-times table-x"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>Cassie</td>
-                <td>555-5555</td>
-                <td>Cheese</td>
-                <td>
-                  <button id="table-button">
-                    <i class="fas fa-check table-check"></i>
-                  </button>
-                  <button id="table-button">
-                    <i class="fas fa-times table-x"></i>
-                  </button>
-                </td>
-              </tr>
-            </table>
-          </div> */}
           {/* My Posts */}
           <h2 id="my-posts-header">My Posts</h2>
           {/* Posts Container */}
           <div id="my-posts-container">
            
-          {postData? (
+            {postData? (
 
-postData.data?.map(post => {
-  return (
-    // {let user = getUser(post)},
-    <div className="card" key={post._id}>
-      <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
-      <div className="container">
-        <h4>
-          <b>{post.user_id}</b>
-        </h4>
-        <h6>Pick up Location at {post.location}</h6>
-        <h6>Posted {post.postDate}</h6>
-        <h6>Item: {post.name} </h6>
-        <h6>Description: {post.description} </h6>
-        <h6>Number of Items: {post.quantity} </h6>
-        {/* <a href={"/Posts/" + post._id} post={post}>View</a> */}
-        {/* <Link to={'/singlepost'} onClick={() => {choosePost(post)}}>View</Link> */}
-        <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
-      </div>
-    </div>
-  );
-})
-) : (
-<h3>No Results to Display</h3>
-)}
+              postData.data?.map(post => {
+                return (
+                  // {let user = getUser(post)},
+                  <div className="card" key={post._id}>
+                    <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
+                    <div className="container">
+                      <h4>
+                        <b>{post.user_id}</b>
+                      </h4>
+                      <h6>Pick up Location at {post.location}</h6>
+                      <h6>Posted {post.postDate}</h6>
+                      <h6>Item: {post.name} </h6>
+                      <h6>Description: {post.description} </h6>
+                      <h6>Number of Items: {post.quantity} </h6>
+                      {/* <a href={"/Posts/" + post._id} post={post}>View</a> */}
+                      {/* <Link to={'/singlepost'} onClick={() => {choosePost(post)}}>View</Link> */}
+                      <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
+                      <button onClick={() => {deletePost(post._id)}}>Delete</button>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <h3>No Posts</h3>
+            )}
            
+          </div>
+          <div id='new-post-container'>
+            <h2>Create New Post</h2>
+            <p>Name:</p>
+            <input onChange={nameHandler}></input>
+            
+            <p>Description:</p>
+            <input onChange={descriptionHandler}></input>
+
+            <p>Location:</p>
+            <input onChange={locationHandler}></input>
+
+            <p>Quantity:</p>
+            <input onChange={quantityHandler}></input>
+
+            <button onClick={() => {submitPost(newPost)}}>Submit</button>
           </div>
         </div>
       </div>

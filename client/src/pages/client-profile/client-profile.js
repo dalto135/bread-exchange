@@ -34,7 +34,6 @@ function Profile() {
   function firstNameHandler(event) {
     firstName = event.target.value;
 
-    
     setUpdatedInfo({
       ...updatedInfo,
       _id: userData.data._id,
@@ -48,7 +47,6 @@ function Profile() {
   function lastnameHandler(event) {
     lastName = event.target.value;
 
-    
     setUpdatedInfo({
       ...updatedInfo,
       _id: userData.data._id,
@@ -62,7 +60,6 @@ function Profile() {
   function usernameHandler(event) {
     username = event.target.value;
 
-    
     setUpdatedInfo({
       ...updatedInfo,
       _id: userData.data._id,
@@ -76,7 +73,6 @@ function Profile() {
   function passwordHandler(event) {
     password = event.target.value;
 
-    
     setUpdatedInfo({
       ...updatedInfo,
       _id: userData.data._id,
@@ -90,7 +86,6 @@ function Profile() {
   function emailHandler(event) {
     email = event.target.value;
 
-    
     setUpdatedInfo({
       ...updatedInfo,
       _id: userData.data._id,
@@ -104,10 +99,9 @@ function Profile() {
   function editProfile(data) {
     API.editAccount(data)
     .then(data => {
-      console.log('post data');
+      console.log('account data');
       console.log(data);
       document.location.reload();
-      // setPostData(data);
     })
     .catch(err => console.log(err.message))
 
@@ -124,7 +118,7 @@ function Profile() {
         <form className="email-input-form">
           <div className="form-group">
             <label className="profile-label" for="exampleInputEmail1">First Name:</label>
-            <input className="input-field" type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Input email for contact" size="30" onChange={firstNameHandler}></input>{" "}
+            <input className="input-field" type="email" className="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Input email for contact" size="30" onChange={firstNameHandler}></input>{" "}
             {/* <button className="update-button" type="button" onClick={() => {editProfile(updatedInfo)}}>Update</button> */}
           </div>
         </form>
@@ -132,7 +126,7 @@ function Profile() {
         <form className="email-input-form">
           <div className="form-group">
             <label className="profile-label" for="exampleInputEmail1">Last Name:</label>
-            <input className="input-field" type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Input email for contact" size="30" onChange={lastnameHandler}></input>{" "}
+            <input className="input-field" type="email" className="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Input email for contact" size="30" onChange={lastnameHandler}></input>{" "}
             {/* <button className="update-button" type="button" onClick={() => {editProfile(updatedInfo)}}>Update</button> */}
           </div>
         </form>
@@ -140,7 +134,7 @@ function Profile() {
         <form className="username-input-form">
           <div className="form-group">
             <label className="profile-label" for="exampleInputEmail1">Username:</label>
-            <input className="input-field" type="email" class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="Update username" size="30" onChange={usernameHandler}></input>{" "}
+            <input className="input-field" type="email" className="form-control" id="username-input" aria-describedby="emailHelp" placeholder="Update username" size="30" onChange={usernameHandler}></input>{" "}
             {/* <button className="update-button" type="button" onClick={() => {editProfile(updatedInfo)}}>Update</button> */}
           </div>
         </form>
@@ -148,7 +142,7 @@ function Profile() {
         <form className="password-input-form">
           <div className="form-group">
             <label className="profile-label" for="exampleInputEmail1">Password:</label>
-            <input className="input-field" type="email" class="form-control" id="password-input" aria-describedby="emailHelp" placeholder="Update password" size="30" onChange={passwordHandler}></input>{" "}
+            <input className="input-field" type="email" className="form-control" id="password-input" aria-describedby="emailHelp" placeholder="Update password" size="30" onChange={passwordHandler}></input>{" "}
             {/* <button className="update-button" type="button" onClick={() => {editProfile(updatedInfo)}}>Update</button> */}
           </div>
         </form>
@@ -156,7 +150,7 @@ function Profile() {
         <form className="email-input-form">
           <div className="form-group">
             <label className="profile-label" for="exampleInputEmail1">Email:</label>
-            <input className="input-field" type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Input email for contact" size="30" onChange={emailHandler}></input>{" "}
+            <input className="input-field" type="email" className="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Input email for contact" size="30" onChange={emailHandler}></input>{" "}
           </div>
         </form>
         {/* Update Button */}
