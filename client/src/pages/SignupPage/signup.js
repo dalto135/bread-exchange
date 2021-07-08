@@ -22,6 +22,16 @@ function Signup() {
     console.log('newUser: ' + JSON.stringify(newUser))
   }
 
+  function loginPlease(loginInfo) {
+    API.login(loginInfo)
+      .then(res => {
+          console.log(res.data);
+          // setUserData(res.data);
+          document.location.replace('/');
+      })
+      .catch(err => console.log(err.message));
+  }
+
   function handleFormSubmit(event) {
     event.preventDefault();
     console.log('submitting new user');
@@ -44,9 +54,12 @@ function Signup() {
             quantity: "",
             user_id: "",
           });
-          document.location.replace('/');
-        }
-        )
+          
+        })
+        .then(() => {
+          
+          loginPlease(newUser);
+        })
         .catch((err) => console.log(err));
     }
   }
