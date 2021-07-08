@@ -1,5 +1,6 @@
 import React, { Component, useEffect } from "react";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "./pages/LoginPage/Login";
 import Navbar from "./components/Navbar/navbar";
 import MainPage from "./pages/MainPage/mainpage";

@@ -1,0 +1,9 @@
+.material-button {
+    background-color: #007bff;
+    color: white;
+    width: 4rem;
+    border-radius: 5px;
+    text-align: center;
+    padding: 4px;
+    margin-top: 1rem;
+}

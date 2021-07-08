@@ -2,6 +2,7 @@ import React from "react";
 import "./userpage.css";
 import { Link } from "react-router-dom";
 
+
 function userPage() {
   // let loginString = localStorage.getItem('storedLogin');
   // let loginData = JSON.parse('{"hello":"hello","goodbye":"goodbye"}');
@@ -21,6 +22,7 @@ function userPage() {
           <Link to="./client-profile">Update my Info</Link>
 
           <h2 id="reservations-header">Reservations</h2>
+
           {/* Reservations Table */}
           <div id="table-divider">
             <table className="table-design" width="400" border="1" cellpadding="5">

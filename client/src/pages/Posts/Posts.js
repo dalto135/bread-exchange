@@ -57,13 +57,8 @@ function Posts({currentPost}) {
   return (
     <div>
       <h1>Find Food Here</h1>
-      {/* <Link to="/CreatePost">Post Food</Link><br></br>
-      <Link to="/singlepost">Food</Link>
-      <button onClick={loadPosts}>Button</button> */}
-      
-      {/* <Router>
-        <Route exact path='/singlepost' component={SinglePost}/>
-      </Router> */}
+      <Link to="/CreatePost">Post Food</Link><br></br>
+      <button onClick={loadPosts}>Load Current Posts</button>
 
       <div className="card-container">
         {posts.length ? (
@@ -71,7 +66,6 @@ function Posts({currentPost}) {
           posts.map(post => {
             return (
               <div className="card" key={post._id}>
-                <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
                                 <div className="container">
                   <h4>
                     <b>{post.user_id}</b>
