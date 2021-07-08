@@ -40,6 +40,9 @@ export default {
   editAccount: function(userData) {
     return axios.put('/api/user', userData);
   },
+  userInfo: function() {
+    return axios.get('/api/user/info');
+  },
   
   //Reservation routes
   getAllReservations: function(reservationData) {
@@ -62,5 +65,3 @@ export default {
   },
   
 };
-
-

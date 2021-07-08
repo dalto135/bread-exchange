@@ -10,7 +10,12 @@ router.route('/')
 router.route('/login')
 .post(foodExchangeController.loginUser);
 
+router.route('/info')
+.get(foodExchangeController.userInfo);
+
 router.route('/:id')
 .get(foodExchangeController.getUserById);
+
+
 
 module.exports = router;

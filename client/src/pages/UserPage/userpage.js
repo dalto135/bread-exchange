@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./userpage.css";
+import API from '../../utils/API';
 
-function userPage() {
+
+
+function UserPage() {
   // let loginString = localStorage.getItem('storedLogin');
   // let loginData = JSON.parse('{"hello":"hello","goodbye":"goodbye"}');
   // let loginData = JSON.parse(loginString);
@@ -9,6 +12,19 @@ function userPage() {
   // console.log(loginString);
   // console.log(loginData);
   // console.log(ye);
+
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    API.userInfo()
+    .then(user => {
+      console.log(user);
+      setUserData(user);
+    })
+  }, []);
+
+  console.log('userData');
+  console.log(userData);
 
   return (
     <div id="full-userpage">
@@ -18,7 +34,7 @@ function userPage() {
 
           <div id="user-info">
             <h2 id="your-info">Your info</h2>
-            <h3>First name: </h3>
+            <h3>First name: {userData}</h3>
             <h3>Last name: </h3>
             <h3>Username: </h3>
             <h3>Password: </h3>
@@ -73,4 +89,4 @@ function userPage() {
   );
 }
 
-export default userPage;
+export default UserPage;

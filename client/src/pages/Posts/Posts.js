@@ -70,6 +70,7 @@ function Posts({currentPost}) {
 
           posts.map(post => {
             return (
+              // {let user = getUser(post)},
               <div className="card" key={post._id}>
                 <img className="card-img" src="/chart.jpg" alt="Avatar"></img>
                                 <div className="container">
