@@ -8,6 +8,7 @@ import Posts from "./pages/Posts/Posts";
 import SinglePost from "./pages/Singlepost/Singlepost";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import UserPage from "./pages/UserPage/userpage";
+import SignupPage from './pages/SignupPage/signup';
 import { HashRouter as Router, Route } from "react-router-dom";
 // import userPage from "./pages/UserPage/userpage";
 import Button from "./components/Button/Button";
@@ -47,6 +48,7 @@ function App() {
         <Route exact path="/CreatePost" component={CreatePost} />
         <Route exact path="/UserPage" component={UserPage} />
         <Route exact path="/client-profile" component={Profile}/>
+        <Route exact path='/signup' component={SignupPage} />
       </UserProvider>
     </Router>
   );

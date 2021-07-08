@@ -22,6 +22,7 @@ function CreatePost(event) {
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
+    console.log(value);
   }
   function handleFormSubmit(event) {
     event.preventDefault();
