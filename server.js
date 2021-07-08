@@ -8,6 +8,7 @@ const routes = require("./routes");
 const httpServer = require("http").createServer(app);
 const options = { /* ... */ };
 const io = require("socket.io")(httpServer, options);
+const STATIC_CHANNELS = []
 
 app.use(logger('dev'));
 
@@ -35,10 +36,48 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-io.on('connection', (socket) => { /* socket object may be used to send specific messages to the new connected client */
-  
+io.on('connection', (socket) => {
   console.log('new client connected', socket.id);
-  socket.emit('hello','this is a pretend message');
+  socket.emit('connection', null);
+  socket.on('channel-join', id => {
+    console.log('channel join', id);
+    STATIC_CHANNELS.forEach(c => {
+      if (c.id === id) {
+        if (c.sockets.indexOf(socket.id) == (-1)) {
+          c.sockets.push(socket.id);
+          c.participants++;
+          io.emit('channel', c);
+        }
+      } else {
+        let index = c.sockets.indexOf(socket.id);
+        if (index != (-1)) {
+          c.sockets.splice(index, 1);
+          c.participants--;
+          io.emit('channel', c);
+        }
+      }
+    });
+    return id;
+  });
+  socket.on('send-message', message => {
+    io.emit('message', message);
+  });
+
+  socket.on('disconnect', () => {
+    STATIC_CHANNELS.forEach(c => {
+      let index = c.sockets.indexOf(socket.id);
+      if (index != (-1)) {
+        c.sockets.splice(index, 1);
+        c.participants--;
+        io.emit('channel', c);
+      }
+    });
+  });
+  app.get('/getChannels', (req, res) => {
+    res.json({
+      channels: STATIC_CHANNELS
+    })
+  });
 });
 
 httpServer.listen(PORT, () => {
