@@ -5,7 +5,7 @@
 // module.exports = { User, Post, Reservation };
 
 module.exports = {
-    User: require('./user'),
-    Post: require('./post'),
-    Reservation: require('./reservation')
+    User: require('./user.js'),
+    Post: require('./post.js'),
+    Reservation: require('./reservation.js')
 };
