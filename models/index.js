@@ -1,11 +1,5 @@
-// const User = require('./user');
-// const Post = require('./post');
-// const Reservation = require('./reservation');
+const User = require('./User');
+const Post = require('./post');
+const Reservation = require('./Reservation');
 
-// module.exports = { User, Post, Reservation };
-
-module.exports = {
-    User: require('./user.js'),
-    Post: require('./post.js'),
-    Reservation: require('./reservation.js')
-};
+module.exports = { User, Post, Reservation };
