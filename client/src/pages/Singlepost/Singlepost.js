@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 // import { Post } from "../../../../models";
 import API from "../../utils/API";
 import { UserContext } from '../../utils/user-context';
+import PostReservation from "../../components/PostReservation/PostReservation";
 
 function Singlepost() {
     // console.log('currentPost')
@@ -109,11 +110,13 @@ function Singlepost() {
             {/* <p>User: {user.firstName} {user.lastName}</p> */}
             <h1>Reservations</h1>
             {reservations?.map((reservation, i) =>
-                <>
+                 <>
                     <p>{i + 1}.</p>
-                    <p>User ID: {reservation.user_id}</p>
-                    <p>Date: {reservation.reservationDate}</p>
-                    <p>Quantity: {reservation.quantity}</p>
+                {/* //     <p>User ID: {reservation.user_id}</p>
+                //     <p>Date: {reservation.reservationDate}</p>
+                //     <p>Quantity: {reservation.quantity}</p> */}
+                
+                <PostReservation Reservation={reservation}/>
                 </>
             )}
             {/* Button */}

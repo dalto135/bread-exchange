@@ -38,7 +38,7 @@ export default {
     return axios.post('/api/user', userData);
   },
   getSingleUser: function(userData) {
-    return axios.get('/api/user/' + userData);
+    return axios.post('/api/user/byid', userData);
   },
   editAccount: function(userData) {
     return axios.put('/api/user', userData);

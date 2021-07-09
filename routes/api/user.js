@@ -13,11 +13,14 @@ router.route('/login')
 router.route('/info')
 .get(foodExchangeController.userInfo);
 
-router.route('/:id')
-.get(foodExchangeController.getUserById);
+// router.route('/:id')
+// .get(foodExchangeController.getUserById);
 
 router.route('/logout')
 .post(foodExchangeController.logoutUser);
+
+router.route('/byid')
+.post(foodExchangeController.getUserById);
 
 
 

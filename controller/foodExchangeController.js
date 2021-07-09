@@ -117,7 +117,7 @@ module.exports={
       },
       getUserById: function (req, res) {
         foodDatabase.User
-          .findOne({ _id: req.params.id })
+          .findOne({ _id: req.body.user_id })
           // .find({username: 'jack123'})
           .then(dbUser => {
             res.json(dbUser);
