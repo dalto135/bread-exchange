@@ -22,6 +22,15 @@ function Mainpage() {
   // console.log('results');
   // console.log(results);
 
+  // let poop = 'asdf'
+  // console.log(Number.isInteger(poop));
+
+  // if (poop === NaN) {
+  //   console.log('yep');
+  // } else {
+  //   console.log('nope');
+  // }
+
 
   return (
     <div>

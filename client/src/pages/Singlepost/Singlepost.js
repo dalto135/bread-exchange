@@ -51,6 +51,11 @@ function Singlepost() {
     // }, [])
 
     function makeReservation(reserve) {
+        if (!Number.isInteger(reserve.quantity)) {
+            alert('You must enter a number');
+            return;
+        }
+
         API.createReservation(reserve)
         .then(res =>{
             console.log(res);
@@ -75,6 +80,8 @@ function Singlepost() {
     function inputHandler(event) {
         quantity = event.target.value;
         let intQuantity = parseInt(quantity);
+
+        
 
         setNewReservation({
             ...newReseration,

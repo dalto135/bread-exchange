@@ -21,12 +21,28 @@ function CreatePost(event) {
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { name, value } = event.target;
-    setFormObject({ ...formObject, [name]: value });
+    setFormObject({
+      ...formObject, [name]: value
+    });
     console.log(value);
   }
+
+  function quantityHandler(event) {
+    const { value } = event.target;
+    let intQuantity = parseInt(value);
+    setFormObject({
+      ...formObject,
+      quantity: intQuantity
+    })
+  }
+
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.name && formObject.description) {
+      if (!Number.isInteger(formObject.quantity)) {
+        alert('Quantity must be a number value');
+        return;
+    }
       API.savePosts(
       //   {
       //   name: formObject.name,
@@ -64,7 +80,7 @@ function CreatePost(event) {
               <b>Enter your prefered pickup/meet location.</b>
               <input onChange={handleInputChange} type="text" name="location" placeholder="Street/business name.."></input>
               <b>Enter the quantity of the items available.</b>
-              <input onChange={handleInputChange} type="text" name="quantity" placeholder="10.."></input>
+              <input onChange={quantityHandler} type="text" name="quantity" placeholder="10.."></input>
               {/* <b>Enter your user identifier.</b> */}
               {/* <input onChange={handleInputChange} type="text" name="user_id" placeholder="USER123.."></input> */}
               <materialButton type="submit" className="material-button" onClick={handleFormSubmit}>Submit</materialButton>
