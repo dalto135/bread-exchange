@@ -108,7 +108,7 @@ function Login() {
         <form className="password-input-form">
           <div class="form-group">
             <label className="login-label" for="exampleInputEmail1">Password</label>
-            <input className="input-field"  class="form-control" id="password-input" aria-describedby="" placeholder="Enter password" size="30" onChange={passwordHandler}></input>{" "}
+            <input className="input-field"  type='password' class="form-control" id="password-input" aria-describedby="" placeholder="Enter password" size="30" onChange={passwordHandler}></input>{" "}
           </div>
         </form>
         {/* Login Button */}
