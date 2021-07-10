@@ -11,7 +11,7 @@
 [Contact](#Contact)
 
 ## Link
-https://bread-exchange-123.herokuapp.com/
+https://bread-exchange-123.herokuapp.com/#/
 
 ## Technologies
 HTML, CSS, Javascript, React.js, MongoDB, Mongoose

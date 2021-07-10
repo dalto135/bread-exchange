@@ -36,6 +36,10 @@ function Signup() {
     event.preventDefault();
     console.log('submitting new user');
     if (newUser.firstName && newUser.email) {
+      if (newUser.password.length < 8 || newUser.password.length > 32) {
+        alert('Password must be between 8 and 32 characters in length');
+        return;
+      }
       API.createAccount(
       //   {
       //   name: formObject.name,

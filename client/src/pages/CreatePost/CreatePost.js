@@ -11,7 +11,7 @@ function CreatePost(event) {
   console.log(userData);
 
   const [formObject, setFormObject] = useState({
-    // _id: Math.random(),
+    _id: Math.random(),
     name: "",
     description: "",
     location: "",

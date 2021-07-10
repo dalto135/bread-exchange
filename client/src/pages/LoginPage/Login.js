@@ -59,7 +59,10 @@ function Login() {
           setUserData(res.data);
           document.location.replace('/');
       })
-      .catch(err => console.log(err.message));
+      .catch(err => {
+        console.log( err.message);
+        alert('Incorrect username or password');
+      });
   }
 
         console.log(userData);
