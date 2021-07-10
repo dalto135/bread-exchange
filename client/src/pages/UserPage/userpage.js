@@ -35,7 +35,7 @@ function UserPage() {
 
   const [newPost, setNewPost] = useState({
     _id: Math.random(),
-    user_id: userData.data._id,
+    user_id: userData.data?._id,
 
   });
 
@@ -182,15 +182,15 @@ function UserPage() {
       <div id="grey-panel">
         <div id="white-panel">
           {/* Header */}
-          <h1 id="my-account-header">Welcome {userData.data.firstName} {userData.data.lastName}!</h1>
+          <h1 id="my-account-header">Welcome {userData.data?.firstName} {userData.data?.lastName}!</h1>
 
           <div id="user-info">
             <h2 id="your-info">Your info</h2>
             {/* <h3>First name: {userData.data.firstName}</h3> */}
             {/* <h3>Last name: {userData.data.lastName}</h3> */}
-            <h3>Username: {userData.data.username}</h3>
+            <h3>Username: {userData.data?.username}</h3>
             {/* <h3>Password: {userData.data.password}</h3> */}
-            <h3>Email: {userData.data.email}</h3>
+            <h3>Email: {userData.data?.email}</h3>
           </div>
           {/* Update Info */}
           <Link to="./client-profile">Update my Info</Link>

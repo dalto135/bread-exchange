@@ -11,12 +11,12 @@ function CreatePost(event) {
   console.log(userData);
 
   const [formObject, setFormObject] = useState({
-    _id: Math.random(),
+    // _id: Math.random(),
     name: "",
     description: "",
     location: "",
     quantity: "",
-    user_id: userData.data._id,
+    user_id: userData.data?._id,
   });
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {

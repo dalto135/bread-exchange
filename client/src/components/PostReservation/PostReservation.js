@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import API from '../../utils/API';
+import { UserContext } from '../../utils/user-context';
 
-function PostReservation({Reservation, userInfo}) {
-    const [userData, setUserData] = useState([]);
-    console.log('userInfo');
-    console.log(userInfo);
+function PostReservation({Reservation, post}) {
+    const userData = useContext(UserContext);
+    console.log('userData');
+    console.log(userData);
+
+
+    const [resUser, setResUser] = useState([]);
+    // console.log('userInfo');
+    // console.log(userInfo);
     useEffect(() => {
         // API.login(loginInfo)
         // .then(res => {
@@ -14,24 +20,24 @@ function PostReservation({Reservation, userInfo}) {
         API.getSingleUser(Reservation)
         .then(res => {
             console.log(res);
-            setUserData(res);
+            setResUser(res);
             // document.location.replace('/');
         })
         .catch(err => console.log(err.message));
 
     }, [])
 
-    const [postData, setPostData] = useState([]);
+    // const [postData, setPostData] = useState([]);
 
-    useEffect(() => {
-        API.getPostByID(Reservation)
-        .then(res => {
-            console.log(res);
-            setPostData(res);
-            // document.location.replace('/');
-        })
-        .catch(err => console.log(err.message));
-    }, [])
+    // useEffect(() => {
+    //     API.getPostByID(Reservation)
+    //     .then(res => {
+    //         console.log(res);
+    //         setPostData(res);
+    //         // document.location.replace('/');
+    //     })
+    //     .catch(err => console.log(err.message));
+    // }, [])
 
   
 
@@ -40,10 +46,13 @@ function PostReservation({Reservation, userInfo}) {
 
       return (
         <div className='singlereservation'>
-            <p>User: {userData.data?.firstName} {userData.data?.lastName}</p>
+            <p>User: {resUser.data?.firstName} {resUser.data?.lastName}</p>
             <p>Quantity: {Reservation.quantity}</p>
             <p>Date: {Reservation.reservationDate}</p>
-            {/* {postData.data?.user_id === userInfo?._id && <button>Delete</button>} */}
+            {post?.user_id === userData.data?._id && <p>Email: {resUser.data?.email}</p>}
+            {post?.user_id === userData.data?._id && <button>Accept</button>}
+            {post?.user_id === userData.data?._id && <button>Delete</button>}
+            
         </div>
       );
 }

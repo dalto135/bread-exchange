@@ -11,7 +11,7 @@ function Singlepost() {
     // const { handle } = useParams();
     const location = useLocation();
     // const post = location.state;
-    let post = location.state.post;
+    let post = location.state?.post;
 
     const userData = useContext(UserContext);
     console.log('userData');
@@ -64,13 +64,13 @@ function Singlepost() {
         })
         .catch(err => console.log(err.message));
     }
-    if (userData.data) {
-    }
+   
     
     const [newReseration, setNewReservation] = useState({
-        _id: Math.random(),
+        // _id: Math.random(),
         // user_id: userData.data._id,
-        post_id: post._id
+        post_id: post?._id,
+        user_id: userData.data?._id
     });
 
     
@@ -85,7 +85,7 @@ function Singlepost() {
 
         setNewReservation({
             ...newReseration,
-            user_id: userData.data._id,
+            
             quantity: intQuantity
         })
 
@@ -103,17 +103,12 @@ function Singlepost() {
 
     return (
         <div>
-            {/* Card here */}
-            {/* <h1>Business Name</h1>
-            <p>List of items</p>
-            <p>Location</p>
-            <p>Expiration Date</p> */}
             <h1>Post</h1>
-            <p>Name: {post.name}</p>
-            <p>Description: {post.description}</p>
-            <p>Location: {post.location}</p>
-            <p>Quantity: {post.quantity}</p>
-            <p>Date Posted: {post.postDate}</p>
+            <p>Name: {post?.name}</p>
+            <p>Description: {post?.description}</p>
+            <p>Location: {post?.location}</p>
+            <p>Quantity: {post?.quantity}</p>
+            <p>Date Posted: {post?.postDate}</p>
             {/* <p>User: {user.firstName} {user.lastName}</p> */}
             <h1>Reservations</h1>
             {reservations?.map((reservation, i) =>
@@ -122,8 +117,7 @@ function Singlepost() {
                 {/* //     <p>User ID: {reservation.user_id}</p>
                 //     <p>Date: {reservation.reservationDate}</p>
                 //     <p>Quantity: {reservation.quantity}</p> */}
-                {userData.data ? <PostReservation Reservation={reservation} userInfo={userData.data}/> 
-                : <PostReservation Reservation={reservation}/>}
+              <PostReservation Reservation={reservation} post={post}/> 
                 
                 </>
             )}
