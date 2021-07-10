@@ -28,7 +28,7 @@ const postSchema = new Schema({
     },
     postDate: {
         type: String,
-        default: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
+        default: new Date().toLocaleDateString() + ', ' + new Date().toLocaleTimeString()
     },
     user_id: {
         type: String

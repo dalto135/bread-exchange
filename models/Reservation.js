@@ -14,7 +14,7 @@ const reservationSchema = new Schema({
     },
     reservationDate: {
         type: String,
-        default: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
+        default: new Date().toLocaleDateString() + ', ' + new Date().toLocaleTimeString()
     },
     user_id: {
         type: String

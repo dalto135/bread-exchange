@@ -46,12 +46,12 @@ function PostReservation({Reservation, post}) {
 
       return (
         <div className='singlereservation'>
-            <p>User: {resUser.data?.firstName} {resUser.data?.lastName}</p>
+            <p>User: {resUser.data?.username}</p>
             <p>Quantity: {Reservation.quantity}</p>
             <p>Date: {Reservation.reservationDate}</p>
             {post?.user_id === userData.data?._id && <p>Email: {resUser.data?.email}</p>}
             {post?.user_id === userData.data?._id && <button>Accept</button>}
-            {post?.user_id === userData.data?._id && <button>Delete</button>}
+            {post?.user_id === userData.data?._id && <button>Decline</button>}
             
         </div>
       );

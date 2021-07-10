@@ -10,6 +10,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import API from "../../utils/API";
 import { UserContext } from '../../utils/user-context';
 import MaterialButton from "../../components/Material-Button/Material-Button";
+import PostCard from "../../components/PostCard/PostCard";
 
 function Posts({currentPost}) {
 
@@ -76,21 +77,22 @@ function Posts({currentPost}) {
               return (
                 // {let user = getUser(post)},
                 <div className="card" key={post._id}>
-                                  <div className="container">
-                    <h4>
+                  {/* <div className="container"> */}
+                    <PostCard post={post}/>
+                    {/* <h4>
                       <b>{post.user_id}</b>
-                    </h4>
-                    <h6>Pick up Location at {post.location}</h6>
+                    </h4> */}
+                    {/* <h6>Pick up Location at {post.location}</h6>
                     <h6>Posted {post.postDate}</h6>
                     <h6>Contact: {post.email}</h6>
                     <h6>Item: {post.name} </h6>
                     <h6>Description: {post.description} </h6>
-                    <h6>Number of Items: {post.quantity} </h6>
+                    <h6>Number of Items: {post.quantity} </h6> */}
                     {/* <a href={"/Posts/" + post._id} post={post}>View</a> */}
                     {/* <Link to={'/singlepost'} onClick={() => {choosePost(post)}}>View</Link> */}
-                    <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
+                    {/* <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link> */}
                   </div>
-                </div>
+                // </div>
               );
             })
           ) : (

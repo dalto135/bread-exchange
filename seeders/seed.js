@@ -48,11 +48,13 @@ const postSeed = [
 
 const reservationSeed = [
   {
+    _id: '12341234',
     quantity: 5,
     user_id: 'Jack123',
     post_id: 'Apples123'
   },
   {
+    _id: '43214321',
     quantity: 10,
     user_id: 'Beth123',
     post_id: 'Oranges123'

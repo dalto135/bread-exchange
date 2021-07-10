@@ -17,6 +17,11 @@ function Singlepost() {
     console.log('userData');
     console.log(userData);
 
+    console.log('post');
+    console.log(post);
+    console.log('userData');
+    console.log(userData);
+
     // console.log(post);
 
     const [reservations, setReservations]= useState([]);
@@ -56,6 +61,9 @@ function Singlepost() {
             return;
         }
 
+        console.log('entity');
+        console.log(reserve);
+
         API.createReservation(reserve)
         .then(res =>{
             console.log(res);
@@ -67,10 +75,11 @@ function Singlepost() {
    
     
     const [newReseration, setNewReservation] = useState({
-        // _id: Math.random(),
+        _id: Math.random(),
         // user_id: userData.data._id,
+        user_id: userData.data?._id,
         post_id: post?._id,
-        user_id: userData.data?._id
+        
     });
 
     
