@@ -5,15 +5,16 @@ const Schema = mongoose.Schema;
 const reservationSchema = new Schema({
 
     _id: {
-        type: String
+        type: String,
+        default: Math.random()
     },
     quantity: {
         type: Number,
-        required: 'Enter a quantity'
+        // required: 'Enter a quantity'
     },
     reservationDate: {
-        type: Date,
-        default:Date.now
+        type: String,
+        default: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
     },
     user_id: {
         type: String

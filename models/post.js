@@ -5,29 +5,30 @@ const Schema = mongoose.Schema;
 const postSchema = new Schema({
    
     _id: {
-        type: String
+        type: String,
+        default: Math.random()
     },
     name: {
         type: String,
-        trim: true,
-        required: 'Enter an item name'
+        // trim: true,
+        // required: 'Enter an item name'
     },
     description: {
         type: String,
-        trim: true,
+        // trim: true,
     },
     location: {
         type: String,
-        trim: true,
-        required: 'Enter a location'
+        // trim: true,
+        // required: 'Enter a location'
     },
     quantity: {
         type: Number,
-        required: 'Enter a quantity'
+        // required: 'Enter a quantity'
     },
     postDate: {
-        type: Date,
-        default: Date.now
+        type: String,
+        default: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
     },
     user_id: {
         type: String

@@ -43,7 +43,7 @@ function CreatePost(event) {
       if (!Number.isInteger(formObject.quantity)) {
         alert('Quantity must be a number value');
         return;
-    }
+      }
       API.savePosts(
       //   {
       //   name: formObject.name,

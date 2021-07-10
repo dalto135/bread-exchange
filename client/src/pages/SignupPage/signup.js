@@ -46,16 +46,16 @@ function Signup() {
       // }
       newUser
       )
-        .then(() => {
-          setNewUser({
-            name: "",
-            description: "",
-            location: "",
-            quantity: "",
-            user_id: "",
-          });
+        // .then(() => {
+        //   setNewUser({
+        //     name: "",
+        //     description: "",
+        //     location: "",
+        //     quantity: "",
+        //     user_id: "",
+        //   });
           
-        })
+        // })
         .then(() => {
           
           loginPlease(newUser);
@@ -94,7 +94,7 @@ function Signup() {
         {/* <form className="password-input-form"> */}
           <div class="form-group">
             <label className="signup-label" for="exampleInputEmail1">Create Password:</label>
-            <input onChange={handleInputChange} className="input-field" type="email" name='password' class="form-control" id="password-input" aria-describedby="emailHelp" placeholder="New password" size="30"></input>{" "}
+            <input onChange={handleInputChange} className="input-field" type="password" name='password' class="form-control" id="password-input" aria-describedby="emailHelp" placeholder="New password" size="30"></input>{" "}
           </div>
         {/* </form> */}
         {/* Email Input */}

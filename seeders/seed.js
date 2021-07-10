@@ -34,7 +34,7 @@ const postSeed = [
     description: '10 apples in good condition',
     location: 'Columbus, Ohio',
     quantity: 10,
-    postDate: Date.now,
+    postDate: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
     user_id: 'Beth123'
   },
   {   
@@ -43,26 +43,26 @@ const postSeed = [
     description: '20 mandarine oranges',
     location: 'Cleveland, Ohio',
     quantity: 20,
-    postDate: Date.now,
+    postDate: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
     user_id: 'Jack123'
   },
 ];
 
 const reservationSeed = [
-    {
-      _id: '12345678',
-      quantity: 5,
-      reservationDate: Date.now,
-      user_id: 'Jack123',
-      post_id: 'Apples123'
-    },
-    {
-      _id: '87654321',
-      quantity: 10,
-      reservationDate: Date.now,
-      user_id: 'Beth123',
-      post_id: 'Oranges123'
-    },
+  {
+    _id: '12345678',
+    quantity: 5,
+    reservationDate: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
+    user_id: 'Jack123',
+    post_id: 'Apples123'
+  },
+  {
+    _id: '87654321',
+    quantity: 10,
+    reservationDate: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
+    user_id: 'Beth123',
+    post_id: 'Oranges123'
+  },
 ];
 
 db.User.deleteMany({})

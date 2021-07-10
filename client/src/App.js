@@ -36,6 +36,9 @@ function App() {
      socket.disconnect();
     }
   },[])
+
+  console.log('date');
+  console.log(new Date().getMonth() + '/' + new Date().getDate() + '/' + (new Date().getYear() + 1900));
   return (
     <Router>
       

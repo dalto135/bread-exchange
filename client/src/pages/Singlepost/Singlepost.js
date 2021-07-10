@@ -122,8 +122,9 @@ function Singlepost() {
                 {/* //     <p>User ID: {reservation.user_id}</p>
                 //     <p>Date: {reservation.reservationDate}</p>
                 //     <p>Quantity: {reservation.quantity}</p> */}
+                {userData.data ? <PostReservation Reservation={reservation} userInfo={userData.data}/> 
+                : <PostReservation Reservation={reservation}/>}
                 
-                <PostReservation Reservation={reservation}/>
                 </>
             )}
             {/* Button */}

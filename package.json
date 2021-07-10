@@ -34,6 +34,7 @@
     "http-proxy-middleware": "^2.0.1",
     "if-env": "^1.0.4",
     "inquirer": "^8.1.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.12.14",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
