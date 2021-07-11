@@ -49,6 +49,9 @@ export default {
   logout: function() {
     return axios.post('/api/user/logout');
   },
+  getUserByUsername: function(userData) {
+    return axios.post('/api/user/username', userData);
+  },
   
   //Reservation routes
   getAllReservations: function(reservationData) {

@@ -144,6 +144,16 @@ module.exports={
             console.log(err.message);
           })
       },
+      getUserByUsername: function(req, res) {
+        foodDatabase.User
+          .findOne({ username: req.body.username })
+          .then(user => {
+            res.json(user);
+          })
+          .catch(err => {
+            console.log(err.message);
+          })
+      },
       //Reservations
       getAllReservations: function(req, res) {
         foodDatabase.Reservation

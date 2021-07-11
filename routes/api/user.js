@@ -13,6 +13,9 @@ router.route('/login')
 router.route('/info')
 .get(foodExchangeController.userInfo);
 
+router.route('/username')
+.post(foodExchangeController.getUserByUsername);
+
 // router.route('/:id')
 // .get(foodExchangeController.getUserById);
 

@@ -12,10 +12,10 @@ function CreatePost(event) {
 
   const [formObject, setFormObject] = useState({
     _id: Math.random(),
-    name: "",
-    description: "",
-    location: "",
-    quantity: "",
+    // name: "",
+    // description: "",
+    // location: "",
+    // quantity: "",
     user_id: userData.data?._id,
   });
   // Handles updating component state when the user types into the input field
@@ -31,6 +31,9 @@ function CreatePost(event) {
   function quantityHandler(event) {
     const { value } = event.target;
     let intQuantity = parseInt(value);
+    if (!intQuantity) {
+      intQuantity = 'NaN';
+    }
     setFormObject({
       ...formObject,
       quantity: intQuantity
@@ -39,7 +42,11 @@ function CreatePost(event) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.name && formObject.description) {
+    // if (formObject.name && formObject.description) {
+      if(!formObject.name || !formObject.description || !formObject.location) {
+        alert('Please complete all required fields');
+        return;
+      }
       if (!Number.isInteger(formObject.quantity)) {
         alert('Quantity must be a number value');
         return;
@@ -66,7 +73,7 @@ function CreatePost(event) {
         }
         )
         .catch((err) => console.log(err));
-    }
+    // }
   }
   return (
     <div id="create-full-page">

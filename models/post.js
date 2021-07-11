@@ -6,7 +6,7 @@ const postSchema = new Schema({
    
     _id: {
         type: String,
-        default: Math.random()
+        default: JSON.stringify(Math.random())
     },
     name: {
         type: String,

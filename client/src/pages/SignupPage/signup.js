@@ -32,14 +32,40 @@ function Signup() {
       .catch(err => console.log(err.message));
   }
 
+  const [uniqueUser, setUniqueUser] = useState([]);
+
+  useEffect(() => {
+    API.getUserByUsername(newUser)
+    .then(res => {
+      console.log('user?');
+      console.log(res.data);
+      setUniqueUser(res.data);
+      
+      // document.location.replace('/');
+  })
+  .catch(err => console.log(err.message));
+
+  }, [newUser.username])
+
   function handleFormSubmit(event) {
     event.preventDefault();
     console.log('submitting new user');
-    if (newUser.firstName && newUser.email) {
-      if (newUser.password.length < 8 || newUser.password.length > 32) {
-        alert('Password must be between 8 and 32 characters in length');
+    // if (newUser.firstName && newUser.email) {
+      if (!newUser.firstName || !newUser.lastName || !newUser.username || !newUser.password || !newUser.email) {
+        alert('Please complete all required fields');
         return;
       }
+      if (newUser.password.length < 8) {
+        alert('Password must be at least 8 characters in length');
+        return;
+      }
+      if(uniqueUser !== null) {
+        alert('Must enter a unique username');
+        return;
+      }
+      
+      
+      
       API.createAccount(
       //   {
       //   name: formObject.name,
@@ -65,7 +91,7 @@ function Signup() {
           loginPlease(newUser);
         })
         .catch((err) => console.log(err));
-    }
+    // }
   }
 
 
@@ -76,14 +102,14 @@ function Signup() {
         {/* First Name Input */}
         <form className="input-form">
           <div class="form-group">
-            <label className="signup-label" for="exampleInputEmail1">Create First Name:</label>
+            <label className="signup-label" for="exampleInputEmail1">Enter First Name:</label>
             <input onChange={handleInputChange} className="input-field" type="email" name='firstName' class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="First Name" size="30"></input>{" "}
           </div>
        
         {/* Last Name Input */}
         {/* <form className="lastname-input-form"> */}
           <div class="form-group">
-            <label className="signup-label" for="exampleInputEmail1">Create Last Name:</label>
+            <label className="signup-label" for="exampleInputEmail1">Enter Last Name:</label>
             <input onChange={handleInputChange} className="input-field" type="email" name='lastName' class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="Last Name" size="30"></input>{" "}
           </div>
         {/* </form> */}

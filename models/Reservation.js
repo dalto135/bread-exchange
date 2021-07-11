@@ -6,7 +6,7 @@ const reservationSchema = new Schema({
 
     _id: {
         type: String,
-        default: Math.random()
+        default: JSON.stringify(Math.random())
     },
     quantity: {
         type: Number,

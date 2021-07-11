@@ -31,13 +31,16 @@ function PostCard({post}) {
 
       return (
         <div className="container">
-            <h2>User: {userData.username}</h2>
-            <h6>Pick up Location at {post.location}</h6>
-            <h6>Posted {post.postDate}</h6>
-            <h6>Contact: {post.email}</h6>
-            <h6>Item: {post.name} </h6>
+            <h2>Item: {post.name} </h2>
             <h6>Description: {post.description} </h6>
             <h6>Number of Items: {post.quantity} </h6>
+            <h6>Pick up Location at {post.location}</h6>
+            <h6>User: {userData.username}</h6>
+            <h6>Posted {post.postDate}</h6>
+            {/* <h6>Contact: {post.email}</h6> */}
+            
+            
+            
             <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
         </div>
       )

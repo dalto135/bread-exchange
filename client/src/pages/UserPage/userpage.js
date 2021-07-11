@@ -185,7 +185,7 @@ function UserPage() {
           <h1 id="my-account-header">Welcome {userData.data?.firstName} {userData.data?.lastName}!</h1>
 
           <div id="user-info">
-            <h2 id="your-info">Your info</h2>
+            <h2 id="your-info">My info</h2>
             {/* <h3>First name: {userData.data.firstName}</h3> */}
             {/* <h3>Last name: {userData.data.lastName}</h3> */}
             <h3>Username: {userData.data?.username}</h3>

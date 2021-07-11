@@ -113,22 +113,25 @@ function Singlepost() {
     return (
         <div>
             <h1>Post</h1>
-            <p>Name: {post?.name}</p>
-            <p>Description: {post?.description}</p>
-            <p>Location: {post?.location}</p>
-            <p>Quantity: {post?.quantity}</p>
-            <p>Date Posted: {post?.postDate}</p>
-            {/* <p>User: {user.firstName} {user.lastName}</p> */}
+            <div className='card'>
+                <p>Name: {post?.name}</p>
+                <p>Description: {post?.description}</p>
+                <p>Quantity: {post?.quantity}</p>
+                <p>Location: {post?.location}</p>
+                <p>User: {user?.username}</p>
+                <p>Date Posted: {post?.postDate}</p>
+                {/* <p>User: {user.firstName} {user.lastName}</p> */}
+            </div>
             <h1>Reservations</h1>
             {reservations?.map((reservation, i) =>
-                 <>
+                 <div className='card'>
                     <p>{i + 1}.</p>
                 {/* //     <p>User ID: {reservation.user_id}</p>
                 //     <p>Date: {reservation.reservationDate}</p>
                 //     <p>Quantity: {reservation.quantity}</p> */}
               <PostReservation Reservation={reservation} post={post}/> 
                 
-                </>
+                </div>
             )}
             {/* Button */}
 

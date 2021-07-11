@@ -73,10 +73,10 @@ function Posts({currentPost}) {
         <div className="card-container">
           {posts.length ? (
 
-            posts.map(post => {
+            posts.map((post, i) => {
               return (
                 // {let user = getUser(post)},
-                <div className="card" key={post._id}>
+                <div className="card" key={i}>
                   {/* <div className="container"> */}
                     <PostCard post={post}/>
                     {/* <h4>
