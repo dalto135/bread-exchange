@@ -187,11 +187,12 @@ module.exports={
       },
       deleteReservation: function (req, res) {
         foodDatabase.Reservation
-          .remove({ _id: req.params.id })
+          .remove({ _id: req.body._id })
           .then(dbUser => {
             res.json(dbUser);
-            console.log(req.body)
-            console.log(req.params)
+            console.log('req.body');
+            console.log(req.body);
+            // console.log(req.params)
           })
           .catch(err => {
             res.status(422).json(err.message);

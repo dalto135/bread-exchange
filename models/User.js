@@ -6,7 +6,7 @@ const userSchema = new Schema({
    
     _id: {
         type: String,
-        default: JSON.stringify(Math.random())
+        default: Math.random()
     },
     firstName: {
         type: String,

@@ -31,7 +31,7 @@ function PostCard({post}) {
 
       return (
         <div className="container">
-            <h2>Item: {post.name} </h2>
+            <h2>{post.name} </h2>
             <h6>Description: {post.description} </h6>
             <h6>Number of Items: {post.quantity} </h6>
             <h6>Pick up Location at {post.location}</h6>

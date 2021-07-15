@@ -112,9 +112,9 @@ function Singlepost() {
 
     return (
         <div>
-            <h1>Post</h1>
+            {/* <h1>Post</h1> */}
             <div className='card'>
-                <p>Name: {post?.name}</p>
+                <h1>{post?.name}</h1>
                 <p>Description: {post?.description}</p>
                 <p>Quantity: {post?.quantity}</p>
                 <p>Location: {post?.location}</p>

@@ -31,7 +31,7 @@ function UserPage() {
       setPostData(data);
     })
     .catch(err => console.log(err.message))
-  }, [])
+  }, [userData.data])
 
   const [newPost, setNewPost] = useState({
     _id: Math.random(),
@@ -120,17 +120,17 @@ function UserPage() {
     .then(postData => {
       console.log('submitted post data');
       console.log(postData);
-      document.location.replace('/');
+      document.location.reload();
     })
     .catch(err => console.log(err.message));
   }
 
-  function deleteReservation(_id) {
-    API.removeReservation(_id)
+  function deleteReservation(res) {
+    API.removeReservation(res)
     .then(reservationData => {
       console.log('submitted reservation data');
       console.log(reservationData);
-      document.location.replace('/');
+      document.location.reload();
     })
     .catch(err => console.log(err.message));
   }
@@ -146,7 +146,7 @@ function UserPage() {
       setReservations(data);
     })
     .catch(err => console.log(err.message));
-  }, [])
+  }, [userData.data])
 
   // let userData = localStorage.getItem('localuser');
   // let parsedUser = JSON.parse(userData);
@@ -257,7 +257,7 @@ function UserPage() {
                 <p>{(i + 1)}.</p>
                 <p>Post ID: {reservation.post_id}</p>
                 <p>Quantity: {reservation.quantity}</p>
-                <button onClick={() => {deleteReservation(reservation._id)}}>Delete</button>
+                <button onClick={() => {deleteReservation(reservation)}}>Delete</button>
                 </div>
               
               )
