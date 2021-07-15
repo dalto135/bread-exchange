@@ -67,7 +67,7 @@ export default {
     return axios.post('api/reservation/createnew', reservationData);
   },
   removeReservation: function(reservationData) {
-    return axios.delete('api/reservation/', reservationData);
+    return axios.delete('api/reservation/' + reservationData);
   },
   getSingleReservation: function(reservationData) {
     return axios.get('api/reservation/' + reservationData);

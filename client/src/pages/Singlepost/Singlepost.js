@@ -68,7 +68,7 @@ function Singlepost() {
         .then(res =>{
             console.log(res);
             setUser(res.data);
-            document.location.replace('/');
+            document.location.replace('#/Posts');
         })
         .catch(err => console.log(err.message));
     }

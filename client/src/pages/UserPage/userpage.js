@@ -125,8 +125,8 @@ function UserPage() {
     .catch(err => console.log(err.message));
   }
 
-  function deleteReservation(res) {
-    API.removeReservation(res)
+  function deleteReservation(_id) {
+    API.removeReservation(_id)
     .then(reservationData => {
       console.log('submitted reservation data');
       console.log(reservationData);
@@ -257,7 +257,7 @@ function UserPage() {
                 <p>{(i + 1)}.</p>
                 <p>Post ID: {reservation.post_id}</p>
                 <p>Quantity: {reservation.quantity}</p>
-                <button onClick={() => {deleteReservation(reservation)}}>Delete</button>
+                <button onClick={() => {deleteReservation(reservation._id)}}>Delete</button>
                 </div>
               
               )

@@ -187,7 +187,7 @@ module.exports={
       },
       deleteReservation: function (req, res) {
         foodDatabase.Reservation
-          .remove({ _id: req.body._id })
+          .remove({ _id: req.params.id })
           .then(dbUser => {
             res.json(dbUser);
             console.log('req.body');
