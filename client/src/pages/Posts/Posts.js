@@ -67,7 +67,7 @@ function Posts({currentPost}) {
         <h1 id="find-food-header">Find Food Here</h1>
         {userData.data &&
           <materialButton className="material-button"><Link className="link-button"to="/CreatePost">Post Food</Link><br></br></materialButton>}
-        <materialButton className="material-button" style={{marginTop: "1rem"}} type="submit" onClick={loadPosts}>Load Current Posts</materialButton>
+        {/* <materialButton className="material-button" style={{marginTop: "1rem"}} type="submit" onClick={loadPosts}>Load Current Posts</materialButton> */}
       </div>
       <div id="gray-panel">
         <div className="card-container">

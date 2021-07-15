@@ -135,7 +135,7 @@ function Singlepost() {
             )}
             {/* Button */}
 
-            {userData.data && <h1>Make Reservation</h1>} 
+            {userData.data && <h1>Make a Reservation</h1>} 
             {userData.data && <input placeholder='Quantity' onChange={inputHandler}/> }
             {userData.data && <button onClick={() => {makeReservation(newReseration)}}>Confirm</button>}
         </div>
