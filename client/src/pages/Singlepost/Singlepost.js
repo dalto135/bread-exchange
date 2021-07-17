@@ -22,9 +22,9 @@ function Singlepost() {
     console.log('postContext');
     console.log(postContext);
 
-    const postData = useContext(PostContext);
-    console.log('postData');
-    console.log(postData[0]);
+    // const postData = useContext(PostContext);
+    // console.log('postData');
+    // console.log(postData[0]);
 
     // console.log('post');
     // console.log(post);

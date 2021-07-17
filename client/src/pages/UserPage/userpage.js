@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./userpage.css";
 import { UserContext } from '../../utils/user-context';
+import { PostContext } from '../../utils/post-context';
 import API from '../../utils/API';
 import { Link } from "react-router-dom";
-
+import PostCard from "../../components/PostCard/PostCard";
 
 
 function UserPage() {
@@ -28,7 +29,7 @@ function UserPage() {
     .then(data => {
       console.log('post data');
       console.log(data);
-      setPostData(data);
+      setPostData(data.data);
     })
     .catch(err => console.log(err.message))
   }, [userData.data])
@@ -38,6 +39,8 @@ function UserPage() {
     user_id: userData.data?._id,
 
   });
+
+  
 
   // useEffect(() => {
 
@@ -177,6 +180,14 @@ function UserPage() {
   //     console.log('userData');
   //     console.log(userData);
 
+  
+  // const [postContext, setPostContext] = useContext(PostContext);
+
+  // function selectPost(post) {
+  //     setPostContext(post);
+  //     console.log('document.location.replace');
+  //     document.location.replace('#/singlepost');
+  // }
   return (
     <div id="full-userpage">
       <div id="grey-panel">
@@ -200,17 +211,18 @@ function UserPage() {
           {/* Posts Container */}
           <div id="my-posts-container">
            
-            {postData? (
+            {
+            // postData.data?.length? (
 
-              postData.data?.map((post, i) => {
+              postData?.map((post, i) => {
                 return (
                   // {let user = getUser(post)},
                   <div className="card" key={i}>
                     {/* <img className="card-img" src="/chart.jpg" alt="Avatar"></img> */}
-                    <div className="container">
-                      {/* <h4>
+                    {/* <PostCard post={post}/> */}
+                      <h4>
                         <b>{post.user_id}</b>
-                      </h4> */}
+                      </h4>
                       <h6>Pick up Location at {post.location}</h6>
                       <h6>Posted {post.postDate}</h6>
                       <h6>Item: {post.name} </h6>
@@ -218,15 +230,18 @@ function UserPage() {
                       <h6>Number of Items: {post.quantity} </h6>
                       {/* <a href={"/Posts/" + post._id} post={post}>View</a> */}
                       {/* <Link to={'/singlepost'} onClick={() => {choosePost(post)}}>View</Link> */}
+                      {/* <button onClick={() => {selectPost(post)}}>View Post</button> */}
                       <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
                       <button onClick={() => {deletePost(post._id)}}>Delete</button>
-                    </div>
+                      
                   </div>
                 );
               })
-            ) : (
-              <h3>No Posts</h3>
-            )}
+            // ) 
+            // : (
+            //   <h3>No Posts</h3>
+            // )
+            }
            
           </div>
           {/* <div id='new-post-container'>
