@@ -9,6 +9,7 @@ import CreatePost from "../CreatePost/CreatePost";
 import { HashRouter as Router, Route } from "react-router-dom";
 import API from "../../utils/API";
 import { UserContext } from '../../utils/user-context';
+import { PostContext } from '../../utils/post-context';
 import MaterialButton from "../../components/Material-Button/Material-Button";
 import PostCard from "../../components/PostCard/PostCard";
 
@@ -17,6 +18,10 @@ function Posts({currentPost}) {
   const userData = useContext(UserContext);
   console.log('userData');
   console.log(userData);
+
+  const postData = useContext(PostContext);
+  console.log('postData');
+  console.log(postData);
 
   function choosePost(post) {
     currentPost = post;

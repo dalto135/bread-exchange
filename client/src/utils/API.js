@@ -18,10 +18,10 @@ export default {
     return axios.post("/api/post", postData);
   },
   getPostByID: function(postData) {
-    return axios.get('api/post' + postData);
+    return axios.get('api/post/' + postData._id);
   },
   updatePost: function(postData) {
-    return axios.put('api/post' + postData);
+    return axios.put('api/post/' + postData._id);
   },
   findByUserID: function(postData) {
     return axios.post('/api/post/userid', postData);

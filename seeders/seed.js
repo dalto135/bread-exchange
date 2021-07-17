@@ -44,6 +44,14 @@ const postSeed = [
     quantity: 20,
     user_id: 'Jack123'
   },
+  // {
+  //   _id: 'currentPost',
+  //   name: '',
+  //   description: '',
+  //   location: '',
+  //   quantity: 0,
+  //   user_id: ''
+  // },
 ];
 
 const reservationSeed = [

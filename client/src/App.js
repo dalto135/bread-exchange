@@ -15,6 +15,7 @@ import Button from "./components/Button/Button";
 import Profile from "./pages/client-profile/client-profile";
 import { io } from "socket.io-client";
 import { UserProvider } from './utils/user-context';
+import { PostContext } from './utils/post-context';
 
 // let currentPost = 'none';
 
@@ -37,8 +38,9 @@ function App() {
     }
   },[])
 
-  console.log('date');
-  console.log(new Date().getMonth() + '/' + new Date().getDate() + '/' + (new Date().getYear() + 1900));
+  const [postContext, setPostContext] = useState("hello post");
+  // console.log('date');
+  // console.log(new Date().getMonth() + '/' + new Date().getDate() + '/' + (new Date().getYear() + 1900));
   return (
     <Router>
       
@@ -46,8 +48,12 @@ function App() {
         <Navbar />
         <Route exact path="/" component={MainPage} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/Posts" component={Posts} />
-        <Route exact path="/singlepost" component={SinglePost} />
+         
+        <PostContext.Provider value={[postContext, setPostContext]}>
+          <Route exact path="/Posts" component={Posts} />
+          <Route exact path="/singlepost" component={SinglePost} />
+        </PostContext.Provider>
+        
         <Route exact path="/CreatePost" component={CreatePost} />
         <Route exact path="/UserPage" component={UserPage} />
         <Route exact path="/client-profile" component={Profile}/>
