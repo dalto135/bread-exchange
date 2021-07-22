@@ -5,6 +5,7 @@ import API from "../../utils/API";
 import { UserContext } from '../../utils/user-context';
 import { PostContext } from '../../utils/post-context';
 import PostReservation from "../../components/PostReservation/PostReservation";
+import './style.css';
 
 function Singlepost() {
     // console.log('currentPost')
@@ -85,7 +86,7 @@ function Singlepost() {
         console.log(reserve);
 
         API.createReservation(reserve)
-        .then(res =>{
+        .then(res => {
             console.log(res);
             setUser(res.data);
             document.location.replace('#/Posts');
@@ -131,7 +132,7 @@ function Singlepost() {
     
 
     return (
-        <div>
+        <div className='singlepost'>
             {/* <h1>Post</h1> */}
             <div className='card'>
                 <h1>{postContext?.name}</h1>
@@ -142,7 +143,8 @@ function Singlepost() {
                 <p>Date Posted: {postContext?.postDate}</p>
                 {/* <p>User: {user.firstName} {user.lastName}</p> */}
             </div>
-            <h1>Reservations</h1>
+            <h2>Reservations</h2>
+            <div className='rescard'>
             {reservations?.map((reservation, i) =>
                  <div className='card'>
                     <p>{i + 1}.</p>
@@ -153,11 +155,15 @@ function Singlepost() {
                 
                 </div>
             )}
+            </div>
             {/* Button */}
+                <div className='makeres'>
 
-            {userData.data && <h1>Make a Reservation</h1>} 
+                
+            {userData.data && <h2>Make a Reservation</h2>} 
             {userData.data && <input placeholder='Quantity' onChange={inputHandler}/> }
             {userData.data && <button onClick={() => {makeReservation(newReseration)}}>Confirm</button>}
+            </div>
         </div>
     )
 }

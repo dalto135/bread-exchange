@@ -3,19 +3,7 @@ import API from '../../utils/API';
 import { Link } from "react-router-dom";
 import { PostContext } from '../../utils/post-context';
 
-function PostCard({post}) {
-    // const [pleaseData, setPleaseData] = useState([]);
-    
-    // useEffect(() => {
-    //     API.login(loginInfo)
-    //       .then(res => {
-    //           console.log(res.data);
-    //           setPleaseData(res.data);
-    //       })
-    //   })
-
-    //   console.log(pleaseData);
-
+function PostCard({post, userInfo}) {
     const [postContext, setPostContext] = useContext(PostContext);
 
     function selectPost() {
@@ -38,25 +26,25 @@ function PostCard({post}) {
     console.log('post user data');
     console.log(userData);
 
-    // useEffect(() => {
-
-    // }, [])
-
-    let currentPost = {
-        _id: 'currentPost',
-        name: post.name,
-        description: post.description,
-        location: post.location,
-        quantity: post.quantity,
-        postDate: post.postDate,
-        user_id: post.user_id
-    }
-
-    // function selectPost() {
-    //     API.updatePost(currentPost)
-    //     .then(postData => console.log(postData))
-    //     .catch(err => console.log(err.message));
+    // let currentPost = {
+    //     _id: 'currentPost',
+    //     name: post.name,
+    //     description: post.description,
+    //     location: post.location,
+    //     quantity: post.quantity,
+    //     postDate: post.postDate,
+    //     user_id: post.user_id
     // }
+
+    function deletePost(_id) {
+        API.deletePosts(_id)
+        .then(postData => {
+          console.log('submitted post data');
+          console.log(postData);
+          document.location.reload();
+        })
+        .catch(err => console.log(err.message));
+      }
 
       return (
         <div className="container">
@@ -66,9 +54,9 @@ function PostCard({post}) {
             <h6>Pick up Location at {post.location}</h6>
             <h6>User: {userData?.username}</h6>
             <h6>Posted {post.postDate}</h6>
-            {/* <h6>Contact: {post.email}</h6> */}
-            {/* <Link to={'/singlepost'} onClick={() => {setPostContext(post)}}>View Post</Link> */}
             <button onClick={selectPost}>View Post</button>
+            {userInfo.data?._id === userData?._id &&
+            <button onClick={() => {deletePost(post._id)}}>Delete</button>}
             
             {/* <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link> */}
         </div>

@@ -205,6 +205,7 @@ function UserPage() {
           </div>
           {/* Update Info */}
           <Link to="./client-profile">Update my Info</Link>
+          <materialButton className="material-button"><Link className="link-button"to="/CreatePost">Post Food</Link><br></br></materialButton>
 
           {/* My Posts */}
           <h2 id="my-posts-header">My Posts</h2>
@@ -212,13 +213,10 @@ function UserPage() {
           <div id="my-posts-container">
            
             {
-            // postData.data?.length? (
 
               postData?.map((post, i) => {
                 return (
-                  // {let user = getUser(post)},
                   <div className="card" key={i}>
-                    {/* <img className="card-img" src="/chart.jpg" alt="Avatar"></img> */}
                     {/* <PostCard post={post}/> */}
                       <h4>
                         <b>{post.user_id}</b>
@@ -228,20 +226,28 @@ function UserPage() {
                       <h6>Item: {post.name} </h6>
                       <h6>Description: {post.description} </h6>
                       <h6>Number of Items: {post.quantity} </h6>
-                      {/* <a href={"/Posts/" + post._id} post={post}>View</a> */}
-                      {/* <Link to={'/singlepost'} onClick={() => {choosePost(post)}}>View</Link> */}
-                      {/* <button onClick={() => {selectPost(post)}}>View Post</button> */}
+                     
                       <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link>
                       <button onClick={() => {deletePost(post._id)}}>Delete</button>
                       
                   </div>
                 );
               })
-            // ) 
-            // : (
-            //   <h3>No Posts</h3>
-            // )
+            
             }
+            {/* {postData.length ? (
+            postData.map((post, i) => {
+              return (
+                <div className="card" key={i}>
+                  <div className="container">
+                    <PostCard post={post} userInfo={userData}/>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <h3>No Results to Display</h3>
+          )} */}
            
           </div>
           {/* <div id='new-post-container'>
