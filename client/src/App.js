@@ -52,10 +52,10 @@ function App() {
         <PostContext.Provider value={[postContext, setPostContext]}>
           <Route exact path="/Posts" component={Posts} />
           <Route exact path="/singlepost" component={SinglePost} />
+          <Route exact path="/UserPage" component={UserPage} />
         </PostContext.Provider>
         
         <Route exact path="/CreatePost" component={CreatePost} />
-        <Route exact path="/UserPage" component={UserPage} />
         <Route exact path="/client-profile" component={Profile}/>
         <Route exact path='/signup' component={SignupPage} />
       </UserProvider>

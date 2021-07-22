@@ -81,6 +81,10 @@ function Singlepost() {
             alert('You must enter a number');
             return;
         }
+        if (reserve.quantity > postContext?.quantity) {
+            alert('Input exceeds available quantity');
+            return;
+        }
 
         console.log('entity');
         console.log(reserve);
@@ -126,15 +130,20 @@ function Singlepost() {
         // }
     }
 
+    let resTitle = '';
+    let resInput = '';
+    let resButton = '';
 
-
-
-    
+    if (userData.data && userData.data?._id !== postContext?.user_id) {
+        resTitle = <h2>Make a Reservation</h2>;
+        resInput = <input placeholder='Quantity' onChange={inputHandler}/>;
+        resButton = <button onClick={() => {makeReservation(newReseration)}}>Confirm</button>;
+    }
 
     return (
         <div className='singlepost'>
             {/* <h1>Post</h1> */}
-            <div className='card'>
+            <div className='card postcard'>
                 <h1>{postContext?.name}</h1>
                 <p>Description: {postContext?.description}</p>
                 <p>Quantity: {postContext?.quantity}</p>
@@ -157,12 +166,12 @@ function Singlepost() {
             )}
             </div>
             {/* Button */}
-                <div className='makeres'>
-
+            <div className='makeres'>
                 
-            {userData.data && <h2>Make a Reservation</h2>} 
-            {userData.data && <input placeholder='Quantity' onChange={inputHandler}/> }
-            {userData.data && <button onClick={() => {makeReservation(newReseration)}}>Confirm</button>}
+                {resTitle}
+                {resInput}
+                {resButton}
+            
             </div>
         </div>
     )

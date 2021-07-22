@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import API from '../../utils/API';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { PostContext } from '../../utils/post-context';
 
 function PostCard({post, userInfo}) {
@@ -25,16 +25,6 @@ function PostCard({post, userInfo}) {
 
     console.log('post user data');
     console.log(userData);
-
-    // let currentPost = {
-    //     _id: 'currentPost',
-    //     name: post.name,
-    //     description: post.description,
-    //     location: post.location,
-    //     quantity: post.quantity,
-    //     postDate: post.postDate,
-    //     user_id: post.user_id
-    // }
 
     function deletePost(_id) {
         API.deletePosts(_id)

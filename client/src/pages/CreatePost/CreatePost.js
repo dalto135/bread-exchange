@@ -12,10 +12,6 @@ function CreatePost(event) {
 
   const [formObject, setFormObject] = useState({
     _id: Math.random(),
-    // name: "",
-    // description: "",
-    // location: "",
-    // quantity: "",
     user_id: userData.data?._id,
   });
   // Handles updating component state when the user types into the input field
@@ -42,7 +38,6 @@ function CreatePost(event) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    // if (formObject.name && formObject.description) {
       if(!formObject.name || !formObject.description || !formObject.location) {
         alert('Please complete all required fields');
         return;
@@ -51,29 +46,11 @@ function CreatePost(event) {
         alert('Quantity must be a number value');
         return;
       }
-      API.savePosts(
-      //   {
-      //   name: formObject.name,
-      //   description: formObject.description,
-      //   location: formObject.location,
-      //   quantity: formObject.quantity,
-      //   user_id: formObject.user_id,
-      // }
-      formObject
-      )
+      API.savePosts(formObject)
         .then(() => {
-          setFormObject({
-            name: "",
-            description: "",
-            location: "",
-            quantity: "",
-            user_id: "",
-          });
-          document.location.replace('/');
-        }
-        )
+          document.location.replace('#/UserPage');
+        })
         .catch((err) => console.log(err));
-    // }
   }
   return (
     <div id="create-full-page">
@@ -89,10 +66,7 @@ function CreatePost(event) {
               <input onChange={handleInputChange} type="text" name="location" placeholder="Street/business name.."></input>
               <b>Enter the quantity of the items available.</b>
               <input onChange={quantityHandler} type="text" name="quantity" placeholder="10.."></input>
-              {/* <b>Enter your user identifier.</b> */}
-              {/* <input onChange={handleInputChange} type="text" name="user_id" placeholder="USER123.."></input> */}
               <materialButton type="submit" className="material-button" onClick={handleFormSubmit}>Submit</materialButton>
-              
             </form>
           </div>
         </div>
