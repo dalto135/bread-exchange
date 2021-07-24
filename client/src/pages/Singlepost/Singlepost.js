@@ -152,18 +152,24 @@ function Singlepost() {
                 <p>Date Posted: {postContext?.postDate}</p>
                 {/* <p>User: {user.firstName} {user.lastName}</p> */}
             </div>
-            <h2>Reservations</h2>
+            <h2>Reservations:</h2>
             <div className='rescard'>
-            {reservations?.map((reservation, i) =>
-                 <div className='card'>
-                    <p>{i + 1}.</p>
-                {/* //     <p>User ID: {reservation.user_id}</p>
-                //     <p>Date: {reservation.reservationDate}</p>
-                //     <p>Quantity: {reservation.quantity}</p> */}
-              <PostReservation Reservation={reservation} post={postContext}/> 
-                
-                </div>
-            )}
+            {reservations?.length ? (
+            
+                reservations?.map((reservation, i) =>
+                    <div className='card'>
+                        <p>{i + 1}.</p>
+                    {/* //     <p>User ID: {reservation.user_id}</p>
+                    //     <p>Date: {reservation.reservationDate}</p>
+                    //     <p>Quantity: {reservation.quantity}</p> */}
+                <PostReservation Reservation={reservation} post={postContext}/> 
+                    
+                    </div>
+                )
+                ) : (
+                    <h3>No Reservations yet</h3>
+                  )
+            }
             </div>
             {/* Button */}
             <div className='makeres'>

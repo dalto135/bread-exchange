@@ -14,13 +14,22 @@ function Profile() {
   // console.log('updatedUser');
   // console.log(updatedUser);
 
-  let firstName = '';
-  let lastName = '';
-  let username = '';
-  let password = '';
-  let email = '';
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setUpdatedInfo({ ...updatedInfo, [name]: value });
+    console.log(name + ': ' + value);
+    console.log('newUser: ' + JSON.stringify(updatedInfo))
+  }
 
-  const [updatedInfo, setUpdatedInfo] = useState([]);
+  // let firstName = '';
+  // let lastName = '';
+  // let username = '';
+  // let password = '';
+  // let email = '';
+
+  const [updatedInfo, setUpdatedInfo] = useState({
+    _id: userData.data?._id
+  });
 
   // useEffect(() => {
   //   setUpdatedInfo(userData);
@@ -31,69 +40,69 @@ function Profile() {
   // console.log(updatedInfo);
 
   //Change first name
-  function firstNameHandler(event) {
-    firstName = event.target.value;
+  // function firstNameHandler(event) {
+  //   firstName = event.target.value;
 
-    setUpdatedInfo({
-      ...updatedInfo,
-      _id: userData.data._id,
-      firstName
-    })
-    console.log('firstName change');
-    console.log(firstName);
-  }
+  //   setUpdatedInfo({
+  //     ...updatedInfo,
+  //     // _id: userData.data._id,
+  //     firstName
+  //   })
+  //   console.log('firstName change');
+  //   console.log(firstName);
+  // }
 
   //Change last name
-  function lastnameHandler(event) {
-    lastName = event.target.value;
+  // function lastnameHandler(event) {
+  //   lastName = event.target.value;
 
-    setUpdatedInfo({
-      ...updatedInfo,
-      _id: userData.data._id,
-      lastName
-    })
-    console.log('lastName change');
-    console.log(lastName);
-  }
+  //   setUpdatedInfo({
+  //     ...updatedInfo,
+  //     // _id: userData.data._id,
+  //     lastName
+  //   })
+  //   console.log('lastName change');
+  //   console.log(lastName);
+  // }
 
   //Change username
-  function usernameHandler(event) {
-    username = event.target.value;
+  // function usernameHandler(event) {
+  //   username = event.target.value;
 
-    setUpdatedInfo({
-      ...updatedInfo,
-      _id: userData.data._id,
-      username
-    })
-    console.log('username change');
-    console.log(username);
-  }
+  //   setUpdatedInfo({
+  //     ...updatedInfo,
+  //     // _id: userData.data._id,
+  //     username
+  //   })
+  //   console.log('username change');
+  //   console.log(username);
+  // }
 
   //Change password
-  function passwordHandler(event) {
-    password = event.target.value;
+  // function passwordHandler(event) {
+  //   password = event.target.value;
 
-    setUpdatedInfo({
-      ...updatedInfo,
-      _id: userData.data._id,
-      password
-    })
-    console.log('password change');
-    console.log(password);
-  }
+  //   setUpdatedInfo({
+  //     ...updatedInfo,
+  //     // _id: userData.data._id,
+  //     password
+  //   })
+  //   console.log('password change');
+  //   console.log(password);
+  // }
 
   //Change email
-  function emailHandler(event) {
-    email = event.target.value;
+  // function emailHandler(event) {
+  //   email = event.target.value;
 
-    setUpdatedInfo({
-      ...updatedInfo,
-      _id: userData.data._id,
-      email
-    })
-    console.log('email change');
-    console.log(email);
-  }
+  //   setUpdatedInfo({
+  //     ...updatedInfo,
+  //     // _id: userData.data._id,
+  //     email
+  //   })
+  //   console.log('email change');
+  //   console.log(email);
+  // }
 
   const [uniqueUser, setUniqueUser] = useState([]);
 
@@ -103,25 +112,23 @@ function Profile() {
       console.log('user?');
       console.log(res.data);
       setUniqueUser(res.data);
-      
-      // document.location.replace('/');
-  })
+    })
   .catch(err => console.log(err.message));
 
   }, [updatedInfo.username])
 
   //Submit profile changes
   function editProfile(data) {
-    if (updatedInfo.password && updatedInfo.password.length < 8) {
-      alert('Password must be at least 8 characters in length');
-      return;
-    }
-    
     if (updatedInfo.username && uniqueUser !== null) {
       alert('Must enter a unique username');
       return;
     }
 
+    if (updatedInfo.password && updatedInfo.password.length < 8) {
+      alert('Password must be at least 8 characters in length');
+      return;
+    }
+    
     API.editAccount(data)
     .then(data => {
       console.log('account data');
@@ -129,8 +136,6 @@ function Profile() {
       document.location.reload();
     })
     .catch(err => console.log(err.message))
-
-    
   }
 
   // console.log(userData);
@@ -144,7 +149,7 @@ function Profile() {
             {/* First Name Input */}
             <div className="form-group">
               <label className="profile-label" for="exampleInputEmail1">First Name:</label>
-              <input className="input-field" className="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Update first name" size="30" onChange={firstNameHandler}></input>{" "}
+              <input name='firstName' className="input-field" className="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Update first name" size="30" onChange={handleInputChange}></input>{" "}
               {/* <button className="update-button" type="button" onClick={() => {editProfile(updatedInfo)}}>Update</button> */}
             </div>
           {/* </form> */}
@@ -152,7 +157,7 @@ function Profile() {
           {/* <form className="email-input-form"> */}
             <div className="form-group">
               <label className="profile-label" for="exampleInputEmail1">Last Name:</label>
-              <input className="input-field" className="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Update last name" size="30" onChange={lastnameHandler}></input>{" "}
+              <input name='lastName' className="input-field" className="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Update last name" size="30" onChange={handleInputChange}></input>{" "}
               {/* <button className="update-button" type="button" onClick={() => {editProfile(updatedInfo)}}>Update</button> */}
             </div>
           {/* </form> */}
@@ -160,7 +165,7 @@ function Profile() {
           {/* <form className="username-input-form"> */}
             <div className="form-group">
               <label className="profile-label" for="exampleInputEmail1">Username:</label>
-              <input className="input-field" className="form-control" id="username-input" aria-describedby="emailHelp" placeholder="Update username" size="30" onChange={usernameHandler}></input>{" "}
+              <input name='username' className="input-field" className="form-control" id="username-input" aria-describedby="emailHelp" placeholder="Update username" size="30" onChange={handleInputChange}></input>{" "}
               {/* <button className="update-button" type="button" onClick={() => {editProfile(updatedInfo)}}>Update</button> */}
             </div>
           {/* </form> */}
@@ -168,7 +173,7 @@ function Profile() {
           {/* <form className="password-input-form"> */}
             <div className="form-group">
               <label className="profile-label" for="exampleInputEmail1">Password:</label>
-              <input className="input-field" type="password" className="form-control" id="password-input" aria-describedby="emailHelp" placeholder="Update password" size="30" onChange={passwordHandler}></input>{" "}
+              <input name='password' className="input-field" type="password" className="form-control" id="password-input" aria-describedby="emailHelp" placeholder="Update password" size="30" onChange={handleInputChange}></input>{" "}
               {/* <button className="update-button" type="button" onClick={() => {editProfile(updatedInfo)}}>Update</button> */}
             </div>
           {/* </form> */}
@@ -176,7 +181,7 @@ function Profile() {
           {/* <form className="email-input-form"> */}
             <div className="form-group">
               <label className="profile-label" for="exampleInputEmail1">Email:</label>
-              <input className="input-field" type="email" className="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Update email" size="30" onChange={emailHandler}></input>{" "}
+              <input name='email' className="input-field" type="email" className="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Update email" size="30" onChange={handleInputChange}></input>{" "}
             </div>
           {/* </form> */}
             {/* Update Button */}

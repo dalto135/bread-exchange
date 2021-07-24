@@ -94,7 +94,7 @@ function UserPage() {
           <materialButton className="material-button"><Link className="link-button"to="/CreatePost">Post Food</Link><br></br></materialButton>
 
           {/* My Posts */}
-          <h2 id="my-posts-header">My Posts</h2>
+          <h2 id="my-posts-header">My Posts:</h2>
           {/* Posts Container */}
           <div id="my-posts-container">
             {postData.length ? (
@@ -115,22 +115,24 @@ function UserPage() {
           
           <div id='myreservations'>
           <div className="container">
-            <h1>My Reservations</h1>
+            <h1>My Reservations:</h1>
             <div id='reservationsdiv'>
 
             
-            {reservations.data?.map((reservation, i) => {
-              return (
-                <div className="card" key={i}>
-                <p>{(i + 1)}.</p>
-                {/* <p>Post ID: {reservation.post_id}</p>
-                <p>Quantity: {reservation.quantity}</p>
-                <button onClick={() => {deleteReservation(reservation._id)}}>Delete</button> */}
-                <UserReservation Reservation={reservation}/>
-                </div>
-              
-              )
-            })}
+            {reservations.data?.length ? (
+
+              reservations.data?.map((reservation, i) => {
+                return (
+                  <div className="card" key={i}>
+        
+                  <UserReservation Reservation={reservation}/>
+                  </div>
+                
+                )
+              })
+              ) : (
+                <h3>No Reservations to Display</h3>
+              )}
             </div>
             </div>
           </div>

@@ -6,14 +6,15 @@ const foodExchangeController = require("../../controller/foodExchangeController.
 router.route("/")
 .get(foodExchangeController.findAll)
 .post(foodExchangeController.create)
+.put(foodExchangeController.update);
 
 router.route('/post_id')
 .post(foodExchangeController.findPostById);
 
 router.route('/:id')
 .delete(foodExchangeController.remove)
-.get(foodExchangeController.findById)
-.put(foodExchangeController.update);
+.get(foodExchangeController.findById);
+
 
 // router.route("/:id")
 // .get(foodExchangeController.findById)

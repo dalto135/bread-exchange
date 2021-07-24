@@ -24,7 +24,7 @@ export default {
     return axios.post('api/post/post_id', postData);
   },
   updatePost: function(postData) {
-    return axios.put('api/post/' + postData._id);
+    return axios.put('api/post/', postData);
   },
   findByUserID: function(postData) {
     return axios.post('/api/post/userid', postData);

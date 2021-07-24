@@ -53,10 +53,10 @@ function PostReservation({Reservation, post}) {
         .catch(err => console.log(err.message));
     }, [])
 
-    function removeReservation(res) {
+    function removeReservation() {
         console.log('Reservation');
         console.log(Reservation);
-        API.removeReservation(res)
+        API.removeReservation(Reservation._id)
         .then(resData => {
             console.log(resData);
             console.log('remove');
@@ -65,7 +65,6 @@ function PostReservation({Reservation, post}) {
         })
         .catch(err => console.log(err.message));
         
-        // document.location.replace('/');
     }
 
     function acceptReservation() {
@@ -74,7 +73,17 @@ function PostReservation({Reservation, post}) {
             alert('You do not have enough of this item');
             return;
         }
-        API.updatePost({_id: post._id, quantity: newAmount})
+        console.log('newAmount');
+        console.log(newAmount);
+        console.log('post._id');
+        console.log(post._id);
+
+        let updatedPost = {
+            _id: post._id, 
+            quantity: newAmount
+        };
+
+        API.updatePost(updatedPost)
         .then(postData => {
             console.log(postData);
             // setResUser(res);
@@ -93,10 +102,10 @@ function PostReservation({Reservation, post}) {
             <p>Quantity: {Reservation.quantity}</p>
             <p>User: {resUser.data?.username}</p>
             <p>Date: {Reservation.reservationDate}</p>
-            {Reservation.user_id === userData.data?._id && <button onClick={() => {removeReservation(Reservation._id)}}>Delete</button>}
+            {Reservation.user_id === userData.data?._id && <button onClick={removeReservation}>Delete</button>}
             {post?.user_id === userData.data?._id && <p>Email: {resUser.data?.email}</p>}
             {post?.user_id === userData.data?._id && <button onClick={acceptReservation}>Accept</button>}
-            {post?.user_id === userData.data?._id && <button onClick={() => {removeReservation(Reservation._id)}}>Decline</button>}
+            {post?.user_id === userData.data?._id && <button onClick={removeReservation}>Decline</button>}
             
         </div>
       );

@@ -36,7 +36,7 @@ function NavBar() {
             
             <li className="list-item"><i className="fas fa-bread-slice nav-icon"></i><Link className="link-button" to="/Posts">Posts</Link></li>
             {userData.data
-            && <li className="list-item"><i className="fas fa-user nav-icon"></i><Link className="link-button" to="/UserPage">My Userpage</Link></li>}
+            && <li className="list-item"><i className="fas fa-user nav-icon"></i><Link className="link-button" to="/UserPage">My Profile</Link></li>}
             {userData.data
              ? <li className="list-item"><i className="fas fa-sign-in-alt nav-icon"></i><Link className="link-button" onClick={logOut}>Logout</Link></li>
             // ? <li className="list-item"><button className="link-button" onClick={logOut}>Logout</button></li>
