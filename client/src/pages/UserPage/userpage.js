@@ -5,6 +5,7 @@ import { PostContext } from '../../utils/post-context';
 import API from '../../utils/API';
 import { Link } from "react-router-dom";
 import PostCard from "../../components/PostCard/PostCard";
+import UserReservation from '../../components/UserReservation/UserReservation';
 
 
 function UserPage() {
@@ -122,9 +123,10 @@ function UserPage() {
               return (
                 <div className="card" key={i}>
                 <p>{(i + 1)}.</p>
-                <p>Post ID: {reservation.post_id}</p>
+                {/* <p>Post ID: {reservation.post_id}</p>
                 <p>Quantity: {reservation.quantity}</p>
-                <button onClick={() => {deleteReservation(reservation._id)}}>Delete</button>
+                <button onClick={() => {deleteReservation(reservation._id)}}>Delete</button> */}
+                <UserReservation Reservation={reservation}/>
                 </div>
               
               )

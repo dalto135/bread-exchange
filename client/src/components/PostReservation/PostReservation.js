@@ -61,7 +61,7 @@ function PostReservation({Reservation, post}) {
             console.log(resData);
             console.log('remove');
             // setResUser(res);
-            // document.location.replace('/');
+            document.location.replace('/');
         })
         .catch(err => console.log(err.message));
         
@@ -93,9 +93,10 @@ function PostReservation({Reservation, post}) {
             <p>Quantity: {Reservation.quantity}</p>
             <p>User: {resUser.data?.username}</p>
             <p>Date: {Reservation.reservationDate}</p>
+            {Reservation.user_id === userData.data?._id && <button onClick={() => {removeReservation(Reservation._id)}}>Delete</button>}
             {post?.user_id === userData.data?._id && <p>Email: {resUser.data?.email}</p>}
             {post?.user_id === userData.data?._id && <button onClick={acceptReservation}>Accept</button>}
-            {post?.user_id === userData.data?._id && <button onClick={() => {removeReservation(Reservation)}}>Decline</button>}
+            {post?.user_id === userData.data?._id && <button onClick={() => {removeReservation(Reservation._id)}}>Decline</button>}
             
         </div>
       );

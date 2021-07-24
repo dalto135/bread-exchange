@@ -19,6 +19,12 @@ module.exports={
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
+    findPostById: function(req, res) {
+      foodDatabase.Post
+        .findById({_id: req.body.post_id})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    },
     update: function(req, res) {
       foodDatabase.Post
         .findOneAndUpdate({ _id: req.body._id }, req.body)
@@ -118,7 +124,6 @@ module.exports={
       getUserById: function (req, res) {
         foodDatabase.User
           .findOne({ _id: req.body.user_id })
-          // .find({username: 'jack123'})
           .then(dbUser => {
             res.json(dbUser);
             console.log(req.body);

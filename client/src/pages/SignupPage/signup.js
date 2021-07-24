@@ -59,7 +59,7 @@ function Signup() {
         alert('Password must be at least 8 characters in length');
         return;
       }
-      if(uniqueUser !== null) {
+      if (uniqueUser !== null) {
         alert('Must enter a unique username');
         return;
       }

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import API from '../../utils/API';
-// import { Link } from "react-router-dom";
 import { PostContext } from '../../utils/post-context';
 
 function PostCard({post, userInfo}) {
@@ -47,8 +46,6 @@ function PostCard({post, userInfo}) {
             <button onClick={selectPost}>View Post</button>
             {userInfo.data?._id === userData?._id &&
             <button onClick={() => {deletePost(post._id)}}>Delete</button>}
-            
-            {/* <Link to={{pathname:'/singlepost', state:{post: post }}}>View Post</Link> */}
         </div>
       )
 }

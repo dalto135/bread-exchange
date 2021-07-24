@@ -20,6 +20,9 @@ export default {
   getPostByID: function(postData) {
     return axios.get('api/post/' + postData._id);
   },
+  findByPost_id: function(postData) {
+    return axios.post('api/post/post_id', postData);
+  },
   updatePost: function(postData) {
     return axios.put('api/post/' + postData._id);
   },

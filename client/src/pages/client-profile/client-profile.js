@@ -95,6 +95,21 @@ function Profile() {
     console.log(email);
   }
 
+  const [uniqueUser, setUniqueUser] = useState([]);
+
+  useEffect(() => {
+    API.getUserByUsername(updatedInfo)
+    .then(res => {
+      console.log('user?');
+      console.log(res.data);
+      setUniqueUser(res.data);
+      
+      // document.location.replace('/');
+  })
+  .catch(err => console.log(err.message));
+
+  }, [updatedInfo.username])
+
   //Submit profile changes
   function editProfile(data) {
     if (updatedInfo.password && updatedInfo.password.length < 8) {
@@ -102,7 +117,10 @@ function Profile() {
       return;
     }
     
-    
+    if (updatedInfo.username && uniqueUser !== null) {
+      alert('Must enter a unique username');
+      return;
+    }
 
     API.editAccount(data)
     .then(data => {

@@ -7,6 +7,8 @@ router.route("/")
 .get(foodExchangeController.findAll)
 .post(foodExchangeController.create)
 
+router.route('/post_id')
+.post(foodExchangeController.findPostById);
 
 router.route('/:id')
 .delete(foodExchangeController.remove)
