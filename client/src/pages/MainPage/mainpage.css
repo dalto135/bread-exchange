@@ -7,7 +7,7 @@ body {
 .header-container {
   background: #7ed957;
   overflow: hidden;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   text-align: center;
   display: flex;
   justify-content: center;
@@ -35,51 +35,56 @@ body {
 
 #first-section {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
   margin-top: 5rem;
   margin-bottom: 10rem;
   margin-left: 2rem;
   margin-right: 2rem;
+  justify-content: center;
   align-items: center;
 }
 
 #second-image {
   width: 45vw;
+  min-width: 400px;
   object-fit: cover;
   height: 50vh;
 }
 
 #what-we-do {
-  margin-left: 5rem;
-  width: 40%;
+  margin: 1rem;
+  /* width: 40%; */
 }
 
 #what-we-do-header {
   font-size: 5rem;
   margin-bottom: 3rem;
   font-weight: bold;
+  text-align: center;
 }
 
 #what-we-do-text {
   font-size: 4vh;
   font-weight: 300;
   height: auto;
-  max-height: 20rem;
+  /* max-height: 20rem; */
 }
 
 /* 2nd Section */
 
 #left-side {
-  width: 45%;
+  /* width: 45%; */
   display: flex;
   flex-direction: column;
-  margin-left: 8rem;
+  /* margin-left: 8rem; */
 }
 
 #second-section-container {
   /* border: 2px solid blue; */
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
   margin-bottom: 2rem;
   justify-content: center;
 }
@@ -127,6 +132,10 @@ body {
 }
 
 #right-side {
+  text-align: center;
+}
+
+#right-side p {
   text-align: center;
 }
 
