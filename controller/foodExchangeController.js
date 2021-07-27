@@ -172,6 +172,12 @@ module.exports={
           .then(dbReservation => {res.json(dbReservation)})
           .catch(err => {res.status(422).json(err.message)})
       },
+      deletePostReservations: function(req, res) {
+          foodDatabase.Reservation
+          .remove({ post_id: req.params.id })
+          .then(dbReservation => {res.json(dbReservation)})
+          .catch(err => {res.status(422).json(err.message)})
+      },
       getUserReservations: function(req, res) {
         foodDatabase.Reservation
           .find({ user_id: req.body._id })

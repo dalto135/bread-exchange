@@ -6,9 +6,8 @@ function PostCard({post, userInfo}) {
     const [postContext, setPostContext] = useContext(PostContext);
 
     function selectPost() {
-        setPostContext(post);
-        console.log('document.location.replace');
-        document.location.replace('#/singlepost');
+      setPostContext(post);
+      document.location.replace('#/singlepost');
     }
 
     const [userData, setUserData] = useState([]);
@@ -25,15 +24,39 @@ function PostCard({post, userInfo}) {
     console.log('post user data');
     console.log(userData);
 
-    function deletePost(_id) {
-        API.deletePosts(_id)
+    function deleteOnlyPost() {
+      API.deletePosts(post._id)
         .then(postData => {
-          console.log('submitted post data');
+          console.log('delete post');
           console.log(postData);
-          document.location.reload();
+        })
+        // .then(
+          
+        // )
+        .catch(err => console.log(err.message));
+    }
+
+    function deletePostRes() {
+      console.log('post of reservations to be deleted');
+      console.log(post);
+
+      // let postId = {
+      //   _id: post._id
+      // }
+
+      API.deletePostRes(post._id)
+        .then(postPostData => {
+          console.log('delete reservations');
+          console.log(postPostData);
         })
         .catch(err => console.log(err.message));
-      }
+    }
+
+    function deletePost() {
+      deleteOnlyPost();
+      deletePostRes();
+      document.location.reload();
+    }
 
       return (
         <div className="container">
@@ -43,9 +66,9 @@ function PostCard({post, userInfo}) {
             <h6>Pick up Location at {post.location}</h6>
             <h6>User: {userData?.username}</h6>
             <h6>Posted {post.postDate}</h6>
-            <button onClick={selectPost}>View Post</button>
+            <button onClick={selectPost}>View</button>
             {userInfo.data?._id === userData?._id &&
-            <button onClick={() => {deletePost(post._id)}}>Delete</button>}
+            <button onClick={deletePost}>Delete</button>}
         </div>
       )
 }

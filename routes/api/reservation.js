@@ -5,6 +5,9 @@ router.route('/')
 .get(foodExchangeController.getAllReservations)
 .post(foodExchangeController.getPostReservations)
 
+router.route('/postres/:id')
+.delete(foodExchangeController.deletePostReservations);
+
 router.route('/userreservations')
 .post(foodExchangeController.getUserReservations);
 

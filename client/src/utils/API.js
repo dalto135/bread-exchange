@@ -63,6 +63,9 @@ export default {
   getReservations: function(postData) {
     return axios.post('/api/reservation', postData);
   },
+  deletePostRes: function(postData) {
+    return axios.delete('/api/reservation/postres/' + postData);
+  },
   getUserReservations: function(userData) {
     return axios.post('/api/reservation/userreservations', userData);
   },
