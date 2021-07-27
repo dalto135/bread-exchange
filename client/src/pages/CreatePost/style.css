@@ -10,9 +10,12 @@
 }
 
 .create-post-card {
+  display: flex;
+
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 25%;
+  width: 50%;
+  min-width: 250px;
   padding: 1rem;
   margin: 1rem;
   background-color: white;
@@ -27,7 +30,7 @@
 
 .input-container {
   padding: 2px 16px;
-  width: 90%;
+  /* width: 90%; */
   margin: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -36,9 +39,15 @@
 
 .input-form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
+  /* justify-content: center;
+  align-items: center; */
 }
+
+/* .input-form b {
+  text-align: center;
+} */
 
 .card-img {
     width: 100%;

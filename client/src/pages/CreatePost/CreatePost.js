@@ -59,13 +59,13 @@ function CreatePost(event) {
           <div className="input-container">
             <b>Enter the name of the item.</b>
             <form className="input-form" onSubmit={handleFormSubmit}>
-              <input onChange={handleInputChange} type="text" name="name" placeholder="Apples.."></input>
+              <input onChange={handleInputChange} type="text" name="name" placeholder="Name"></input>
               <b>Enter the description of the food.</b>
-              <input onChange={handleInputChange}  type="text" name="description" placeholder="Red Delicious.."></input>
+              <input onChange={handleInputChange}  type="text" name="description" placeholder="Description"></input>
               <b>Enter your prefered pickup/meet location.</b>
-              <input onChange={handleInputChange} type="text" name="location" placeholder="Street/business name.."></input>
+              <input onChange={handleInputChange} type="text" name="location" placeholder="Location"></input>
               <b>Enter the quantity of the items available.</b>
-              <input onChange={quantityHandler} type="text" name="quantity" placeholder="10.."></input>
+              <input onChange={quantityHandler} type="text" name="quantity" placeholder="Quantity"></input>
               <materialButton type="submit" className="material-button" onClick={handleFormSubmit}>Submit</materialButton>
             </form>
           </div>

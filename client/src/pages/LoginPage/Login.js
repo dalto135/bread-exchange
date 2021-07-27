@@ -4,6 +4,7 @@ import "./style.css";
 import API from '../../utils/API';
 import { Link } from "react-router-dom";
 import PasswordShowHide from '../../components/PasswordShowHide/PasswordShowHide';
+import MaterialButton from "../../components/Material-Button/Material-Button";
 
 function Login() {
 
@@ -101,23 +102,23 @@ function Login() {
       <div id="white-panel-1">
         <h1 className="login-header">Login</h1>
         {/* Username Input */}
-        <form className="username-input-form">
+        <form >
           <div class="form-group">
-            <label className="login-label" for="exampleInputEmail1">Username</label>
+            <label className="login-label" for="exampleInputEmail1">Username:</label>
             <input className="input-field"  class="form-control" id="username-input" aria-describedby="" placeholder="Enter username" size="30" onChange={usernameHandler}></input>{" "}
           </div>
         </form>
         {/* Password Input */}
-        <form className="password-input-form">
+        <form >
           <div class="form-group">
-            <label className="login-label" for="exampleInputEmail1">Password</label>
+            <label className="login-label" for="exampleInputEmail1">Password:</label>
             <input className="input-field"  type='password' class="form-control" id="password-input" aria-describedby="" placeholder="Enter password" size="30" onChange={passwordHandler}></input>{" "}
           </div>
         </form>
         {/* Login Button */}
         <div id="login-div">
-          <button className="login-button" type="button" onClick={loginPlease}>Login</button>
-          <Link to='/signup'>Sign up</Link>
+          <button className="material-button" onClick={loginPlease}>Login</button>
+          <Link to='/signup'>Sign Up</Link>
         </div>
         {/* Sign Up Button */}
       </div>     

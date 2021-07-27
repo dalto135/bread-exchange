@@ -91,7 +91,7 @@ function UserPage() {
           </div>
           {/* Update Info */}
           <Link to="./client-profile">Update my Info</Link>
-          <materialButton className="material-button"><Link className="link-button"to="/CreatePost">Post Food</Link><br></br></materialButton>
+          <materialButton className="material-button"><Link className="link-button"to="/CreatePost">New Post</Link><br></br></materialButton>
 
           {/* My Posts */}
           <h2 id="my-posts-header">My Posts:</h2>

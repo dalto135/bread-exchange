@@ -12,24 +12,25 @@
 #white-panel-1 {
   background: white;
   width: 30%;
-  height: 80%;
+  height: 60%;
   border-radius: 20px;
-  /* position: absolute;
-  margin-top: 8vh;
-  margin-left: 38vw; */
+  min-width: 250px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
   font-family: 'Lato', sans-serif;
 }
 
+#white-panel-1 form {
+    width: 90%;
+}
+
  .login-header {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     margin-top: 2rem;
 }
 
@@ -41,9 +42,12 @@
     margin-bottom: 3rem;
 }
 
-#login-div{
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+#login-div button, #login-div a {
+    /* margin-top: 2rem;
+    margin-bottom: 1rem; */
+    margin: 5px;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 .login-button {
@@ -61,7 +65,6 @@
     opacity: 0.6;
 }
 
-/* .btn {
-    position: absolute;
-} */
-
+.material-button {
+    border-width: 0px;
+}

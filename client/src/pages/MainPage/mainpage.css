@@ -24,7 +24,7 @@ body {
 .bread-header {
   position: absolute;
   color: white;
-  font-size: 13rem;
+  font-size: 20vw;
   /* margin-left: 5%; */
   /* margin-top: 8%; */
   z-index: 2;

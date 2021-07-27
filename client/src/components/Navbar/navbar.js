@@ -44,12 +44,7 @@ function NavBar() {
           </ul>
         </div>
         {/* Cart and Logout */}
-        <div id="cart-and-logout-div">
-          <ul id="nav-buttons-list">
-            {/* <li className="list-item"><i className="fas fa-shopping-cart nav-icon"></i><Link className="link-button" to="/">Reservations</Link></li> */}
-            {/* <li className="list-item"><Link className="link-button" to="/">Logout</Link></li> */}
-          </ul>
-        </div>
+       
       </div>
     </div>
   );

@@ -98,45 +98,36 @@ function Signup() {
   return (
     <div className="signup-background">
       <div className="white-panel">
-        <h1 className="signup-header">Sign Up</h1>
+        <h1 className='signup-header'>Create New Account</h1>
         {/* First Name Input */}
-        <form className="input-form">
-          <div class="form-group">
-            <label className="signup-label" for="exampleInputEmail1">Enter First Name:</label>
-            <input onChange={handleInputChange} className="input-field" type="email" name='firstName' class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="First Name" size="30"></input>{" "}
+        <form>
+          <div>
+            <label className="signup-label">Enter First Name:</label>
+            <input onChange={handleInputChange} className="input-field" type="email" name='firstName' class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="First Name"/>
           </div>
-       
-        {/* Last Name Input */}
-        {/* <form className="lastname-input-form"> */}
-          <div class="form-group">
-            <label className="signup-label" for="exampleInputEmail1">Enter Last Name:</label>
-            <input onChange={handleInputChange} className="input-field" type="email" name='lastName' class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="Last Name" size="30"></input>{" "}
+          {/* Last Name Input */}
+          <div>
+            <label className="signup-label">Enter Last Name:</label>
+            <input onChange={handleInputChange} className="input-field" type="email" name='lastName' class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="Last Name"/>
           </div>
-        {/* </form> */}
-        {/* Username Input */}
-        {/* <form className="username-input-form"> */}
-          <div class="form-group">
-            <label className="signup-label" for="exampleInputEmail1">Create Username:</label>
-            <input onChange={handleInputChange} className="input-field" type="email" name='username' class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="New username" size="30"></input>{" "}
+          {/* Username Input */}
+          <div>
+            <label className="signup-label">Create Username:</label>
+            <input onChange={handleInputChange} className="input-field" type="email" name='username' class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="New username"/>
           </div>
-        {/* </form> */}
-        {/* Password Input */}
-        {/* <form className="password-input-form"> */}
-          <div class="form-group">
-            <label className="signup-label" for="exampleInputEmail1">Create Password:</label>
-            <input onChange={handleInputChange} className="input-field" type="password" name='password' class="form-control" id="password-input" aria-describedby="emailHelp" placeholder="New password" size="30"></input>{" "}
+          {/* Password Input */}
+          <div>
+            <label className="signup-label">Create Password:</label>
+            <input onChange={handleInputChange} className="input-field" type="password" name='password' class="form-control" id="password-input" aria-describedby="emailHelp" placeholder="New password"/>
           </div>
-        {/* </form> */}
-        {/* Email Input */}
-        {/* <form className="email-input-form"> */}
-          <div class="form-group">
-            <label className="signup-label" for="exampleInputEmail1">Enter Email:</label>
-            <input onChange={handleInputChange} className="input-field" type="email" name='email' class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Input email for signup" size="30"></input>{" "}
+          {/* Email Input */}
+          <div>
+            <label className="signup-label">Enter Email:</label>
+            <input onChange={handleInputChange} className="input-field" type="email" name='email' class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Input email for signup"/>
           </div>
-        {/* </form> */}
-        {/* Signup Button */}
-        <button className="signup-button" type="button" onClick={handleFormSubmit} >Signup</button>
-        <p>Already have an account? <Link to= './login'>Log In</Link></p>
+          {/* Signup Button */}
+          <button className='material-button' onClick={handleFormSubmit} >Sign Up</button>
+          <p>Already have an account? <Link to= './login'>Log In</Link></p>
         </form>
       </div>
     </div>

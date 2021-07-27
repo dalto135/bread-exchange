@@ -29,7 +29,7 @@ function Posts({currentPost}) {
       <div id="top-section">
         <h1 id="find-food-header">Find Food Here</h1>
         {userData.data &&
-          <materialButton className="material-button"><Link className="link-button"to="/CreatePost">Post Food</Link><br></br></materialButton>}
+          <materialButton className="material-button"><Link className="link-button"to="/CreatePost">New Post</Link></materialButton>}
       </div>
       <div id="gray-panel">
         <div className="card-container">

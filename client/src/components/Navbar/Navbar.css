@@ -1,6 +1,7 @@
 #navbar {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   background: gainsboro;
   height: auto;
@@ -22,6 +23,8 @@
 #buttons-div {
     width: auto;
     background: gainsboro;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #cart-and-logout-div {
@@ -33,7 +36,14 @@
 #nav-buttons-list {
     display: flex;
     flex-direction: row;
+    /* justify-content: center; */
     list-style-type: none;
+    margin: 1rem 0rem;
+    padding: 0px;
+}
+
+#nav-buttons-list .list-item i {
+    /* margin: 0px; */
 }
 
 .list-item {
