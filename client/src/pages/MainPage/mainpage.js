@@ -37,14 +37,14 @@ function Mainpage() {
       {/* Header */}
       <header className="header-container">
         <h1 className="bread-header">Bread Exchange</h1>
-        <img className="main-image" src="/groceries1.jpg" alt="groceries"></img>
+        <img className="main-image" src="/scatteredfood.jpg" alt="groceries"></img>
       </header>
       <div id="lower-page">
         {/* 1st Section */}
         <section id="first-section">
-          <img id="second-image" src="/scatteredfood.jpg" alt="scattered-food"></img>
+          <img id="second-image" src="/groceries1.jpg" alt="scattered-food"></img>
           <div id="what-we-do">
-            <h1 id="what-we-do-header">What We Do</h1>
+            <h1 className="header">What We Do</h1>
             <p id="what-we-do-text">
               Bread exchange aims to decrease food waste and bring the community
               together. We allow individuals and businesses to make their foods
@@ -55,6 +55,7 @@ function Mainpage() {
         </section>
 
         <section id="second-section-container">
+          <h1 className='header'>The Facts</h1>
           {/* 2nd Section(Left Side) */}
           <div id="left-side">
             {/* 42 Million Infographic   */}
@@ -67,13 +68,7 @@ function Mainpage() {
                 <p id="americans">Americans face food insecurity each day.</p>
               </div>
             </div>
-            {/* Our Solution Text*/}
-            <div id="our-solution-section">
-              <h1 id="our-solution-header">Our Solution?</h1>
-              <h1 id="text-1">Bring the community together.</h1>
-              <h1 id="text-2">Feed the hungry.</h1>
-              <h1 id="text-3">Decrease food waste.</h1>
-            </div>
+           
           </div>
 
           {/* 40% Infographic */}
@@ -85,6 +80,14 @@ function Mainpage() {
               <p id="forty-percent-text">least 40% of our food supply</p>
             </div>
           </div>
+
+           {/* Our Solution Text*/}
+           <div id="our-solution-section">
+              <h1 className="header">Our Solution</h1>
+              <h1 id="text-1">Bring the community together.</h1>
+              <h1 id="text-2">Feed the hungry.</h1>
+              <h1 id="text-3">Decrease food waste.</h1>
+            </div>
         </section>
       </div>
     </div>

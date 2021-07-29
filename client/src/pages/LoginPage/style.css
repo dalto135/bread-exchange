@@ -1,5 +1,6 @@
 .login-background {
   background: url(/fruitvegblurred.jpg);
+  padding: 20px;
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -12,7 +13,8 @@
 #white-panel-1 {
   background: white;
   width: 30%;
-  height: 60%;
+  padding: 10px;
+  /* height: 60%; */
   border-radius: 20px;
   min-width: 250px;
   display: flex;
@@ -31,7 +33,7 @@
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     margin-bottom: 2rem;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
 }
 
 .username-input-form{
