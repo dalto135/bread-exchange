@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import "./style.css";
 import API from "../../utils/API";
 import { UserContext } from '../../utils/user-context';
-import MaterialButton from "../../components/Material-Button/Material-Button";
 
 function CreatePost(event) {
 

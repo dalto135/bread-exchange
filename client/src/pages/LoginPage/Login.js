@@ -3,99 +3,26 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 import API from '../../utils/API';
 import { Link } from "react-router-dom";
-import PasswordShowHide from '../../components/PasswordShowHide/PasswordShowHide';
-import MaterialButton from "../../components/Material-Button/Material-Button";
 
 function Login() {
 
-  let username = '';
-  let password = '';
-  
-  function usernameHandler(event) {
-    username = event.target.value;
-    console.log('email change');    
-    setLoginInfo({
-      ...loginInfo,
-      username
-    })
-    console.log(username);
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setLoginInfo({...loginInfo, [name]: value });
   }
-
-  function passwordHandler(event) {
-    password = event.target.value;
-
-    setLoginInfo({
-      ...loginInfo,
-      password
-    })
-    console.log('password change');
-    console.log(password);
-  }
-
-  const [userData, setUserData] = useState([]);
-  // const [pleaseData, setPleaseData] = useState([]);
-  console.log('username');
-  console.log(username);
-
-  console.log('password');
-  console.log(password);
-
-  // useEffect(() => {
-  //   API.login({username, password})
-  //     .then(res => {
-  //         console.log(res.data);
-  //         setUserData(res.data);
-  //     })
-  //     .catch(err => console.log(err.message));
-  // }, [])
 
   const [loginInfo, setLoginInfo] = useState({});
-
-
 
   function loginPlease() {
     API.login(loginInfo)
       .then(res => {
-          console.log(res.data);
-          setUserData(res.data);
-          document.location.replace('/');
+        document.location.replace('/');
       })
       .catch(err => {
         console.log( err.message);
         alert('Incorrect username or password');
       });
-  }
-
-        console.log(userData);
-      
- 
-      // if (userData !== null) {
-      //   if (userData.password !== password) {
-      //       console.log('Incorrect username or password');
-      //   } else {
-      //       alert('Login successful!');
-      //       // loginInfo.loggedIn = userData;
-      //       // localStorage.setItem('storedLogin', JSON.stringify(userData));
-      //       // console.log('loginInfo');
-      //       // console.log(loginInfo);
-      //       document.location.replace('/#/UserPage');
-      //   }
-      // } else {
-      //     console.log('Incorrect username or password (null)');
-      // }
-      
-   
-      // function UseEffectPlease() {
-      //   useEffect(() => {
-      //     API.login(loginInfo)
-      //       .then(res => {
-      //           console.log(res.data);
-      //           setPleaseData(res.data);
-      //       })
-      //   })
-
-        
-      // }
+  }      
 
   return (
     <div className="login-background">
@@ -105,22 +32,21 @@ function Login() {
         <form >
           <div class="form-group">
             <label className="login-label" for="exampleInputEmail1">Username:</label>
-            <input className="input-field"  class="form-control" id="username-input" aria-describedby="" placeholder="Enter username" size="30" onChange={usernameHandler}></input>{" "}
+            <input className="input-field" name='username' class="form-control" id="username-input" aria-describedby="" placeholder="Enter username" size="30" onChange={handleInputChange}></input>{" "}
           </div>
         </form>
         {/* Password Input */}
         <form >
           <div class="form-group">
             <label className="login-label" for="exampleInputEmail1">Password:</label>
-            <input className="input-field"  type='password' class="form-control" id="password-input" aria-describedby="" placeholder="Enter password" size="30" onChange={passwordHandler}></input>{" "}
+            <input className="input-field" type='password' name='password' class="form-control" id="password-input" aria-describedby="" placeholder="Enter password" size="30" onChange={handleInputChange}></input>{" "}
           </div>
         </form>
-        {/* Login Button */}
+        {/* Login and Sign Up Buttons */}
         <div id="login-div">
           <button className="material-button" onClick={loginPlease}>Login</button>
           <Link to='/signup'>Sign Up</Link>
         </div>
-        {/* Sign Up Button */}
       </div>     
     </div>
   );

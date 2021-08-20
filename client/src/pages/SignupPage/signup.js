@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./signup.css";
-import { HashRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import API from '../../utils/API';
 
 function Signup() {
   const [newUser, setNewUser] = useState({
-    _id: Math.random(),
-    // firstName: '',
-    // lastName: '',
-    // username: '',
-    // password: '',
-    // email: '',
+    _id: Math.random()
   })
 
   function handleInputChange(event) {
@@ -37,11 +31,9 @@ function Signup() {
   useEffect(() => {
     API.getUserByUsername(newUser)
     .then(res => {
-      console.log('user?');
-      console.log(res.data);
-      setUniqueUser(res.data);
-      
-      // document.location.replace('/');
+      // console.log('user?');
+      // console.log(res.data);
+      setUniqueUser(res.data);      
   })
   .catch(err => console.log(err.message));
 
@@ -50,7 +42,6 @@ function Signup() {
   function handleFormSubmit(event) {
     event.preventDefault();
     console.log('submitting new user');
-    // if (newUser.firstName && newUser.email) {
       if (!newUser.firstName || !newUser.lastName || !newUser.username || !newUser.password || !newUser.email) {
         alert('Please complete all required fields');
         return;
@@ -64,36 +55,12 @@ function Signup() {
         return;
       }
       
-      
-      
-      API.createAccount(
-      //   {
-      //   name: formObject.name,
-      //   description: formObject.description,
-      //   location: formObject.location,
-      //   quantity: formObject.quantity,
-      //   user_id: formObject.user_id,
-      // }
-      newUser
-      )
-        // .then(() => {
-        //   setNewUser({
-        //     name: "",
-        //     description: "",
-        //     location: "",
-        //     quantity: "",
-        //     user_id: "",
-        //   });
-          
-        // })
+      API.createAccount(newUser)
         .then(() => {
-          
           loginPlease(newUser);
         })
         .catch((err) => console.log(err));
-    // }
   }
-
 
   return (
     <div className="signup-background">
