@@ -15,8 +15,6 @@ export function UserProvider({children}) {
         })
       }, []);
 
-    //   localStorage.setItem('localuser', JSON.stringify(userData));
-
     return (
         <Provider value={userData} >
             {children}

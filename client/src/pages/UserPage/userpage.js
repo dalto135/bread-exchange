@@ -10,14 +10,6 @@ import UserReservation from '../../components/UserReservation/UserReservation';
 
 function UserPage() {
 
-  // const [postContext, setPostContext] = useContext(PostContext);
-
-  // function selectPost(post) {
-  //   setPostContext(post);
-  //   console.log('document.location.replace');
-  //   document.location.replace('#/singlepost');
-  // }
-
   const userData = useContext(UserContext);
   console.log('userData');
   console.log(userData);
@@ -33,22 +25,6 @@ function UserPage() {
     })
     .catch(err => console.log(err.message))
   }, [userData.data])
-
-  // const [newPost, setNewPost] = useState({
-  //   _id: Math.random(),
-  //   user_id: userData.data?._id,
-
-  // });
-
-  // function deletePost(_id) {
-  //   API.deletePosts(_id)
-  //   .then(postData => {
-  //     console.log('submitted post data');
-  //     console.log(postData);
-  //     document.location.reload();
-  //   })
-  //   .catch(err => console.log(err.message));
-  // }
 
   function deleteReservation(_id) {
     API.removeReservation(_id)
@@ -130,11 +106,11 @@ function UserPage() {
                 
                 )
               })
-              ) : (
-                <h3>No Reservations to Display</h3>
-              )}
+            ) : (
+              <h3>No Reservations to Display</h3>
+            )}
             </div>
-            </div>
+          </div>
           </div>
         </div>
       </div>
