@@ -12,32 +12,14 @@ function PostReservation({Reservation, post}) {
     // console.log('userInfo');
     // console.log(userInfo);
     useEffect(() => {
-        // API.login(loginInfo)
-        // .then(res => {
-        //     console.log(res.data);
-        //     setPleaseData(res.data);
-        // })
         API.getSingleUser(Reservation)
         .then(res => {
             console.log(res);
             setResUser(res);
-            // document.location.replace('/');
         })
         .catch(err => console.log(err.message));
 
     }, [])
-
-    // const [postData, setPostData] = useState([]);
-
-    // useEffect(() => {
-    //     API.getPostByID(Reservation)
-    //     .then(res => {
-    //         console.log(res);
-    //         setPostData(res);
-    //         // document.location.replace('/');
-    //     })
-    //     .catch(err => console.log(err.message));
-    // }, [])
 
     const [useRes, setUseRes] = useState([]);
 
@@ -46,9 +28,6 @@ function PostReservation({Reservation, post}) {
         .then(resData => {
             console.log(resData);
             setUseRes(resData);
-            // console.log('remove');
-            // setResUser(res);
-            // document.location.replace('/');
         })
         .catch(err => console.log(err.message));
     }, [])
@@ -60,7 +39,6 @@ function PostReservation({Reservation, post}) {
         .then(resData => {
             console.log(resData);
             console.log('remove');
-            // setResUser(res);
             document.location.replace('/');
         })
         .catch(err => console.log(err.message));
@@ -86,8 +64,6 @@ function PostReservation({Reservation, post}) {
         API.updatePost(updatedPost)
         .then(postData => {
             console.log(postData);
-            // setResUser(res);
-            // document.location.replace('/');
         })
         .catch(err => console.log(err.message));
         console.log('accept');

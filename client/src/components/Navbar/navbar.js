@@ -15,9 +15,8 @@ function NavBar() {
   function logOut() {
     API.logout()
     .then(user => {
-      console.log(user);
+      // console.log(user);
       document.location.replace('/');
-      // setUserData(user);
     })
     .catch(err => console.log(err.message));
   }
@@ -39,7 +38,6 @@ function NavBar() {
             && <li className="list-item"><i className="fas fa-user nav-icon"></i><Link className="link-button" to="/UserPage">My Profile</Link></li>}
             {userData.data
              ? <li className="list-item"><i className="fas fa-sign-in-alt nav-icon"></i><Link className="link-button" onClick={logOut}>Logout</Link></li>
-            // ? <li className="list-item"><button className="link-button" onClick={logOut}>Logout</button></li>
             : <li className="list-item"><i className="fas fa-sign-in-alt nav-icon"></i><Link className="link-button" to="/login">Login</Link></li>}
           </ul>
         </div>

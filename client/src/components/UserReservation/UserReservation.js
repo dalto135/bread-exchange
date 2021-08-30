@@ -10,7 +10,6 @@ function PostReservation({Reservation, post}) {
 
     const [postContext, setPostContext] = useContext(PostContext);
     const [usePost, setUsePost] = useState([]);
-    // const [resUser, setResUser] = useState([]);
 
     useEffect(() => {
         API.findByPost_id(Reservation)
@@ -18,16 +17,7 @@ function PostReservation({Reservation, post}) {
             console.log('postData');
             console.log(postData);
             setUsePost(postData);
-
-            // API.getSingleUser(postData)
-            // .then(res => {
-            //     console.log('post user');
-            //     console.log(res);
-            //     setResUser(res);
-            // })
-            // .catch(err => console.log(err.message));
         })
-        // .then()
         .catch(err => console.log(err.message));
     }, [])
 
@@ -38,7 +28,6 @@ function PostReservation({Reservation, post}) {
         .then(resData => {
             console.log(resData);
             console.log('remove');
-            // setResUser(res);
             document.location.reload();
         })
         .catch(err => console.log(err.message));        
